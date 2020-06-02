@@ -10,8 +10,8 @@
 <head>
 <title>SmartHashtag</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-<link rel="stylesheet" href="style.css">
-<script src="script.js"></script>
+<link rel="stylesheet" href="bootstrap/style.css">
+<script src="bootstrap/script.js"></script>
 </head>
 <body>
   <div class="container-fluid">
