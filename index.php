@@ -1,8 +1,8 @@
 <?php
   require_once 'config.php';
-  if ($_SESSION["twitter_id"] != true) {
-    header("location:login.php");
-  }
+  //if ($_SESSION["twitter_id"] != true) {
+  //  header("location:login.php");
+  //}
 ?>
 
 <!DOCTYPE html>
