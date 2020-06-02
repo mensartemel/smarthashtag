@@ -1,15 +1,9 @@
 <?php
-	error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE);
-	ob_start();
-	session_start();
-
-	define('PROJECT_NAME', 'Login System with Twitter using OAuth PHP and Mysql - www.thesoftwareguy.in');
-
 	define('DB_DRIVER', 'mysql');
-	define('DB_SERVER', 'localhost');
-	define('DB_SERVER_USERNAME', 'root');
-	define('DB_SERVER_PASSWORD', '');
-	define('DB_DATABASE', 'webproje');
+	define('DB_SERVER', 'us-cdbr-east-05.cleardb.net');
+	define('DB_SERVER_USERNAME', 'ba0b040b98b0f5');
+	define('DB_SERVER_PASSWORD', 'f87a19f4');
+	define('DB_DATABASE', 'heroku_4bc08eac4ea8f88');
 
 	try {
 	  $DB = new PDO(DB_DRIVER . ':host=' . DB_SERVER . ';port=3308;dbname=' . DB_DATABASE, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, $dboptions);
