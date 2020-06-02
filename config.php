@@ -16,7 +16,7 @@
 	define("CLIENT_ID", "XvlI4EG7NjJbauQs4KK9JMzsA");
 	define("SECRET_KEY", "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81");
 	/* make sure the url end with a trailing slash, give your site URL */
-	define("SITE_URL", "http://webproje/");
+	define("SITE_URL", "https://smarthashtag.herokuapp.com/");
 	/* the page where you will be redirected for authorization */
 	define("REDIRECT_URL", SITE_URL."twitter_login.php");
 

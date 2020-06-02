@@ -1,5 +1,9 @@
 <?php
 require_once 'config.php';
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+  // user already logged in the site
+  header("location:login.php");
+}
 ?>
 
 <!DOCTYPE html>
@@ -34,7 +38,7 @@ require_once 'config.php';
         	$stmt->execute();
         	while ($row = $stmt->fetch()) {
         		echo $row['username']."</br>";
-            echo $row['twitterid']."</br>";
+            echo $row['twitter_id']."</br>";
             echo $row['name']."</br>";
             echo $row['picture'];
         	}
