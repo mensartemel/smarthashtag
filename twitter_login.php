@@ -4,8 +4,6 @@ require('http.php');
 require('oauth_client.php');
 require('config.php');
 
-session_start();
-
 $client = new oauth_client_class;
 $client->debug = 1;
 $client->debug_http = 1;
