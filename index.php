@@ -1,5 +1,6 @@
 <?php
-  require_once '../src/config.php';
+  $dir = dirname(__FILE__);
+  require_once $dir . '/src/config.php';
   //if ($_SESSION["twitter_id"] != true) {
   //  header("location:login.php");
   //}
