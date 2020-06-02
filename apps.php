@@ -14,3 +14,9 @@
     echo "</br>";
   }
 ?>
+<div class="app">
+	<a>Appname</a>
+	<p>Lorem ipsum dolor set amet</p>
+	<img class="appedit" src="img/icon/stats.png" alt="Edit">
+	<img class="appdetail" src="img/icon/stats.png" alt="Details">
+</div>
