@@ -1,3 +1,15 @@
+<?php
+require_once './config.php';
+if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
+  header("location:login.php");
+}
+else {
+  $profile_pic_temp = $_SESSION["picture"];
+  $profile_pic = substr($profile_pic_temp,0,-11);
+  $profile_bg = $_SESSION["bg-picture"];
+}
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +36,7 @@
 				</div>
 			</div>
 			<div class="col-10">
-				
+
     </div>
 			</div>
 		</div>
