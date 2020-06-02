@@ -42,7 +42,7 @@
                 echo "<a class='head'>Applications</a>";
               }
               elseif ($_GET['page'] == "addapp") {
-                echo "<a class='head'>Add New Application</a>";
+                echo "<a class='head'>Add New Application</a><a href='index.php?page=addapp'>Add Application</a>";
               }
               elseif ($_GET['page'] == "services") {
                 echo "<a class='head'>Services</a>";
