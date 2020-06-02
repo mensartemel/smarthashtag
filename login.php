@@ -9,7 +9,7 @@
 <body>
 <div class="login-page">
   <div class="form">
-    <a href="twitter_login.php"><img src="img/twitter_button.png" alt="Login via Twitter" width="100%";></a>
+    <a href="src/twitter_login.php"><img src="img/twitter_button.png" alt="Login via Twitter" width="100%";></a>
   </div>
 </div>
 </body>
