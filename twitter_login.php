@@ -56,7 +56,7 @@ if ($success) {
       $_SESSION["name"] = $user->screen_name;
       $_SESSION["twitter_id"] = $user->id;
       $_SESSION["username"] = $user->name;
-      $_SESSION["new_user"] = "no";
+      $_SESSION["logged_in"] = true;
     } else {
       // New user, Insert in database
       $sql = "INSERT INTO `users` (`username`, `twitter_id`, `name`, `picture`) VALUES " . "( :username, :twitter_id, :name, :picture)";
@@ -71,7 +71,7 @@ if ($success) {
         $_SESSION["name"] = $user->screen_name;
         $_SESSION["twitter_id"] = $user->id;
         $_SESSION["username"] = $user->name;
-        $_SESSION["new_user"] = "yes";
+        $_SESSION["logged_in"] = true;
         $_SESSION["e_msg"] = "";
       }
     }
