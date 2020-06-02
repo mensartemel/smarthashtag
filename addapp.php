@@ -1,5 +1,13 @@
 <?php
-
+function generateKey($length = 26) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $twitter_id = $_SESSION["twitter_id"];
   $appname = $_POST["name"];
@@ -22,15 +30,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bindValue(":appkey", $key);
   $stmt->bindValue(":userid", $userid);
   $stmt->execute();
-}
-function generateKey($length = 26) {
-    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
-    }
-    return $randomString;
 }
 ?>
 
