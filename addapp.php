@@ -10,8 +10,8 @@ function generateKey($length = 26) {
 }
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $twitter_id = $_SESSION["twitter_id"];
-  $appname = $_POST["name"];
-  $desc = $_POST["name"];
+  $appname = $_POST["appname"];
+  $desc = $_POST["desc"];
   $key = generateKey();
 
   $sql = "SELECT userid from users where twitter_id = :id";
@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <div>
     <label for="desc">Description:</label>
     <div>
-      <input type="password" placeholder="Description" name="desc">
+      <input type="text" placeholder="Description" name="desc">
     </div>
   </div>
   <div>
