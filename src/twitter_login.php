@@ -1,8 +1,8 @@
 <?php
 
-require('../src/http.php');
-require('../src/oauth_client.php');
-require('../src/config.php');
+require('http.php');
+require('oauth_client.php');
+require('config.php');
 
 $client = new oauth_client_class;
 $client->debug = 1;
