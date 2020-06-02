@@ -1,25 +1,51 @@
+<?php
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $twitter_id = $_SESSION["twitter_id"];
+  $appname = $_POST["name"];
+  $desc = $_POST["name"];
+  $key = generateKey();
+
+  $sql = "SELECT userid from users where twitter_id = :id";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":id", $twitter_id);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $userid = $result["userid"];
+
+  echo $userid;
+
+  $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`) VALUES " . "( :appname, :description, :appkey, :userid)";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":appname", $appname);
+  $stmt->bindValue(":description", $desc;
+  $stmt->bindValue(":appkey", $key);
+  $stmt->bindValue(":userid", $userid);
+  $stmt->execute();
+}
+function generateKey($length = 26) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+?>
+
 <form method="post">
   <div>
-    <label for="email">Application Name:</label>
+    <label for="appname">Application Name:</label>
     <div >
       <input type="text" placeholder="New Application" name="appname">
     </div>
   </div>
   <div>
-    <label for="pwd">Description:</label>
+    <label for="desc">Description:</label>
     <div>
       <input type="password" placeholder="Description" name="desc">
     </div>
-  </div>
-  <div>
-    <label for="sel2">Mutiple select list (hold shift to select more than one):</label>
-    <select>
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </select>
   </div>
   <div>
     <div>
