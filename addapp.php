@@ -1,5 +1,5 @@
 <?php
-function generateKey($length = 26) {
+/*function generateKey($length = 26) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -7,8 +7,8 @@ function generateKey($length = 26) {
         $randomString .= $characters[rand(0, $charactersLength - 1)];
     }
     return $randomString;
-}
-/*if ($_SERVER["REQUEST_METHOD"] == "POST") {
+}*/
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $twitter_id = $_SESSION["twitter_id"];
   $appname = $_POST["name"];
   $desc = $_POST["name"];
@@ -29,7 +29,7 @@ function generateKey($length = 26) {
   $stmt->bindValue(":description", $desc;
   $stmt->bindValue(":appkey", $key);
   $stmt->bindValue(":userid", $userid);
-  $stmt->execute();*/
+  $stmt->execute();
 }
 ?>
 
