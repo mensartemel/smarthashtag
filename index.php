@@ -27,7 +27,7 @@
 				<div class="vertical-menu">
 					<a href="index.php" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>Dashboard</a>
 					<a href="index.php?page=apps" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>My Applications</a>
-					<a href="index.php?page=service" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Services</a>
+					<a href="index.php?page=services" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Services</a>
 					<a href="index.php?page=search" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Search Example</a>
 					<a href="index.php?page=settings" class="menu-btn"><img class="menu-icon" src="img/icon/settings.png";>Settings</a>
 					<a href="logout.php" class="menu-btn bottom active"><img class="menu-icon" src="img/icon/logout.png";>Log Out</a>
