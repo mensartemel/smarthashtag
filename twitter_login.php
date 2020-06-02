@@ -57,6 +57,7 @@ if ($success) {
       $_SESSION["name"] = $user->screen_name;
       $_SESSION["twitter_id"] = $user->id;
       $_SESSION["username"] = $user->name;
+      $_SESSION["picture"] = $user->profile_image_url;
       $_SESSION["logged_in"] = true;
     } else {
       // New user, Insert in database
@@ -65,13 +66,14 @@ if ($success) {
       $stmt->bindValue(":username", $user->name);
       $stmt->bindValue(":twitter_id", $user->id);
       $stmt->bindValue(":name", $user->screen_name);
-      $stmt->bindValue(":picture", $user->name);
+      $stmt->bindValue(":picture", $user->profile_image_url);
       $stmt->execute();
       $result = $stmt->rowCount();
       if ($result > 0) {
         $_SESSION["name"] = $user->screen_name;
         $_SESSION["twitter_id"] = $user->id;
         $_SESSION["username"] = $user->name;
+        $_SESSION["picture"] = $user->profile_image_url;
         $_SESSION["logged_in"] = true;
         $_SESSION["e_msg"] = "";
       }
