@@ -20,13 +20,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->execute();
   $result = $stmt->fetch();
   $userid = $result["id"];
-  echo "Post algılandı";
-  echo "</br>";
-  echo $userid;
-  echo "</br>";
-  echo $twitter_id;
-  echo "</br>";
-  echo $key;
 
   $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`) VALUES " . "( :appname, :description, :appkey, :userid)";
   $stmt = $DB->prepare($sql);
