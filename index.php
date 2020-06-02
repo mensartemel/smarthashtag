@@ -1,13 +1,5 @@
 <?php
 require_once './config.php';
-if (!isset($_SESSION["loggedin"])) {
-  header("location:login.php");
-}
-else {
-  $profile_pic_temp = $_SESSION["picture"];
-  $profile_pic = substr($profile_pic_temp,0,-11);
-  $profile_bg = $_SESSION["bg-picture"];
-}
 ?>
 
 <!DOCTYPE html>
