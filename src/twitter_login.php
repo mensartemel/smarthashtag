@@ -1,8 +1,8 @@
 <?php
 
-require('http.php');
-require('oauth_client.php');
-require('config.php');
+require('../src/http.php');
+require('../src/oauth_client.php');
+require('../src/config.php');
 
 $client = new oauth_client_class;
 $client->debug = 1;
@@ -84,6 +84,6 @@ if ($success) {
 } else {
   $_SESSION["e_msg"] = $client->error;
 }
-header("location:index.php");
+header("location: ../index.php");
 exit;
 ?>

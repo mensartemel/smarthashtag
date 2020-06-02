@@ -1,5 +1,5 @@
 <?php
-  require_once 'config.php';
+  require_once '../src/config.php';
   //if ($_SESSION["twitter_id"] != true) {
   //  header("location:login.php");
   //}
