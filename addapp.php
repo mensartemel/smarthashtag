@@ -33,7 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 
-<form method="post">
+<form method="post" action="">
   <div>
     <label for="appname">Application Name:</label>
     <div >
