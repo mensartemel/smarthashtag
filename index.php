@@ -56,7 +56,7 @@
             }
             else
             {
-              echo "Dashboard";
+              echo "<a class='head'>Dashboard</a>";
             }
           ?>
         </div>
