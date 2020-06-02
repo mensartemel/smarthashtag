@@ -1,6 +1,3 @@
-<h1>Settings</h1>
-<p>Welcome <?php echo $_SESSION["name"]; ?>.</p>
-</br>
 <?php
   $sql = "SELECT * FROM `users`";
   $stmt = $DB->prepare($sql);

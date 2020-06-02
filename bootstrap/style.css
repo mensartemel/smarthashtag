@@ -194,8 +194,14 @@ body{
 	padding-left: 0px;
 }
 .header {
-    background-color: #4caf50;
+    background-color: #366d38;
     height: 60px;
+    padding-top: 15px;
+    padding-left: 10px;
+}
+a.head {
+    font-size: 30px;
+    color: #eeeeee;
 }
 .content {
     padding: 10px;
