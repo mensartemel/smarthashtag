@@ -6,7 +6,7 @@
 	define('DB_DATABASE', 'heroku_4bc08eac4ea8f88');
 
 	try {
-	  $DB = new PDO(DB_DRIVER . ':host=' . DB_SERVER . ';port=3308;dbname=' . DB_DATABASE, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, $dboptions);
+	  $DB = new PDO(DB_DRIVER . ':host=' . DB_SERVER . ';port=3306;dbname=' . DB_DATABASE, DB_SERVER_USERNAME, DB_SERVER_PASSWORD, $dboptions);
 	} catch (Exception $ex) {
 	  echo $ex->getMessage();
 	  die;
