@@ -1,4 +1,6 @@
 <?php
+	session_start();
+
 	define('DB_DRIVER', 'mysql');
 	define('DB_SERVER', 'us-cdbr-east-05.cleardb.net');
 	define('DB_SERVER_USERNAME', 'ba0b040b98b0f5');
@@ -11,7 +13,6 @@
 	  echo $ex->getMessage();
 	  die;
 	}
-
 
 	define("CLIENT_ID", "XvlI4EG7NjJbauQs4KK9JMzsA");
 	define("SECRET_KEY", "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81");
