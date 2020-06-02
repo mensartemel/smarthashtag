@@ -44,6 +44,19 @@
             echo $row['picture'];
         	}
         ?>
+        <?php
+					if(isset($_GET['page']))
+					{
+						$page = $_GET['page'];
+						$display = $page.'.php';
+						include($display);
+					}
+					else
+					{
+						$display = 'dashboard.php';
+						include($display);
+					}
+				?>
     </div>
 			</div>
 		</div>
