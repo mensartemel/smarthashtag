@@ -1,5 +1,5 @@
 <?php
-/*function generateKey($length = 26) {
+function generateKey($length = 26) {
     $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $charactersLength = strlen($characters);
     $randomString = '';
@@ -26,11 +26,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`) VALUES " . "( :appname, :description, :appkey, :userid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appname", $appname);
-  $stmt->bindValue(":description", $desc;
+  $stmt->bindValue(":description", $desc);
   $stmt->bindValue(":appkey", $key);
   $stmt->bindValue(":userid", $userid);
   $stmt->execute();
-}*/
+}
 ?>
 
 <form method="post">
