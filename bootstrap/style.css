@@ -206,7 +206,9 @@ a.title {
 .content {
     padding: 10px;
 }
-
+.appdesc {
+    height: 50px;
+}
 .app {
     width: 20%;
     background-color: #4c7daf85;
