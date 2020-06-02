@@ -1,13 +1,3 @@
-<?php
-require_once './config.php';
-if (!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true) {
-  // user already logged in the site
-  header("location:login.php");
-}
-$profile_pic_temp = $_SESSION["picture"];
-$profile_pic = substr($profile_pic_temp,0,-11);
-$profile_bg = $_SESSION["bg-picture"];
-?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,20 +36,7 @@ $profile_bg = $_SESSION["bg-picture"];
       <button data-dismiss="alert" class="close" type="button">x</button>
       <p><?php echo $_SESSION["e_msg"]; ?></p>
     </div>
-  <?php } ?>
-				<?php
-					if(isset($_GET['page']))
-					{
-						$page = $_GET['page'];
-						$display = $page.'.php';
-						include($display);
-					}
-					else
-					{
-						$display = 'dashboard.php';
-						include($display);
-					}
-				?>
+				
 			</div>
 		</div>
 
