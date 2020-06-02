@@ -1,6 +1,6 @@
 <?php
 	session_start();
-	
+
 	define('DB_DRIVER', 'mysql');
 	define('DB_SERVER', 'us-cdbr-east-05.cleardb.net');
 	define('DB_SERVER_USERNAME', 'ba0b040b98b0f5');
@@ -19,7 +19,7 @@
 	/* make sure the url end with a trailing slash, give your site URL */
 	define("SITE_URL", "https://smarthashtag.herokuapp.com/");
 	/* the page where you will be redirected for authorization */
-	define("REDIRECT_URL", SITE_URL."twitter_login.php");
+	define("REDIRECT_URL", SITE_URL."src/twitter_login.php");
 
 	define("LOGOUT_URL", SITE_URL."logout.php");
 ?>
