@@ -39,19 +39,19 @@
             if(isset($_GET['page']))
             {
               if ($_GET['page'] == "apps") {
-                echo "Applications";
+                echo "<a class='head'>Applications</a>";
               }
               elseif ($_GET['page'] == "addapp") {
-                echo "Add New Application";
+                echo "<a class='head'>Add New Application</a>";
               }
               elseif ($_GET['page'] == "services") {
-                echo "Services";
+                echo "<a class='head'>Services</a>";
               }
               elseif ($_GET['page'] == "settings") {
-                echo "Settings";
+                echo "<a class='head'>Settings</a>";
               }
               else {
-                echo "Unnamed Title";
+                echo "<a class='head'>Unnamed Title</a>";
               }
             }
             else
