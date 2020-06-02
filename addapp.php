@@ -14,12 +14,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $desc = $_POST["desc"];
   $key = generateKey();
 
-  $sql = "SELECT userid from users where twitter_id = :id";
+  $sql = "SELECT id from users where twitter_id = :id";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":id", $twitter_id);
   $stmt->execute();
   $result = $stmt->fetch();
-  $userid = $result["userid"];
+  $userid = $result["id"];
   echo "Post algılandı";
   echo "</br>";
   echo $userid;
