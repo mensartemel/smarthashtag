@@ -1,6 +1,6 @@
 <?php
   require_once 'config.php';
-  if (!isset($_SESSION["twitter_id"])) {
+  if ($_SESSION["twitter_id"] != true) {
     header("location:login.php");
   }
 ?>
