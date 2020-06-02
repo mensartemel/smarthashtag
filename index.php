@@ -18,8 +18,8 @@
 		<div class="row">
 			<div class="col-2">
 				<div class="banner">
-					<img class="profile-img" src="pic.jpg" alt="Profile Picture";>
-					<a>User</a>
+					<img class="profile-img" src="<?php echo $_SESSION["picture"] ?>" alt="Profile Picture";>
+					<a><?php echo $_SESSION["name"] ?></a>
 				</div>
 				<div class="vertical-menu">
 					<a href="index.php" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>Dashboard</a>
