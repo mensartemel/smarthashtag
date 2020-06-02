@@ -34,19 +34,47 @@
 				</div>
 			</div>
 			<div class="col-10">
-        <?php
-					if(isset($_GET['page']))
-					{
-						$page = $_GET['page'];
-						$display = $page.'.php';
-						include($display);
-					}
-					else
-					{
-						$display = 'dashboard.php';
-						include($display);
-					}
-				?>
+        <div class="header">
+          <?php
+            if(isset($_GET['page']))
+            {
+              if ($_GET['page'] == "apps") {
+                echo "Applications";
+              }
+              elseif ($_GET['page'] == "addapp") {
+                echo "Add New Application";
+              }
+              elseif ($_GET['page'] == "services") {
+                echo "Services";
+              }
+              elseif ($_GET['page'] == "settings") {
+                echo "Settings";
+              }
+              else {
+                echo "Unnamed Title";
+              }
+            }
+            else
+            {
+              echo "Dashboard";
+            }
+          ?>
+        </div>
+        <div class="content">
+          <?php
+  					if(isset($_GET['page']))
+  					{
+  						$page = $_GET['page'];
+  						$display = $page.'.php';
+  						include($display);
+  					}
+  					else
+  					{
+  						$display = 'dashboard.php';
+  						include($display);
+  					}
+  				?>
+        </div>
     </div>
 			</div>
 		</div>
