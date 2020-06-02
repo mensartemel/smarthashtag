@@ -34,16 +34,16 @@ if ($client->exit)
   exit;
 
 $twUserData = array(
-            'oauth_uid'     => $user->id,
+            'oauth_uid'   => $user->id,
             'name'    		=> $user->name,
-			'username'    	=> $user->screen_name,
-            'locale'        => $user->lang,
-            'picture'       => $user->profile_image_url_https,
+			      'username'    => $user->screen_name,
+            'locale'      => $user->lang,
+            'picture'     => $user->profile_image_url_https,
         );
 
 if ($success) {
   // Now check if user exist with same email ID
-  $sql = "SELECT COUNT(*) AS count from users_twitter where twitter_id = :id";
+  $sql = "SELECT COUNT(*) AS count from users where twitter_id = :id";
   try {
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":id", $user->id);
@@ -53,20 +53,24 @@ if ($success) {
     if ($result[0]["count"] > 0) {
       // User Exist
 
-      $_SESSION["name"] = $user->name;
-      $_SESSION["id"] = $user->id;
+      $_SESSION["name"] = $user->screen_name;
+      $_SESSION["twitter_id"] = $user->id;
+      $_SESSION["username"] = $user->name;
       $_SESSION["new_user"] = "no";
     } else {
       // New user, Insert in database
-      $sql = "INSERT INTO `users_twitter` (`name`, `twitter_id`) VALUES " . "( :name, :id)";
+      $sql = "INSERT INTO `users` (`username`, `twitter_id`, `name`, `picture`) VALUES " . "( :username, :twitter_id, :name, :picture)";
       $stmt = $DB->prepare($sql);
-      $stmt->bindValue(":name", $user->name);
-      $stmt->bindValue(":id", $user->id);
+      $stmt->bindValue(":username", $user->name);
+      $stmt->bindValue(":twitter_id", $user->id);
+      $stmt->bindValue(":name", $user->screen_name);
+      $stmt->bindValue(":picture", $user->name);
       $stmt->execute();
       $result = $stmt->rowCount();
       if ($result > 0) {
-        $_SESSION["name"] = $user->name;
-        $_SESSION["id"] = $user->id;
+        $_SESSION["name"] = $user->screen_name;
+        $_SESSION["twitter_id"] = $user->id;
+        $_SESSION["username"] = $user->name;
         $_SESSION["new_user"] = "yes";
         $_SESSION["e_msg"] = "";
       }

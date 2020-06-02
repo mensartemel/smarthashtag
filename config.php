@@ -1,6 +1,4 @@
 <?php
-	session_start();
-
 	define('DB_DRIVER', 'mysql');
 	define('DB_SERVER', 'us-cdbr-east-05.cleardb.net');
 	define('DB_SERVER_USERNAME', 'ba0b040b98b0f5');

@@ -1,9 +1,8 @@
 <?php
-require_once 'config.php';
-if (!isset($_SESSION["id"])) {
-  // user already logged in the site
-  header("location:login.php");
-}
+  require_once 'config.php';
+  if (!isset($_SESSION["twitter_id"])) {
+    header("location:login.php");
+  }
 ?>
 
 <!DOCTYPE html>
