@@ -1,5 +1,5 @@
 <?php
-	$userid = 1;
+	$userid = $_SESSION["userid"];
   $sql = "SELECT * from applications where userid = :id";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":id", $userid);

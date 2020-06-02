@@ -42,17 +42,19 @@ $twUserData = array(
 
 if ($success) {
   // Now check if user exist with same email ID
-  $sql = "SELECT COUNT(*) AS count from users where twitter_id = :id";
+  $sql = "SELECT id from users where twitter_id = :id";
   try {
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":id", $user->id);
     $stmt->execute();
-    $result = $stmt->fetchAll();
+    $result = $stmt->fetch();
+    $userid = $result["id"];
 
-    if ($result[0]["count"] > 0) {
+    if ($userid > 0) {
       // User Exist
 
       $_SESSION["username"] = $user->screen_name;
+      $_SESSION["userid"] = $userid;
       $_SESSION["twitter_id"] = $user->id;
       $_SESSION["name"] = $user->name;
       $_SESSION["picture"] = $user->profile_image_url;
@@ -66,9 +68,11 @@ if ($success) {
       $stmt->bindValue(":name", $user->screen_name);
       $stmt->bindValue(":picture", $user->profile_image_url);
       $stmt->execute();
+      $userid = $conn->lastInsertId();
       $result = $stmt->rowCount();
       if ($result > 0) {
         $_SESSION["username"] = $user->screen_name;
+        $_SESSION["userid"] = $userid;
         $_SESSION["twitter_id"] = $user->id;
         $_SESSION["name"] = $user->name;
         $_SESSION["picture"] = $user->profile_image_url;
