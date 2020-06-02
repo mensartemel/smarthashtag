@@ -52,9 +52,9 @@ if ($success) {
     if ($result[0]["count"] > 0) {
       // User Exist
 
-      $_SESSION["name"] = $user->screen_name;
+      $_SESSION["username"] = $user->screen_name;
       $_SESSION["twitter_id"] = $user->id;
-      $_SESSION["username"] = $user->name;
+      $_SESSION["name"] = $user->name;
       $_SESSION["picture"] = $user->profile_image_url;
       $_SESSION["logged_in"] = true;
     } else {
@@ -68,9 +68,9 @@ if ($success) {
       $stmt->execute();
       $result = $stmt->rowCount();
       if ($result > 0) {
-        $_SESSION["name"] = $user->screen_name;
+        $_SESSION["username"] = $user->screen_name;
         $_SESSION["twitter_id"] = $user->id;
-        $_SESSION["username"] = $user->name;
+        $_SESSION["name"] = $user->name;
         $_SESSION["picture"] = $user->profile_image_url;
         $_SESSION["logged_in"] = true;
         $_SESSION["e_msg"] = "";
