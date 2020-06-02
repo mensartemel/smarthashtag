@@ -3,6 +3,8 @@
   //if ($_SESSION["twitter_id"] != true) {
   //  header("location:login.php");
   //}
+  $profile_pic = $_SESSION["picture"];
+  $name = $_SESSION["name"];
 ?>
 
 <!DOCTYPE html>
@@ -18,8 +20,8 @@
 		<div class="row">
 			<div class="col-2">
 				<div class="banner">
-					<img class="profile-img" src="<?php echo $_SESSION["picture"]; ?>" alt="Profile Picture";>
-					<a><?php echo $_SESSION["name"]; ?></a>
+					<img class="profile-img" src="<?php echo $profile_pic; ?>" alt="Profile Picture";>
+					<a><?php echo $name; ?></a>
 				</div>
 				<div class="vertical-menu">
 					<a href="index.php" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>Dashboard</a>
