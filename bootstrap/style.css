@@ -216,12 +216,13 @@ body{
   height: 50px;
 }
 .app {
-  width: 20%;
+  width: 19%;
   background-color: #4c7daf85;
   height: 200px;
   text-align: center;
   float: left;
 	margin-right: 10px;
+	margin-bottom: 10px;
 }
 .app a {
   font-size: 25px;
