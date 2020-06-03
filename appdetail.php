@@ -1,6 +1,6 @@
 <?php
   $appid = $_GET['appid'];
-  $userid = $_GET['userid'];
+  $userid = $_SESSION['userid'];
   $sql = "SELECT * FROM applications, users WHERE applications.appid = :appid AND users.id = :userid AND applications.userid = users.id";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appid", $appid);
