@@ -59,8 +59,6 @@ if ($success) {
       $_SESSION["name"] = $user->name;
       $_SESSION["picture"] = $user->profile_image_url;
       $_SESSION["logged_in"] = true;
-      $_SESSION["value"] = $access_token['value'];
-      $_SESSION["secret"] = $access_token['secret'];
     } else {
       // New user, Insert in database
       $sql = "INSERT INTO `users` (`username`, `twitter_id`, `name`, `picture`) VALUES " . "( :username, :twitter_id, :name, :picture)";
@@ -79,8 +77,6 @@ if ($success) {
         $_SESSION["name"] = $user->name;
         $_SESSION["picture"] = $user->profile_image_url;
         $_SESSION["logged_in"] = true;
-        $_SESSION["value"] = $access_token['value'];
-        $_SESSION["secret"] = $access_token['secret'];
         $_SESSION["e_msg"] = "";
       }
     }

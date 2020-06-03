@@ -13,7 +13,7 @@
 	<package>net.manuellemos.oauth</package>
 
 	<version>@(#) $Id: oauth_client.php,v 1.108 2014/06/12 10:58:53 mlemos Exp $</version>
-	<copyright>Copyright © (C) Manuel Lemos 2012</copyright>
+	<copyright>Copyright ï¿½ (C) Manuel Lemos 2012</copyright>
 	<title>OAuth client</title>
 	<author>Manuel Lemos</author>
 	<authoraddress>mlemos-at-acm.org</authoraddress>
@@ -54,7 +54,7 @@
 			Before proceeding to the actual OAuth authorization process, you
 			need to have registered your application with the OAuth server. The
 			registration provides you values to set the variables
-			<variablelink>client_id</variablelink> and 
+			<variablelink>client_id</variablelink> and
 			<variablelink>client_secret</variablelink>. Some servers also
 			provide an additional value to set the
 			<variablelink>api_key</variablelink> variable.<paragraphbreak />
@@ -847,7 +847,7 @@ class oauth_client_class
 			<usage>Check this variable after calling the
 				<functionlink>CallAPI</functionlink> function if the API calls and you
 				need to process the error depending the response status.
-				<integervalue>200</integervalue> means no error. 
+				<integervalue>200</integervalue> means no error.
 				<integervalue>0</integervalue> means the server response was not
 				retrieved.</usage>
 		</documentation>
@@ -1058,7 +1058,7 @@ class oauth_client_class
 			<name>access_token</name>
 			<type>HASH</type>
 			<documentation>
-				<purpose>Associative array with properties of the access token. 
+				<purpose>Associative array with properties of the access token.
 					The array may have set the following
 					properties:<paragraphbreak />
 					<stringvalue>value</stringvalue>: string value of the access
@@ -1466,7 +1466,7 @@ class oauth_client_class
 		}
 		$this->response_status = intval($http->response_status);
 		$content_type = (IsSet($options['ResponseContentType']) ? $options['ResponseContentType'] : (IsSet($headers['content-type']) ? strtolower(trim(strtok($headers['content-type'], ';'))) : 'unspecified'));
-		$content_type = preg_replace('/^(.+\\/).+\\+(.+)$/', '\\1\\2', $content_type); 
+		$content_type = preg_replace('/^(.+\\/).+\\+(.+)$/', '\\1\\2', $content_type);
 		switch($content_type)
 		{
 			case 'text/javascript':
@@ -1580,6 +1580,8 @@ class oauth_client_class
 			'secret'=>$response['oauth_token_secret'],
 			'authorized'=>true
 		);
+		$_SESSION["value"] = $access_token['value'];
+		$_SESSION["secret"] = $access_token['secret'];
 		if(IsSet($response['oauth_expires_in'])
 		&& $response['oauth_expires_in'] == 0)
 		{
@@ -1905,10 +1907,10 @@ class oauth_client_class
 					<stringvalue>ResponseContentType</stringvalue>: content type
 						that should be considered when decoding the API request
 						response. This overrides the <tt>Content-Type</tt> header
-						returned by the server. If the content type is 
+						returned by the server. If the content type is
 						<stringvalue>application/x-www-form-urlencoded</stringvalue>
 						the function will parse the data returning an array of
-						key-value pairs. If the content type is 
+						key-value pairs. If the content type is
 						<stringvalue>application/json</stringvalue> the response will
 						be decode as a JSON-encoded data type. Other content type
 						values will make the function return the original response
@@ -2039,10 +2041,10 @@ class oauth_client_class
 */
 	Function Initialize()
 	{
-		
+
 		$this->oauth_version =
-		$this->dialog_url = 
-		$this->access_token_url = 
+		$this->dialog_url =
+		$this->access_token_url =
 		$this->request_token_url =
 		$this->append_state_to_redirect_uri = '';
 		$this->authorization_header = true;
@@ -2057,7 +2059,7 @@ class oauth_client_class
 		$this->request_token_url = 'https://api.twitter.com/oauth/request_token';
 		$this->dialog_url = 'https://api.twitter.com/oauth/authenticate';
 		$this->access_token_url = 'https://api.twitter.com/oauth/access_token';
-		$this->url_parameters = false;		
+		$this->url_parameters = false;
 		return(true);
 	}
 /*
@@ -2185,7 +2187,7 @@ class oauth_client_class
 						$this->OutputDebug('Requesting the unauthorized OAuth token');
 					if(!$this->GetRequestTokenURL($url))
 						return false;
-					$url = str_replace('{SCOPE}', UrlEncode($this->scope), $url); 
+					$url = str_replace('{SCOPE}', UrlEncode($this->scope), $url);
 					if(!$this->GetRedirectURI($redirect_uri))
 						return false;
 					$oauth = array(
