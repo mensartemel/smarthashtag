@@ -255,6 +255,10 @@ img.appdetail {
 .imgcont:hover .imgcont {
   opacity: 1;
 }
+.imgcont {
+  position: relative;
+  width: 20%;
+}
 .panel.panel-default {
   background-color: #ff1717;
   margin-bottom: 10px;
