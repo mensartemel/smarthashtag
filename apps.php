@@ -32,18 +32,13 @@ if (isset($_POST["deleteapp"])) {
   $stmt->execute();
   $count = $stmt->rowCount();
   $result = $stmt->fetchAll();
-  if ($count == 0) {
-    $_SESSION["e_msg"] = "No application found. Please add application."
-  }
-  else {
-    foreach($result as $row){
-      echo "<div class='app'>";
-  		echo "<a>".$row['appname']."</a>";
-  		echo "<div class='appdesc'>".$row['description']."</div>";
-  		echo "<div class='appdesc'>".$row['description']."</div>";
-  		echo "<a href='index.php?page=appdetail&appid=".$row['appid']."'>Show</a>";
-  		echo "</div>";
-    }
+  foreach($result as $row){
+    echo "<div class='app'>";
+		echo "<a>".$row['appname']."</a>";
+		echo "<div class='appdesc'>".$row['description']."</div>";
+		echo "<div class='appdesc'>".$row['description']."</div>";
+		echo "<a href='index.php?page=appdetail&appid=".$row['appid']."'>Show</a>";
+		echo "</div>";
   }
 ?>
 <script>
