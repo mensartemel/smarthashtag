@@ -256,7 +256,7 @@ button.deleteapp:hover {
 	font-weight: bold;
 }
 .button {
-  background-color: #ec0b0b;
+  background-color: #4caf50;
   border: none;
   color: #eeeeee;
   padding: 5px 15px;
@@ -270,4 +270,5 @@ button.deleteapp:hover {
 	background-color: #ff8a8a;
 	color: #000000;
 	font-weight: bold;
+	text-decoration: none;
 }
