@@ -96,7 +96,7 @@
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Warning</h2>
+      <a class="title">Warning</a>
     </div>
     <div class="modal-body">
       <a>If you delete this application, all consumers and data will be deleted. This action can't be undone.</a>
