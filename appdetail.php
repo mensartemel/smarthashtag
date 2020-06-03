@@ -1,7 +1,7 @@
 <div class="tab">
-  <button class="tablinks" onclick="openCity(event, 'London')" id="defaultOpen">App Details</button>
-  <button class="tablinks" onclick="openCity(event, 'Paris')">Services</button>
-  <button class="tablinks" onclick="openCity(event, 'Tokyo')">Settings</button>
+  <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
+  <button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
+  <button class="tablinks" onclick="openCity(event, 'Settings')">Settings</button>
 </div>
 
 <div id="Details" class="tabcontent">
