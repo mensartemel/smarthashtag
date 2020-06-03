@@ -59,13 +59,13 @@ if ($result > 0) {
 
   if ($success) {
     // Now check if consumer exist with same ID
-    $sql = "SELECT twitter_id from consumers where twitter_id = :id";
+    $sql = "SELECT id from consumers where twitter_id = :id";
     try {
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":id", $user->id);
       $stmt->execute();
       $result = $stmt->fetch();
-      $consumerid = $result["twitter_id"];
+      $consumerid = $result["id"];
       echo "Consumer ID:".$consumerid."</br>";
       if ($userid > 0) {
         // User Exist
