@@ -60,7 +60,7 @@
                 $result = $stmt->fetch();
                 $appname = $result["appname"];
                 $appid = $result["appid"];
-                echo "<div class='title'><a>".$appname." Details</a></div><div class='titleside'><form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></div>";
+                echo "<div class='title'><a>".$appname." Details</a></div><div class='titleside'><button id='myBtn' type='submit' name='deleteapp' class='deleteapp'>Delete</button></div>";
               }
               else {
                 echo "<div class='title'><a>Unnamed Title</a></div>";
@@ -92,5 +92,45 @@
 		</div>
 
 	</div>
+<div id="myModal" class="modal">
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h2>Warning</h2>
+    </div>
+    <div class="modal-body">
+      <a>If you delete this application, all consumers and data will be deleted. This action can't be undone.</a>
+    </div>
+    <div class="modal-footer">
+      <?php
+      $appid = $_GET['appid'];
+      $sql = "SELECT * from applications where appid = :id";
+      $stmt = $DB->prepare($sql);
+      $stmt->bindValue(":id", $appid);
+      $stmt->execute();
+      $result = $stmt->fetch();
+      $appname = $result["appname"];
+      $appid = $result["appid"];
+      echo "<div class='titleside'><form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></div>";
+      ?>
+    </div>
+  </div>
+</div>
 </body>
 </html>
+<script>
+var modal = document.getElementById("myModal");
+var btn = document.getElementById("myBtn");
+var span = document.getElementsByClassName("close")[0];
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+span.onclick = function() {
+  modal.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
