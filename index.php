@@ -111,7 +111,7 @@
       $result = $stmt->fetch();
       $appname = $result["appname"];
       $appid = $result["appid"];
-      echo "<div class='titleside'><form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></div>";
+      echo "<div class='titleside buttondanger'><form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>I understand, delete anyway</button></form></div>";
       ?>
     </div>
   </div>
