@@ -1,9 +1,10 @@
 <?php
   $appid = $_GET['appid'];
   $userid = $_GET['userid'];
-  $sql = "SELECT * FROM applications, users WHERE applications.appid = 31 AND users.id = 21 AND applications.userid = users.id";
+  $sql = "SELECT * FROM applications, users WHERE applications.appid = :appid AND users.id = :userid AND applications.userid = users.id";
   $stmt = $DB->prepare($sql);
-  $stmt->bindValue(":id", $appid);
+  $stmt->bindValue(":appid", $appid);
+  $stmt->bindValue(":userid", $userid);
   $stmt->execute();
   $result = $stmt->rowCount();
   if ($result == 0) {
