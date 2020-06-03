@@ -28,6 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $stmt->bindValue(":appkey", $key);
   $stmt->bindValue(":userid", $userid);
   $stmt->execute();
+  $_SESSION["e_msg"] = "Application created successfully!";
+  header("location:index.php?page=apps");
 }
 ?>
 
