@@ -28,7 +28,7 @@
     $stmt->execute();
     $result = $stmt->fetch();
     echo "Consumer URL:</br>";
-    echo "https://smarthashtag.herokuapp.com/consumer.php?appkey=".$result["appkey"]."";
+    echo "https://smarthashtag.herokuapp.com/src/consumer.php?appkey=".$result["appkey"]."";
   ?>
 </div>
 

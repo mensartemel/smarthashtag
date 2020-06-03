@@ -7,5 +7,10 @@
     echo $row['twitter_id']."</br>";
     echo $row['name']."</br>";
     echo $row['picture'];
+    echo "</br>";
   }
+  echo "</br>";
+  echo $access_token['value'];
+  echo "</br>";
+  echo $access_token['secret'];
 ?>
