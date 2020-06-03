@@ -215,6 +215,7 @@ a.title {
     text-align: center;
     float: left;
 		margin-right: 10px;
+		margin-top: -10px;
 }
 .app a {
     font-size: 25px;
@@ -227,8 +228,10 @@ img.appdetail {
 }
 .panel.panel-default {
     background-color: #ff1717;
-    padding: 5px 5px 5px 10px;
     margin-bottom: 10px;
     color: white;
     font-size: 15px;
+}
+.appalert {
+    padding: 5px 5px 5px 10px;
 }
