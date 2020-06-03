@@ -50,6 +50,16 @@
               elseif ($_GET['page'] == "settings") {
                 echo "<a class='title'>Settings</a>";
               }
+              elseif ($_GET['page'] == "appdetail") {
+                $appid = $_GET['appid'];
+                $sql = "SELECT appname from applications where appid = :id";
+                $stmt = $DB->prepare($sql);
+                $stmt->bindValue(":id", $appid);
+                $stmt->execute();
+                $result = $stmt->fetch();
+                $appname = $result["appname"];
+                echo "<a class='title'>".$appname." Details</a>";
+              }
               else {
                 echo "<a class='title'>Unnamed Title</a>";
               }
