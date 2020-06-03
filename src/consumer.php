@@ -66,7 +66,7 @@ if ($result > 0) {
       $stmt->execute();
       $result = $stmt->fetch();
       $consumerid = $result["id"];
-
+      echo "User exists.</br>";
       if ($userid > 0) {
         // User Exist
         echo "User exists.</br>";
