@@ -291,6 +291,7 @@ button.deleteapp {
   display: inline-block;
   background-color: #ec0b0b;
   color: #eeeeee;
+	width: 100%;
 }
 button.deleteapp:hover {
 	background-color: #ff8a8a;
@@ -369,6 +370,7 @@ cursor: pointer;
 padding: 2px 16px;
 background-color: #cc1717;
 color: white;
+display: block;
 }
 
 .modal-body {padding: 2px 16px;}
