@@ -39,16 +39,16 @@
             if(isset($_GET['page']))
             {
               if ($_GET['page'] == "apps") {
-                echo "<a class='title'>Applications</a>  <a class='addapp' href='index.php?page=addapp'>Add Application</a>";
+                echo "<div class='title'><a>Applications</a>  <a class='addapp' href='index.php?page=addapp'>Add Application</a></div>";
               }
               elseif ($_GET['page'] == "addapp") {
-                echo "<a class='title'>Add New Application</a>";
+                echo "<div class='title'><a>Add New Application</a></div>";
               }
               elseif ($_GET['page'] == "services") {
-                echo "<a class='title'>Services</a>";
+                echo "<div class='title'><a>Services</a></div>";
               }
               elseif ($_GET['page'] == "settings") {
-                echo "<a class='title'>Settings</a>";
+                echo "<div class='title'><a>Settings</a></div>";
               }
               elseif ($_GET['page'] == "appdetail") {
                 $appid = $_GET['appid'];
@@ -62,12 +62,12 @@
                 echo "<div class='title'><a>".$appname." Details</a></div><div class='titleside'><form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></div>";
               }
               else {
-                echo "<a class='title'>Unnamed Title</a>";
+                echo "<div class='title'><a>Unnamed Title</a></div>";
               }
             }
             else
             {
-              echo "<a class='title'>Dashboard</a>";
+              echo "<div class='title'><a>Dashboard</a></div>";
             }
           ?>
         </div>
