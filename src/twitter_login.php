@@ -63,7 +63,7 @@ if ($success) {
       // New user, Insert in database
       $sql = "INSERT INTO `consumers` (`twitter_id`, `appid`) VALUES " . "( :twitter_id, :appid)";
       $stmt = $DB->prepare($sql);
-      $stmt->bindValue(":appid", $appid);
+      $stmt->bindValue(":appid", $_SESSION["appid"]);
       $stmt->bindValue(":twitter_id", $user->id);
       $stmt->execute();
       $result = $stmt->rowCount();

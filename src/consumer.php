@@ -21,6 +21,8 @@ if ($result > 0) {
   $result = $stmt->fetch();
   $appid = $result['appid'];
 
+  $_SESSION["appid"] = $appid;
+
   echo $appid."</br>";
 
   $client = new oauth_client_class;
