@@ -8,6 +8,7 @@
   $stmt->execute();
   $result = $stmt->rowCount();
   if ($result == 0) {
+    $_SESSION["e_msg"] = "Application not found!";
     header("location:index.php?page=apps");
   }
 ?>
