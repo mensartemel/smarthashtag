@@ -1,5 +1,5 @@
-<div class="panel panel-default">
-    <div class="panel-body"></div>
+<div class="panel panel-default" id="alert" onclick="hideContent()">
+    <?php echo $_SESSION["e_msg"]; ?>
 </div>
 <?php
 	$userid = $_SESSION["userid"];
@@ -18,3 +18,16 @@
 		echo "</div>";
   }
 ?>
+<script>
+function hideContent() {
+	var x = document.getElementById("alert");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
+
+// Get the element with id="defaultOpen" and click on it
+document.getElementById("defaultOpen").click();
+</script>

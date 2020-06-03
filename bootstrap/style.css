@@ -225,3 +225,10 @@ img.appedit {
 img.appdetail {
     width: 20%;
 }
+.panel.panel-default {
+    background-color: #ff1717;
+    padding: 5px 5px 5px 10px;
+    margin-bottom: 10px;
+    color: white;
+    font-size: 15px;
+}
