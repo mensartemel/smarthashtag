@@ -156,24 +156,24 @@ body{
 
 .user,
 .pwd{
-    position:absolute;
-    display:block;
-    width:80%;
-    height:60px;
-    background:#fff;
-    font-size:10pt;
-    text-transform:capitalize;
-    padding-left:20px;
-    color:rgba(0,0,0,.1);
-    @include prefix(box-shadow, 1px 1px 20px rgba(0,0,0,.2));
-    border:none;
-    @include prefix(border-radius,4px);
-    @include prefix(transition,all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55));
-     &:focus,
-     &:active:focus{
-      outline:none;
-      padding-left:30px;
-     }
+  position:absolute;
+  display:block;
+  width:80%;
+  height:60px;
+  background:#fff;
+  font-size:10pt;
+  text-transform:capitalize;
+  padding-left:20px;
+  color:rgba(0,0,0,.1);
+  @include prefix(box-shadow, 1px 1px 20px rgba(0,0,0,.2));
+  border:none;
+  @include prefix(border-radius,4px);
+  @include prefix(transition,all 600ms cubic-bezier(0.68, -0.55, 0.265, 1.55));
+  &:focus,
+  &:active:focus{
+  outline:none;
+  padding-left:30px;
+}
   }
 
 .user{
@@ -186,79 +186,83 @@ body{
   margin-top:10%;
   z-index:1;
   background:rgba(0,0,0,.1);
-   @include prefix(transition , .5s);
+  @include prefix(transition , .5s);
 }
 .col-10 {
 	padding-right: 0px;
 	padding-left: 0px;
 }
 .header {
-    background-color: #366d38;
-    height: 60px;
-    padding-top: 15px;
-    padding-left: 10px;
+  background-color: #366d38;
+  height: 60px;
+  padding-top: 15px;
+  padding-left: 10px;
 }
 .title a {
-    font-size: 30px;
-    color: #eeeeee;
+  font-size: 30px;
+  color: #eeeeee;
 }
 .title {
 	float: left;
 }
 .titleside {
-    float: right;
-    margin-right: 10px;
+  float: right;
+  margin-right: 10px;
 }
 .content {
-    padding: 10px;
+  padding: 10px;
 }
 .appdesc {
-    height: 50px;
+  height: 50px;
 }
 .app {
-    width: 20%;
-    background-color: #4c7daf85;
-    height: 200px;
-    text-align: center;
-    float: left;
-		margin-right: 10px;
+  width: 20%;
+  background-color: #4c7daf85;
+  height: 200px;
+  text-align: center;
+  float: left;
+	margin-right: 10px;
 }
 .app a {
-    font-size: 25px;
+  font-size: 25px;
 }
 img.appedit {
-    width: 20%;
+  width: 20%;
 }
 img.appdetail {
-    width: 20%;
+  width: 20%;
 }
 .panel.panel-default {
-    background-color: #ff1717;
-    margin-bottom: 10px;
-    color: white;
-    font-size: 15px;
+  background-color: #ff1717;
+  margin-bottom: 10px;
+  color: white;
+  font-size: 15px;
 }
 .appalert {
-    padding: 5px 5px 5px 10px;
+  padding: 5px 5px 5px 10px;
 }
 button.deleteapp {
-    border: none;
-    padding: 5px 15px;
-    cursor: pointer;
-    font-size: 15px;
-    display: inline-block;
-    background-color: #ec0b0b;
-    color: #eeeeee;
+  border: none;
+  padding: 5px 15px;
+  cursor: pointer;
+  font-size: 15px;
+  display: inline-block;
+  background-color: #ec0b0b;
+  color: #eeeeee;
+}
+button.deleteapp:hover {
+	background-color: #ff8a8a;
+	color: #000000;
+	font-weight: bold;
 }
 .button {
-  background-color: #4CAF50;
+  background-color: #ec0b0b;
   border: none;
   color: #eeeeee;
-  padding: 15px 32px;
+  padding: 5px 15px;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
-  margin: 4px 2px;
+  font-size: 15px;
   cursor: pointer;
 }
