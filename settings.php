@@ -10,7 +10,7 @@
     echo "</br>";
   }
   echo "</br>";
-  echo $access_token['value'];
+  echo $_SESSION["value"];
   echo "</br>";
-  echo $access_token['secret'];
+  echo $_SESSION["secret"];
 ?>
