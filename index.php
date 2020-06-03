@@ -52,13 +52,14 @@
               }
               elseif ($_GET['page'] == "appdetail") {
                 $appid = $_GET['appid'];
-                $sql = "SELECT appname from applications where appid = :id";
+                $sql = "SELECT * from applications where appid = :id";
                 $stmt = $DB->prepare($sql);
                 $stmt->bindValue(":id", $appid);
                 $stmt->execute();
                 $result = $stmt->fetch();
                 $appname = $result["appname"];
-                echo "<a class='title'>".$appname." Details</a> <form action='' method='post'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form>";
+                $appid = $result["appid"];
+                echo "<a class='title'>".$appname." Details <form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></a>";
               }
               else {
                 echo "<a class='title'>Unnamed Title</a>";

@@ -11,21 +11,6 @@
     $_SESSION["e_msg"] = "Application not found!";
     header("location:index.php?page=apps");
   }
-  if (isset($_POST["deleteapp"])) {
-    $sql = "DELETE FROM applications WHERE appid = :appid";
-    $stmt = $DB->prepare($sql);
-    $stmt->bindValue(":appid", $appid);
-    $stmt->execute();
-    $result = $stmt->rowCount();
-    if ($result > 0) {
-      $_SESSION["e_msg"] = "Application not found!";
-      header("location:index.php?page=apps");
-    }
-    else {
-      $_SESSION["e_msg"] = "An error occured while deleting!";
-      header("location:index.php?page=apps");
-    }
-  }
 ?>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
