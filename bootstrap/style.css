@@ -111,9 +111,10 @@ a.menu-btn {
 
 .tabcontent {
   display: none;
-  padding: 6px 12px;
+  padding: 10px 10px;
   border: 1px solid #ccc;
   border-top: none;
+	background-color: #cccccc;
 }
 
 .topright {
