@@ -58,7 +58,7 @@
                 $stmt->execute();
                 $result = $stmt->fetch();
                 $appname = $result["appname"];
-                echo "<a class='title'>".$appname." Details</a>";
+                echo "<a class='title'>".$appname." Details</a> <form action='' method='post'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form>";
               }
               else {
                 echo "<a class='title'>Unnamed Title</a>";
