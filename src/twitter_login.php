@@ -78,42 +78,17 @@ if ($success) {
         $_SESSION["e_msg"] = "";
       }
     }
-  }
-  // Now check if user exist with same email ID
-  $sql = "SELECT id from users where twitter_id = :id";
-  try {
-    $stmt = $DB->prepare($sql);
-    $stmt->bindValue(":id", $user->id);
-    $stmt->execute();
-    $result = $stmt->fetch();
-    $userid = $result["id"];
-
-    if ($userid > 0) {
-      // User Exist
-
-      $_SESSION["username"] = $user->screen_name;
-      $_SESSION["userid"] = $userid;
-      $_SESSION["twitter_id"] = $user->id;
-      $_SESSION["name"] = $user->name;
-      $_SESSION["picture"] = $user->profile_image_url;
-      $_SESSION["logged_in"] = true;
-    } else {
-      // New user, Insert in database
-      $sql = "INSERT INTO `users` (`username`, `twitter_id`, `name`, `picture`) VALUES " . "( :username, :twitter_id, :name, :picture)";
+  } else {
+    $sql = "SELECT id from users where twitter_id = :id";
+    try {
       $stmt = $DB->prepare($sql);
-      $stmt->bindValue(":username", $user->name);
-      $stmt->bindValue(":twitter_id", $user->id);
-      $stmt->bindValue(":name", $user->screen_name);
-      $stmt->bindValue(":picture", $user->profile_image_url);
+      $stmt->bindValue(":id", $user->id);
       $stmt->execute();
-      $result = $stmt->rowCount();
-      if ($result > 0) {
-        $sql = "SELECT id from users where twitter_id = :id";
-        $stmt = $DB->prepare($sql);
-        $stmt->bindValue(":id", $user->id);
-        $stmt->execute();
-        $result = $stmt->fetch();
-        $userid = $result["id"];
+      $result = $stmt->fetch();
+      $userid = $result["id"];
+
+      if ($userid > 0) {
+        // User Exist
 
         $_SESSION["username"] = $user->screen_name;
         $_SESSION["userid"] = $userid;
@@ -121,14 +96,40 @@ if ($success) {
         $_SESSION["name"] = $user->name;
         $_SESSION["picture"] = $user->profile_image_url;
         $_SESSION["logged_in"] = true;
-        $_SESSION["e_msg"] = "";
-      }
-    }
-  } catch (Exception $ex) {
-    $_SESSION["e_msg"] = $ex->getMessage();
-  }
+      } else {
+        // New user, Insert in database
+        $sql = "INSERT INTO `users` (`username`, `twitter_id`, `name`, `picture`) VALUES " . "( :username, :twitter_id, :name, :picture)";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindValue(":username", $user->name);
+        $stmt->bindValue(":twitter_id", $user->id);
+        $stmt->bindValue(":name", $user->screen_name);
+        $stmt->bindValue(":picture", $user->profile_image_url);
+        $stmt->execute();
+        $result = $stmt->rowCount();
+        if ($result > 0) {
+          $sql = "SELECT id from users where twitter_id = :id";
+          $stmt = $DB->prepare($sql);
+          $stmt->bindValue(":id", $user->id);
+          $stmt->execute();
+          $result = $stmt->fetch();
+          $userid = $result["id"];
 
-  $_SESSION["user_id"] = $user->id;
+          $_SESSION["username"] = $user->screen_name;
+          $_SESSION["userid"] = $userid;
+          $_SESSION["twitter_id"] = $user->id;
+          $_SESSION["name"] = $user->name;
+          $_SESSION["picture"] = $user->profile_image_url;
+          $_SESSION["logged_in"] = true;
+          $_SESSION["e_msg"] = "";
+        }
+      }
+    } catch (Exception $ex) {
+      $_SESSION["e_msg"] = $ex->getMessage();
+    }
+
+    $_SESSION["user_id"] = $user->id;
+  }
+  // Now check if user exist with same email ID
 } else {
   $_SESSION["e_msg"] = $client->error;
 }
