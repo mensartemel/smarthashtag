@@ -22,7 +22,7 @@
 			<div class="col-2">
 				<div class="banner">
 					<img class="profile-img" src="<?php echo $profile_pic; ?>" alt="Profile Picture";>
-          <a>Welcome</a>
+          <a>Welcome</a></br>
 					<a><?php echo $name; ?></a>
 				</div>
 				<div class="vertical-menu">
