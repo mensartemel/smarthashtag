@@ -43,43 +43,7 @@ $twUserData = array(
 if ($success) {
 
   if ($_SESSION["is_consumer"] == true) {
-    $sql = "SELECT id from consumers where twitter_id = :id";
-    try {
-      $stmt = $DB->prepare($sql);
-      $stmt->bindValue(":id", $user->id);
-      $stmt->execute();
-      $result = $stmt->fetch();
-      $consumerid = $result["id"];
-      echo "Consumer ID:".$consumerid."</br>";
-      if ($consumerid > 0) {
-        // User Exist
-        echo "User exists.</br>";
-        $_SESSION["username"] = $user->screen_name;
-        $_SESSION["consumerid"] = $consumerid;
-        $_SESSION["twitter_id"] = $user->id;
-        $_SESSION["name"] = $user->name;
-        $_SESSION["picture"] = $user->profile_image_url;
-        $_SESSION["cons_in"] = true;
-      } else {
-        // New user, Insert in database
-        $sql = "INSERT INTO `consumers` (`twitter_id`, `appid`) VALUES " . "( :twitter_id, :appid)";
-        $stmt = $DB->prepare($sql);
-        $stmt->bindValue(":appid", $appid);
-        $stmt->bindValue(":twitter_id", $user->id);
-        $stmt->execute();
-        $result = $stmt->rowCount();
-        if ($result > 0) {
-          echo "New user.</br>";
-          $_SESSION["username"] = $user->screen_name;
-          $_SESSION["consumerid"] = $userid;
-          $_SESSION["twitter_id"] = $user->id;
-          $_SESSION["name"] = $user->name;
-          $_SESSION["picture"] = $user->profile_image_url;
-          $_SESSION["cons_in"] = true;
-          $_SESSION["e_msg"] = "";
-        }
-      }
-    }
+    echo "Consumer olarak dönüş";
   }
   // Now check if user exist with same email ID
   $sql = "SELECT id from users where twitter_id = :id";
