@@ -59,7 +59,8 @@ p {
 }
 .profile-img {
     border-radius: 50%;
-    width: 41px;
+    width: 50px;
+		float: left;
 }
 .banner {
     background-color: #4CAF50;
@@ -69,6 +70,7 @@ p {
 }
 .banner a {
 	padding-left: 5px;
+	font-size: 15px;
 }
 .menu-icon {
     width: 10%;
