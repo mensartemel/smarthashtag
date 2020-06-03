@@ -59,7 +59,7 @@ if ($result > 0) {
 
   if ($success) {
     // Now check if consumer exist with same ID
-    $sql = "SELECT id from consumers where twitter_id = :id";
+    $sql = "SELECT twitter_id from consumers where twitter_id = :id";
     try {
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":id", $user->id);
@@ -86,6 +86,7 @@ if ($result > 0) {
         $userid = $stmt->lastInsertId();
         $result = $stmt->rowCount();
         if ($result > 0) {
+          echo "New user.</br>";
           $_SESSION["username"] = $user->screen_name;
           $_SESSION["consumerid"] = $userid;
           $_SESSION["twitter_id"] = $user->id;
