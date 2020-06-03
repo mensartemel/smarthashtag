@@ -35,6 +35,12 @@
     $stmt->execute();
     $result = $stmt->fetch();
     echo "Consumers: ".$result['count']."";
+    $sql = "SELECT COUNT(*) AS count FROM consumer_results WHERE appid = :appid";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":appid", $appid);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    echo "Consumer Results: ".$result['count']."";
   ?>
 </div>
 
