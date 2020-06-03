@@ -253,7 +253,6 @@ button.deleteapp {
 button.deleteapp:hover {
 	background-color: #ff8a8a;
 	color: #000000;
-	font-weight: bold;
 }
 .button {
   background-color: #4caf50;
@@ -267,8 +266,7 @@ button.deleteapp:hover {
   cursor: pointer;
 }
 .button:hover {
-	background-color: #ff8a8a;
+	background-color: #1e4420;
 	color: #000000;
-	font-weight: bold;
 	text-decoration: none;
 }
