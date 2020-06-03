@@ -5,18 +5,15 @@
 </div>
 
 <div id="Details" class="tabcontent">
-  <h3>London</h3>
-  <p>London is the capital city of England.</p>
+  <a>This is the app details page.</a>
 </div>
 
 <div id="Services" class="tabcontent">
-  <h3>Paris</h3>
-  <p>Paris is the capital of France.</p>
+  <a>This is the app services page.</a>
 </div>
 
 <div id="Settings" class="tabcontent">
-  <h3>Tokyo</h3>
-  <p>Tokyo is the capital of Japan.</p>
+  <a>This is the app settings page.</a>
 </div>
 
 <script>
