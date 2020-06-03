@@ -42,7 +42,7 @@ $twUserData = array(
 
 if ($success) {
 
-  if ($_SESSION["is_consumer"] = true) {
+  if ($_SESSION["is_consumer"] == true) {
     echo "Consumer olarak dönüş";
   }
   // Now check if user exist with same email ID
