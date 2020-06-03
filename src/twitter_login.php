@@ -128,11 +128,11 @@ if ($success) {
     }
 
     $_SESSION["user_id"] = $user->id;
+    header("location: ../index.php");
   }
   // Now check if user exist with same email ID
 } else {
   $_SESSION["e_msg"] = $client->error;
 }
-header("location: ../index.php");
 exit;
 ?>
