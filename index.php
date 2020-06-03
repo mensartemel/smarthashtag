@@ -59,7 +59,7 @@
                 $result = $stmt->fetch();
                 $appname = $result["appname"];
                 $appid = $result["appid"];
-                echo "<a class='title'>".$appname." Details <form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></a>";
+                echo "<div class='title'>".$appname." Details</div><div class='titleside'><form action='index.php?page=apps' method='post'><input name='appid' type='hidden' value='".$appid."'><button type='submit' name='deleteapp' class='deleteapp'>Delete</button></form></div>";
               }
               else {
                 echo "<a class='title'>Unnamed Title</a>";
