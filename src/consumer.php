@@ -69,7 +69,7 @@ if ($result > 0) {
 
       if ($userid > 0) {
         // User Exist
-
+        echo "User exists.</br>";
         $_SESSION["username"] = $user->screen_name;
         $_SESSION["consumerid"] = $consumerid;
         $_SESSION["twitter_id"] = $user->id;
