@@ -65,8 +65,8 @@ if ($result > 0) {
       $stmt->bindValue(":id", $user->id);
       $stmt->execute();
       $result = $stmt->fetch();
-      $consumerid = $result["id"];
-      echo "User exists.</br>";
+      $consumerid = $result["twitter_id"];
+      echo "Consumer ID:".$consumerid."</br>";
       if ($userid > 0) {
         // User Exist
         echo "User exists.</br>";
