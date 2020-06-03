@@ -1,3 +1,15 @@
+<?php
+  $appid = $_GET['appid'];
+  $userid = $_GET['userid'];
+  $sql = "SELECT * FROM applications, users WHERE applications.appid = 31 AND users.id = 21 AND applications.userid = users.id";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":id", $appid);
+  $stmt->execute();
+  $result = $stmt->rowCount();
+  if ($result == 0) {
+    header("location:index.php?page=apps");
+  }
+?>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
   <button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
