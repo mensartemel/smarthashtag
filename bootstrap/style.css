@@ -198,9 +198,16 @@ body{
     padding-top: 15px;
     padding-left: 10px;
 }
-a.title {
+.title a {
     font-size: 30px;
     color: #eeeeee;
+}
+.title {
+	float: left;
+}
+.titleside {
+    float: right;
+    margin-right: 10px;
 }
 .content {
     padding: 10px;
@@ -233,4 +240,13 @@ img.appdetail {
 }
 .appalert {
     padding: 5px 5px 5px 10px;
+}
+button.deleteapp {
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    font-size: 15px;
+    display: inline-block;
+    background-color: #ec0b0b;
+    color: #eeeeee;
 }
