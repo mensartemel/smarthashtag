@@ -9,9 +9,18 @@ $stmt = $DB->prepare($sql);
 $stmt->bindValue(":appkey", $appkey);
 $stmt->execute();
 $result = $stmt->rowCount();
-echo $result;
+echo $result."</br>";
+
 if ($result > 0) {
-  /*
+
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":appkey", $appkey);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $appid = $result['appid'];
+
+  echo $appid."</br>";
+
   $client = new oauth_client_class;
   $client->debug = 1;
   $client->debug_http = 1;
@@ -49,42 +58,40 @@ if ($result > 0) {
           );
 
   if ($success) {
-    // Now check if user exist with same email ID
-    $sql = "SELECT id from users where twitter_id = :id";
+    // Now check if consumer exist with same ID
+    $sql = "SELECT id from consumers where twitter_id = :id";
     try {
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":id", $user->id);
       $stmt->execute();
       $result = $stmt->fetch();
-      $userid = $result["id"];
+      $consumerid = $result["id"];
 
       if ($userid > 0) {
         // User Exist
 
         $_SESSION["username"] = $user->screen_name;
-        $_SESSION["userid"] = $userid;
+        $_SESSION["consumerid"] = $consumerid;
         $_SESSION["twitter_id"] = $user->id;
         $_SESSION["name"] = $user->name;
         $_SESSION["picture"] = $user->profile_image_url;
-        $_SESSION["logged_in"] = true;
+        $_SESSION["cons_in"] = true;
       } else {
         // New user, Insert in database
-        $sql = "INSERT INTO `users` (`username`, `twitter_id`, `name`, `picture`) VALUES " . "( :username, :twitter_id, :name, :picture)";
+        $sql = "INSERT INTO `consumers` (`twitter_id`, `appid`) VALUES " . "( :twitter_id, :appid)";
         $stmt = $DB->prepare($sql);
-        $stmt->bindValue(":username", $user->name);
+        $stmt->bindValue(":appid", $appid);
         $stmt->bindValue(":twitter_id", $user->id);
-        $stmt->bindValue(":name", $user->screen_name);
-        $stmt->bindValue(":picture", $user->profile_image_url);
         $stmt->execute();
-        $userid = $conn->lastInsertId();
+        $userid = $stmt->lastInsertId();
         $result = $stmt->rowCount();
         if ($result > 0) {
           $_SESSION["username"] = $user->screen_name;
-          $_SESSION["userid"] = $userid;
+          $_SESSION["consumerid"] = $userid;
           $_SESSION["twitter_id"] = $user->id;
           $_SESSION["name"] = $user->name;
           $_SESSION["picture"] = $user->profile_image_url;
-          $_SESSION["logged_in"] = true;
+          $_SESSION["cons_in"] = true;
           $_SESSION["e_msg"] = "";
         }
       }
@@ -96,8 +103,9 @@ if ($result > 0) {
   } else {
     $_SESSION["e_msg"] = $client->error;
   }
-  header("location: ../index.php");
-  exit; */
+  // header("location: ../index.php");
+  echo "No application found!</br>";
+  exit;
 }
 else {
   echo "No application found!";

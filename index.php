@@ -1,7 +1,7 @@
 <?php
   $dir = dirname(__FILE__);
   require_once $dir . '/src/config.php';
-  if ($_SESSION["twitter_id"] != true) {
+  if ($_SESSION["logged_in"] != true) {
     header("location:login.php");
   }
   $profile_pic = $_SESSION["picture"];
