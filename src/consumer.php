@@ -61,8 +61,8 @@ if ($result > 0) {
 
   if ($success) {
     // Now check if consumer exist with same ID
-    $sql = "SELECT id from consumers where twitter_id = :id";
     try {
+      $sql = "SELECT id from consumers where twitter_id = :id";
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":id", $user->id);
       $stmt->execute();
