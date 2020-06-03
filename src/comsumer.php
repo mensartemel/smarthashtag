@@ -8,9 +8,9 @@ $sql = "SELECT appid from applications where appkey = :appkey";
 $stmt = $DB->prepare($sql);
 $stmt->bindValue(":appkey", $appkey);
 $stmt->execute();
-$result = $stmt->fetch();
-$userid = $result["id"];
-
+$result = $stmt->rowCount();
+echo $result;
+/*
 $client = new oauth_client_class;
 $client->debug = 1;
 $client->debug_http = 1;
@@ -96,5 +96,5 @@ if ($success) {
   $_SESSION["e_msg"] = $client->error;
 }
 header("location: ../index.php");
-exit;
+exit; */
 ?>
