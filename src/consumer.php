@@ -67,7 +67,7 @@ if ($result > 0) {
       $result = $stmt->fetch();
       $consumerid = $result["id"];
       echo "Consumer ID:".$consumerid."</br>";
-      if ($userid > 0) {
+      if ($consumerid > 0) {
         // User Exist
         echo "User exists.</br>";
         $_SESSION["username"] = $user->screen_name;

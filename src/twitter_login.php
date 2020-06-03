@@ -68,9 +68,15 @@ if ($success) {
       $stmt->bindValue(":name", $user->screen_name);
       $stmt->bindValue(":picture", $user->profile_image_url);
       $stmt->execute();
-      $userid = $conn->lastInsertId();
       $result = $stmt->rowCount();
       if ($result > 0) {
+        $sql = "SELECT id from users where twitter_id = :id";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindValue(":id", $user->id);
+        $stmt->execute();
+        $result = $stmt->fetch();
+        $userid = $result["id"];
+        
         $_SESSION["username"] = $user->screen_name;
         $_SESSION["userid"] = $userid;
         $_SESSION["twitter_id"] = $user->id;
