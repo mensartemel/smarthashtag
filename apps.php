@@ -1,7 +1,9 @@
 <div class="panel panel-default" id="alert" onclick="hideContent()">
     <?php
-			echo $_SESSION["e_msg"];
-			$_SESSION["e_msg"] = null;
+			if ($_SESSION["e_msg"] != null) {
+				echo "<div class='appalert'>".$_SESSION["e_msg"]."</div>";
+				$_SESSION["e_msg"] = null;
+			}
 		?>
 </div>
 <?php
