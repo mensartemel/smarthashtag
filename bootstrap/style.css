@@ -241,7 +241,7 @@ img.appdetail {
 .appalert {
     padding: 5px 5px 5px 10px;
 }
-button.deleteapp {
+button.deleteapp .button{
     border: none;
     padding: 5px 15px;
     cursor: pointer;
