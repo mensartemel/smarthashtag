@@ -83,7 +83,6 @@ if ($result > 0) {
         $stmt->bindValue(":appid", $appid);
         $stmt->bindValue(":twitter_id", $user->id);
         $stmt->execute();
-        $userid = $stmt->lastInsertId();
         $result = $stmt->rowCount();
         if ($result > 0) {
           echo "New user.</br>";
