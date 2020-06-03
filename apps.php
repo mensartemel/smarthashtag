@@ -1,12 +1,13 @@
 <?php
 if (isset($_POST["deleteapp"])) {
+  $appid = $_POST["appid"];
   $sql = "DELETE FROM applications WHERE appid = :appid";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appid", $appid);
   $stmt->execute();
   $result = $stmt->rowCount();
   if ($result > 0) {
-    $_SESSION["e_msg"] = "Application not found!";
+    $_SESSION["e_msg"] = "Application deleted successfully!";
     header("location:index.php?page=apps");
   }
   else {
