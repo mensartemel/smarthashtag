@@ -7,7 +7,40 @@
   $profile_pic = $_SESSION["picture"];
   $name = $_SESSION["name"];
 ?>
+<?php
+function generateKey($length = 26) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $twitter_id = $_SESSION["twitter_id"];
+  $appname = $_POST["appname"];
+  $desc = $_POST["desc"];
+  $key = generateKey();
 
+  $sql = "SELECT id from users where twitter_id = :id";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":id", $twitter_id);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $userid = $result["id"];
+
+  $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`) VALUES " . "( :appname, :description, :appkey, :userid)";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":appname", $appname);
+  $stmt->bindValue(":description", $desc);
+  $stmt->bindValue(":appkey", $key);
+  $stmt->bindValue(":userid", $userid);
+  $stmt->execute();
+  $_SESSION["e_msg"] = "Application created successfully!";
+  header("location:index.php?page=apps");
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,7 +73,7 @@
             if(isset($_GET['page']))
             {
               if ($_GET['page'] == "apps") {
-                echo "<div class='title'><a>Applications</a></div><div class='titleside'><a class='button' href='index.php?page=addapp'>Add Application</a></div>";
+                echo "<div class='title'><a>Applications</a></div><div class='titleside'><button id='myBtn2' name='addapp' class='button'>Add Application</button></div>";
               }
               elseif ($_GET['page'] == "addapp") {
                 echo "<div class='title'><a>Add New Application</a></div>";
@@ -116,6 +149,20 @@
     </div>
   </div>
 </div>
+<div id="myModal2" class="modal2">
+  <div class="modal-content2">
+    <div class="modal-header2">
+      <span class="close2">&times;</span>
+      <h2>Add Application</h2>
+    </div>
+    <div class="modal-body2">
+      <form method="post" action="index.php?page=apps">
+      <input type="text" class="appname" placeholder="New Application" name="appname">
+      <input type="text" class="appinfo" placeholder="Description" name="desc">
+      <button type="submit" class="addapp">Add</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
 <script>
@@ -131,6 +178,20 @@ span.onclick = function() {
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+  }
+}
+var modal2 = document.getElementById("myModal2");
+var btn2 = document.getElementById("myBtn2");
+var span2 = document.getElementsByClassName("close2")[0];
+btn2.onclick = function() {
+  modal2.style.display = "block";
+}
+span2.onclick = function() {
+  modal2.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == modal2) {
+    modal2.style.display = "none";
   }
 }
 </script>
