@@ -36,7 +36,7 @@ if (isset($_POST["deleteapp"])) {
 		echo "<a>".$row['appname']."</a>";
 		echo "<div class='appdesc'>".$row['description']."</div>";
 		echo "<div class='appdesc'>".$row['description']."</div>";
-		echo "<button class='button' href='index.php?page=appdetail&appid=".$row['appid']."'>Details</button>";
+		echo "<button class='button' onclick='location.href='index.php?page=appdetail&appid=".$row['appid']."';''>Details</button>";
 		echo "</div>";
   }
 ?>
