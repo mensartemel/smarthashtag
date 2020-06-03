@@ -19,7 +19,17 @@
 </div>
 
 <div id="Details" class="tabcontent">
-  <a>This is the app details page.</a>
+  <?php
+    $appid = $_GET['appid'];
+    $userid = $_SESSION['userid'];
+    $sql = "SELECT * FROM applications WHERE appid = :appid";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":appid", $appid);
+    $stmt->execute();
+    $result = $stmt->fetch();
+    echo "Consumer URL:</br>";
+    echo "https://smarthashtag.herokuapp.com/consumer.php?appkey=".$result["appkey"]."";
+  ?>
 </div>
 
 <div id="Services" class="tabcontent">
