@@ -266,3 +266,8 @@ button.deleteapp:hover {
   font-size: 15px;
   cursor: pointer;
 }
+.button:hover {
+	background-color: #ff8a8a;
+	color: #000000;
+	font-weight: bold;
+}
