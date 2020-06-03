@@ -1,5 +1,8 @@
 <div class="panel panel-default" id="alert" onclick="hideContent()">
-    <?php echo $_SESSION["e_msg"]; ?>
+    <?php
+			echo $_SESSION["e_msg"];
+			$_SESSION["e_msg"] = null;
+		?>
 </div>
 <?php
 	$userid = $_SESSION["userid"];
