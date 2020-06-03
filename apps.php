@@ -83,7 +83,7 @@ if (isset($_POST["deleteapp"])) {
       <form method="post" action="index.php?page=apps">
       <input type="text" class="appname" placeholder="New Application" name="appname">
       <input type="text" class="appinfo" placeholder="Description" name="desc">
-      <button type="submit" class="addapp">Add</button>
+      <button type="submit" class="addapp" name="addapp">Add</button>
     </div>
   </div>
 </div>
