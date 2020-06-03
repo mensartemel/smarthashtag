@@ -4,17 +4,17 @@
   <button class="tablinks" onclick="openCity(event, 'Tokyo')">Settings</button>
 </div>
 
-<div id="London" class="tabcontent">
+<div id="Details" class="tabcontent">
   <h3>London</h3>
   <p>London is the capital city of England.</p>
 </div>
 
-<div id="Paris" class="tabcontent">
+<div id="Services" class="tabcontent">
   <h3>Paris</h3>
   <p>Paris is the capital of France.</p>
 </div>
 
-<div id="Tokyo" class="tabcontent">
+<div id="Settings" class="tabcontent">
   <h3>Tokyo</h3>
   <p>Tokyo is the capital of Japan.</p>
 </div>
