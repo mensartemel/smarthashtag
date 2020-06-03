@@ -1,7 +1,7 @@
 <?php
 if (isset($_POST["deleteapp"])) {
   $appid = $_POST["appid"];
-  $sql = "DELETE FROM applications WHERE appid = :appid";
+  $sql = "CALL DeleteApp(:appid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appid", $appid);
   $stmt->execute();
