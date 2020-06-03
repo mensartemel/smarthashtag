@@ -41,6 +41,10 @@ $twUserData = array(
         );
 
 if ($success) {
+
+  if ($_SESSION["is_consumer"] = true) {
+    echo "Consumer olarak dönüş"
+  }
   // Now check if user exist with same email ID
   $sql = "SELECT id from users where twitter_id = :id";
   try {
@@ -76,7 +80,7 @@ if ($success) {
         $stmt->execute();
         $result = $stmt->fetch();
         $userid = $result["id"];
-        
+
         $_SESSION["username"] = $user->screen_name;
         $_SESSION["userid"] = $userid;
         $_SESSION["twitter_id"] = $user->id;
@@ -94,6 +98,6 @@ if ($success) {
 } else {
   $_SESSION["e_msg"] = $client->error;
 }
-header("location: ../index.php");
+//header("location: ../index.php");
 exit;
 ?>

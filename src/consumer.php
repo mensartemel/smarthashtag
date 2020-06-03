@@ -13,6 +13,8 @@ echo $result."</br>";
 
 if ($result > 0) {
 
+  $_SESSION["is_consumer"] = true;
+
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appkey", $appkey);
   $stmt->execute();
