@@ -34,13 +34,13 @@
     $stmt->bindValue(":appid", $appid);
     $stmt->execute();
     $result = $stmt->fetch();
-    echo "Consumers: ".$result['count']."";
+    echo "Consumers: ".$result['count']."</br>";
     $sql = "SELECT COUNT(*) AS count FROM consumer_results WHERE appid = :appid";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appid", $appid);
     $stmt->execute();
     $result = $stmt->fetch();
-    echo "Consumer Results: ".$result['count']."";
+    echo "Consumer Results: ".$result['count']."</br>";
   ?>
 </div>
 
