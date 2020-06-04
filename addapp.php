@@ -40,6 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <label for="desc">Description:</label>
     <input type="text" placeholder="Description" name="desc">
 
-    <button type="submit">Add</button>
+    <button class="appform" type="submit">Add</button>
   </form>
 </div>
