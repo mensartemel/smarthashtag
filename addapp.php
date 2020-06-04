@@ -9,6 +9,13 @@ function generateKey($length = 26) {
     return $randomString;
 }
 
+function test_input($data) {
+  $data = trim($data);
+  $data = stripslashes($data);
+  $data = htmlspecialchars($data);
+  return $data;
+}
+
 $nameErr = $descErr = $urlErr = "";
 $name = $desc = $url = "";
 
@@ -77,7 +84,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" placeholder="http://..." name="callbackurl">
     <label for="desc">Description:</label><span class="error"> <?php echo $descErr;?></span>
     <input type="text" placeholder="Description" name="desc">
-<?php echo $descErr ?>
     <button class="appform" type="submit">Add</button>
   </form>
 </div>
