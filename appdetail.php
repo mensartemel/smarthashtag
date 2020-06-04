@@ -72,9 +72,9 @@
       echo $appid."</br>";
       $sql = "UPDATE applications SET appname = :appname, description = :appdesc, callbackurl = :appurl WHERE appid = :appid";
       $stmt = $DB->prepare($sql);
-      $stmt->bindValue(":appname", $appname);
-      $stmt->bindValue(":appdesc", $appdesc);
-      $stmt->bindValue(":appurl", $appurl);
+      $stmt->bindValue(":appname", $name);
+      $stmt->bindValue(":appdesc", $desc);
+      $stmt->bindValue(":appurl", $url);
       $stmt->bindValue(":appid", $appid);
       $stmt->execute();
       $count = $stmt->rowCount();
