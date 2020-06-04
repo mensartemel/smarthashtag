@@ -8,10 +8,9 @@ function generateKey($length = 26) {
     }
     return $randomString;
 }
+$nameErr = $descErr = $urlErr = "";
+$name = $desc = $url = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
-  $nameErr = $descErr = $urlErr = "";
-  $name = $desc = $url = "";
 
   if (empty($_POST["appname"])) {
     $nameErr = "Name is required";
