@@ -90,7 +90,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
   <button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
-  <button class="tablinks" onclick="openCity(event, 'Settings')">Settings</button>
+  <button class="tablinks" onclick="openCity(event, 'Settings')" id="editOpen">Settings</button>
 </div>
 
 <div id="Details" class="tabcontent">
@@ -142,15 +142,14 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
-  var bool = <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {return true;} else {return false;} ?>;
-  if (bool = true) {
-    tablinks[3].className = tablinks[3].className.replace(" active", "");
-    document.getElementById('Settings').style.display = "block";
-  }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-// Get the element with id="defaultOpen" and click on it
-document.getElementById("defaultOpen").click();
+<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {$bool = true;} else {$bool = false;} ?>
+var bool = <?php echo $bool; ?>;
+if (bool) {
+  document.getElementById("editOpen").click();
+} else {
+  document.getElementById("defaultOpen").click();
+}
 </script>
