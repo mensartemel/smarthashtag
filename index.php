@@ -7,10 +7,6 @@
   $profile_pic = $_SESSION["picture"];
   $name = $_SESSION["name"];
 ?>
-<<<<<<< HEAD
-=======
-
->>>>>>> parent of b70b9e1... asd
 <!DOCTYPE html>
 <html>
 <head>
@@ -43,11 +39,8 @@
             if(isset($_GET['page']))
             {
               if ($_GET['page'] == "apps") {
-<<<<<<< HEAD
                 echo "<div class='title'><a>Applications</a></div><div class='titleside'><button id='myBtn2' onclick='openaddapp()' name='addapp' class='button'>Add Application</button></div>";
-=======
                 echo "<div class='title'><a>Applications</a></div><div class='titleside'><a class='button' href='index.php?page=addapp'>Add Application</a></div>";
->>>>>>> parent of b70b9e1... asd
               }
               elseif ($_GET['page'] == "addapp") {
                 echo "<div class='title'><a>Add New Application</a></div>";
@@ -123,10 +116,6 @@
     </div>
   </div>
 </div>
-<<<<<<< HEAD
-
-=======
->>>>>>> parent of b70b9e1... asd
 </body>
 </html>
 <script>
