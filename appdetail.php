@@ -29,6 +29,7 @@
     return $data;
   }
 
+  $bool = false;
   $nameErr = $descErr = $urlErr = "";
   $name = $desc = $url = "";
   $message = "";
