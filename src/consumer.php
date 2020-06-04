@@ -113,8 +113,6 @@ if ($result > 0) {
   } else {
     $_SESSION["e_msg"] = $client->error;
   }
-  // header("location: ../index.php");
-  exit;
 }
 else {
   echo "No application found!";
