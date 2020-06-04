@@ -125,7 +125,7 @@ else {
     <div class="shform">
       <form name="add_keyword" id="add_keyword">
 				<div class="table-responsive">
-					<table class="table table-bordered" id="dynamic_field">
+					<table class="table" id="dynamic_field">
 						<tr>
 							<td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td>
 							<td class="cl-button"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
