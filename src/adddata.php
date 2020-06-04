@@ -14,7 +14,7 @@ if($number >= 1)
   $stmt->bindValue(":profilesearch", $profilesearch);
   $stmt->bindValue(":consumerid", $consumerid);
   $stmt->execute();
-  $smarthashtagid = $stmt->lastInsertId();
+  //$smarthashtagid = $stmt->lastInsertId();
 /*
 	for($i=0; $i<$number; $i++)
 	{
