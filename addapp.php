@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["appname"])) {
     $nameErr = "Name is required";
-    echo "Called1";
+    echo $nameErr;
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["callbackurl"])) {
     $urlErr = "Callback URL is required";
-    echo "Called2";
+    echo $urlErr;
   } else {
     $url = test_input($_POST["callbackurl"]);
     // check if URL address syntax is valid
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["desc"])) {
     $descErr = "Description is required";
-    echo "Called3";
+    echo $descErr;
   } else {
     $desc = test_input($_POST["desc"]);
     // check if name only contains letters and whitespace
@@ -73,11 +73,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 <div class="formapp">
   <form method="post" action="">
-    <label for="appname">Application Name:</label><span class="error">* <?php echo $nameErr;?></span>
+    <label for="appname">Application Name:</label><span class="error"> <?php echo $nameErr;?></span>
     <input type="text" placeholder="New Application" name="appname">
-    <label for="appname">Callbaclk URL:</label><span class="error">* <?php echo $urlErr;?></span>
+    <label for="appname">Callbaclk URL:</label><span class="error"> <?php echo $urlErr;?></span>
     <input type="text" placeholder="http://..." name="callbackurl">
-    <label for="desc">Description:</label><span class="error">* <?php echo $descErr;?></span>
+    <label for="desc">Description:</label><span class="error"> <?php echo $descErr;?></span>
     <input type="text" placeholder="Description" name="desc">
 
     <button class="appform" type="submit">Add</button>
