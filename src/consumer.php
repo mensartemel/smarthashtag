@@ -127,8 +127,8 @@ else {
 				<div class="table-responsive">
 					<table class="table table-bordered" id="dynamic_field">
 						<tr>
-							<td><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td>
-							<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
+							<td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td>
+							<td class="cl-button"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 						</tr>
 					</table>
 					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
@@ -142,7 +142,7 @@ $(document).ready(function(){
 	var i=1;
 	$('#add').click(function(){
 		i++;
-		$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+		$('#dynamic_field').append('<tr id="row'+i+'"><td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td class="cl-button"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
 	});
 
 	$(document).on('click', '.btn_remove', function(){
