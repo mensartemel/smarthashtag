@@ -20,21 +20,3 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-
-
-/* Jquery Disable Button if Textarea is empty */
-
-$(document).ready(function () {
-    $('button[type="submit"]').attr('disabled', true);
-    $('input[type="text"],textarea').on('keyup', function () {
-        var text_value = $('input[name="appname"]').val();
-        var text_value2 = $('input[name="callbackurl"]').val();
-        var text_value3 = $('input[name="desc"]').val();
-        $('input[type="submit"]').attr('disabled', true);
-        if (text_value != '' || text_value2 != '' || text_value3 != '') {
-            $('button[type="submit"]').attr('disabled', false);
-        } else {
-            $('button[type="submit"]').attr('disabled', true);
-        }
-    });
-});
