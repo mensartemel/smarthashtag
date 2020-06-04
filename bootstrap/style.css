@@ -447,3 +447,11 @@ button.appform[disabled]:hover{
 td.cl-input {
 	width: 85%;
 }
+.table td {
+    padding: 0.75rem;
+    vertical-align: top;
+    border-top: none;
+}
+td.cl-chackbox {
+    padding-top: 20px;
+}
