@@ -127,7 +127,8 @@ else {
 				<div class="table-responsive">
 					<table class="table" id="dynamic_field">
 						<tr>
-							<td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /><input type="checkbox" id="profilesearch" name="profilesearch" value="true"><label for="profilesearch">Profile Search</label><br></td>
+							<td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /><br></td>
+              <td class="cl-chackbox"><input type="checkbox" id="profilesearch" name="profilesearch" value="true"><label for="profilesearch">Profile Search</label><br></td>
 							<td class="cl-button"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 						</tr>
 					</table>
@@ -144,7 +145,7 @@ $(document).ready(function(){
 	$('#add').click(function(){
 		i++;
     if (i <= 5) {
-      $('#dynamic_field').append('<tr id="row'+i+'"><td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td class="cl-button"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+      $('#dynamic_field').append('<tr id="row'+i+'"><td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td class="cl-chackbox"><input type="checkbox" id="profilesearch" name="profilesearch" value="true"><label for="profilesearch">Profile Search</label><br></td><td class="cl-button"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
     } else {
       document.getElementById("error").innerHTML = "You cannot add more than 5 keywords";
     }
@@ -159,11 +160,11 @@ $(document).ready(function(){
 		$.ajax({
 			url:"name.php",
 			method:"POST",
-			data:$('#add_name').serialize(),
+			data:$('#add_keyword').serialize(),
 			success:function(data)
 			{
 				alert(data);
-				$('#add_name')[0].reset();
+				$('#add_keyword')[0].reset();
 			}
 		});
 	});
