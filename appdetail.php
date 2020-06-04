@@ -153,3 +153,4 @@ if (bool) {
   document.getElementById("defaultOpen").click();
 }
 </script>
+<?php echo $bool; ?>
