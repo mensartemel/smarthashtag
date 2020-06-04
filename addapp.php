@@ -8,8 +8,10 @@ function generateKey($length = 26) {
     }
     return $randomString;
 }
+
 $nameErr = $descErr = $urlErr = "";
 $name = $desc = $url = "";
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["appname"])) {
@@ -70,9 +72,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   <form method="post" action="">
     <label for="appname">Application Name:</label><span class="error">* <?php echo $nameErr;?></span>
     <input type="text" placeholder="New Application" name="appname">
-    <label for="appname">Callbaclk URL:</label><span class="error">* <?php echo $nameErr;?></span>
+    <label for="appname">Callbaclk URL:</label><span class="error">* <?php echo $urlErr;?></span>
     <input type="text" placeholder="http://..." name="callbackurl">
-    <label for="desc">Description:</label><span class="error">* <?php echo $nameErr;?></span>
+    <label for="desc">Description:</label><span class="error">* <?php echo $descErr;?></span>
     <input type="text" placeholder="Description" name="desc">
 
     <button class="appform" type="submit">Add</button>
