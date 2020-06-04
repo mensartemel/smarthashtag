@@ -1,13 +1,28 @@
 <?php
+require('config.php');
+
 $number = count($_POST["keyword"]);
-if($number > 1)
+if($number >= 1)
 {
 	for($i=0; $i<$number; $i++)
 	{
 		if(trim($_POST["keyword"][$i] != ''))
 		{
-			// $sql = "INSERT INTO tbl_name(name) VALUES('".mysqli_real_escape_string($connect, $_POST["name"][$i])."')";
-			echo $_POST["keyword"][$i]." ". $_POST["profilesearch"][$i] ."</br>";
+      $sql = "SELECT * FROM keywords WHERE keyword ="." :keyword";
+      $stmt = $DB->prepare($sql);
+      $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
+      $stmt->execute();
+      $result = $stmt->fetch();
+      if ($result > 0) {
+        // code...
+      }
+      else {
+        $sql = "INSERT INTO keywords ('keyword') VALUES (:keyword)";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
+        $stmt->execute();
+        $result = $stmt->rowCount();
+      }
 		}
 	}
 }

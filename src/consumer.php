@@ -132,6 +132,14 @@ else {
 							<td class="cl-button"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 						</tr>
 					</table>
+          <label for="cars">Language:</label>
+          <select id="lang" name="lang">
+            <option value="en">English</option>
+            <option value="ja">Japanese</option>
+            <option value="ar">Arabic</option>
+            <option value="tr">Turkish</option>
+            <option value="pt">Portuguese</option>
+          </select>
           <span class="error" id="error"></span>
 					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
 				</div>
