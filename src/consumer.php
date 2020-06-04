@@ -159,7 +159,7 @@ $(document).ready(function(){
 
 	$('#submit').click(function(){
 		$.ajax({
-			url:"name.php",
+			url:"adddata.php",
 			method:"POST",
 			data:$('#add_keyword').serialize(),
 			success:function(data)
