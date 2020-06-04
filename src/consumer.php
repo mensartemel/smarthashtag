@@ -114,6 +114,7 @@ else {
   echo "No application found!";
 }
 ?>
+<!DOCTYPE html>
 <html>
   <head>
     <title><?php $_SESSION["name"] ?></title>
