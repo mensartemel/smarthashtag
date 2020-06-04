@@ -15,7 +15,7 @@ if($number >= 1)
   $stmt->bindValue(":consumerid", $consumerid);
   $stmt->execute();
   $smarthashtagid = $stmt->lastInsertId();
-
+/*
 	for($i=0; $i<$number; $i++)
 	{
 		if(trim($_POST["keyword"][$i] != ''))
@@ -58,7 +58,7 @@ if($number >= 1)
         }
       }
 		}
-	}
+	} */
 }
 else
 {
