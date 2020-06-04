@@ -16,7 +16,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["appname"])) {
     $nameErr = "Name is required";
-    echo $nameErr;
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
@@ -27,7 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["callbackurl"])) {
     $urlErr = "Callback URL is required";
-    echo $urlErr;
   } else {
     $url = test_input($_POST["callbackurl"]);
     // check if URL address syntax is valid
@@ -38,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["desc"])) {
     $descErr = "Description is required";
-    echo $descErr;
   } else {
     $desc = test_input($_POST["desc"]);
     // check if name only contains letters and whitespace
@@ -59,17 +56,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->fetch();
     $userid = $result["id"];
 
-    $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`) VALUES " . "( :appname, :description, :appkey, :userid)";
+    $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`, `callbackurl`) VALUES " . "( :appname, :description, :appkey, :userid, :callbackurl)";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appname", $appname);
     $stmt->bindValue(":description", $desc);
     $stmt->bindValue(":appkey", $key);
     $stmt->bindValue(":userid", $userid);
+    $stmt->bindValue(":callbackurl", $url);
     $stmt->execute();
     $_SESSION["e_msg"] = "Application created successfully!";
     header("location:index.php?page=apps");
   }
-  echo $descErr;
 }
 ?>
 <div class="formapp">
