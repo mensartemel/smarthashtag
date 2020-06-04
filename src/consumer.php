@@ -118,7 +118,8 @@ else {
     <title><?php $_SESSION["name"] ?></title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../bootstrap/style.css">
-    <script src="bootstrap/script.js"></script>
+    <script src="../bootstrap/jquery-3.5.1.min.js"></script>
+    <script src="../bootstrap/script.js"></script>
   </head>
   <body>
     <div class="form">
