@@ -145,7 +145,7 @@ function openCity(evt, cityName) {
 document.getElementById("defaultOpen").click();
 <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {$bool = true;} else {$bool = false;} ?>
 var bool = <?php echo $bool; ?>;
-if (bool) {
+if (bool == true) {
   document.getElementById("editOpen").click();
 }
 </script>
