@@ -11,6 +11,78 @@
     $_SESSION["e_msg"] = "Application not found!";
     header("location:index.php?page=apps");
   }
+
+  $sql = "SELECT * FROM applications WHERE appid = :appid";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":appid", $appid);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $appkey = $result["appkey"];
+  $appname = $result["appname"];
+  $appdesc = $result["description"];
+  $appurl = $result["callbackurl"];
+
+  function test_input($data) {
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+  }
+
+  $nameErr = $descErr = $urlErr = "";
+  $name = $desc = $url = "";
+  $message = "";
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    if (empty($_POST["appname"])) {
+      $name = $appname;
+    } else {
+      $name = test_input($_POST["name"]);
+      // check if name only contains letters and whitespace
+      if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
+        $nameErr = "Only letters and white space allowed";
+      }
+    }
+
+    if (empty($_POST["callbackurl"])) {
+      $url = $appurl;
+    } else {
+      $url = test_input($_POST["callbackurl"]);
+      // check if URL address syntax is valid
+      if (!preg_match("/\b(?:(?:https?|ftp):\/\/|www\.)[-a-z0-9+&@#\/%?=~_|!:,.;]*[-a-z0-9+&@#\/%=~_|]/i",$url)) {
+        $urlErr = "Invalid URL";
+      }
+    }
+
+    if (empty($_POST["desc"])) {
+      $desc = $appdesc;
+    } else {
+      $desc = test_input($_POST["desc"]);
+      // check if name only contains letters and whitespace
+      if (!preg_match("/^[a-zA-Z ]*$/",$desc)) {
+        $descErr = "Only letters and white space allowed";
+      }
+    }
+    if ($nameErr == "" && $urlErr == "" && $descErr == "") {
+      $twitter_id = $_SESSION["twitter_id"];
+
+      $sql = "UPDATE applications SET appname = :appname, appdesc = :appdesc, appurl = :appurl WHERE appid = :appid";
+      $stmt = $DB->prepare($sql);
+      $stmt->bindValue(":appname", $appname);
+      $stmt->bindValue(":appdesc", $appdesc);
+      $stmt->bindValue(":appurl", $appurl);
+      $stmt->bindValue(":appid", $appid);
+      $stmt->execute();
+      $count = $stmt->rowCount();
+      if ($count > 0) {
+        $message = "Changes successfully saved";
+      }
+      else {
+        $message = "An error occurred while saving changes";
+      }
+    }
+  }
 ?>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
@@ -20,15 +92,8 @@
 
 <div id="Details" class="tabcontent">
   <?php
-    $appid = $_GET['appid'];
-    $userid = $_SESSION['userid'];
-    $sql = "SELECT * FROM applications WHERE appid = :appid";
-    $stmt = $DB->prepare($sql);
-    $stmt->bindValue(":appid", $appid);
-    $stmt->execute();
-    $result = $stmt->fetch();
     echo "Consumer URL:</br>";
-    echo "https://smarthashtag.herokuapp.com/src/consumer.php?appkey=".$result["appkey"]."</br>";
+    echo "https://smarthashtag.herokuapp.com/src/consumer.php?appkey=".$appkey."</br>";
     $sql = "SELECT COUNT(*) AS count FROM consumers WHERE appid = :appid";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appid", $appid);
@@ -49,7 +114,18 @@
 </div>
 
 <div id="Settings" class="tabcontent">
-  <a>This is the app settings page.</a>
+  <span class="error"> <?php echo $message;?></span>
+  <div class="formapp">
+    <form method="post" action="">
+      <label for="appname">Application Name:</label><span class="error"> <?php echo $nameErr;?></span>
+      <input type="text" placeholder="<?php echo $appname; ?>" name="appname">
+      <label for="appname">Callbaclk URL:</label><span class="error"> <?php echo $urlErr;?></span>
+      <input type="text" placeholder="<?php echo $appurl; ?>" name="callbackurl">
+      <label for="desc">Description:</label><span class="error"> <?php echo $descErr;?></span>
+      <input type="text" placeholder="<?php echo $appdesc; ?>" name="desc">
+      <button class="appform" type="submit">Change</button>
+    </form>
+  </div>
 </div>
 
 <script>
