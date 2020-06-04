@@ -16,6 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["appname"])) {
     $nameErr = "Name is required";
+    echo "Called1";
   } else {
     $name = test_input($_POST["name"]);
     // check if name only contains letters and whitespace
@@ -26,6 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["callbackurl"])) {
     $urlErr = "Callback URL is required";
+    echo "Called2";
   } else {
     $url = test_input($_POST["callbackurl"]);
     // check if URL address syntax is valid
@@ -36,6 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
   if (empty($_POST["desc"])) {
     $descErr = "Description is required";
+    echo "Called3";
   } else {
     $desc = test_input($_POST["desc"]);
     // check if name only contains letters and whitespace
