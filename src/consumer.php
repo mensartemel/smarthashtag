@@ -122,12 +122,12 @@ else {
     <script src="../bootstrap/script.js"></script>
   </head>
   <body>
-    <div class="form">
-      <form name="add_name" id="add_name">
+    <div class="shform">
+      <form name="add_keyword" id="add_keyword">
 				<div class="table-responsive">
 					<table class="table table-bordered" id="dynamic_field">
 						<tr>
-							<td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td>
+							<td><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td>
 							<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 						</tr>
 					</table>
@@ -142,7 +142,7 @@ $(document).ready(function(){
 	var i=1;
 	$('#add').click(function(){
 		i++;
-		$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Enter your Name" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+		$('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
 	});
 
 	$(document).on('click', '.btn_remove', function(){

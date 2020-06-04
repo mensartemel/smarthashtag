@@ -433,3 +433,14 @@ button.appform[disabled]:hover{
 	border: none;
 	border-radius: 4px;
 }
+.shform {
+    position: relative;
+    z-index: 1;
+    background: #fafafa;
+    width: 70%;
+    min-width: 700px;
+    padding: 20px;
+    text-align: center;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    margin: 30px auto;
+}
