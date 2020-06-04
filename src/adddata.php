@@ -1,7 +1,7 @@
 <?php
 require('config.php');
 
-//$number = count($_POST["keyword"]);
+$number = 1/*count($_POST["keyword"])*/;
 if($number >= 1)
 {
   $profilesearch = $_POST["profilesearch"];
@@ -15,7 +15,7 @@ if($number >= 1)
   $stmt->bindValue(":consumerid", $consumerid);
   $stmt->execute();
   $smarthashtagid = $stmt->lastInsertId();
-/*
+
 	for($i=0; $i<$number; $i++)
 	{
 		if(trim($_POST["keyword"][$i] != ''))
@@ -58,7 +58,7 @@ if($number >= 1)
         }
       }
 		}
-	} */
+	}
 }
 else
 {
