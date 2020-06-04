@@ -34,21 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 ?>
 
 <form method="post" action="">
-  <div>
-    <label for="appname">Application Name:</label>
-    <div >
-      <input type="text" placeholder="New Application" name="appname">
-    </div>
-  </div>
-  <div>
-    <label for="desc">Description:</label>
-    <div>
-      <input type="text" placeholder="Description" name="desc">
-    </div>
-  </div>
-  <div>
-    <div>
-      <button type="submit">Add</button>
-    </div>
-  </div>
+  <label for="appname">Application Name:</label>
+  <input type="text" placeholder="New Application" name="appname">
+
+  <label for="desc">Description:</label>
+  <input type="text" placeholder="Description" name="desc">
+
+  <button type="submit">Add</button>
 </form>
