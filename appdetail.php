@@ -142,6 +142,11 @@ function openCity(evt, cityName) {
   for (i = 0; i < tablinks.length; i++) {
     tablinks[i].className = tablinks[i].className.replace(" active", "");
   }
+  var bool = <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {return true;} else {return false;} ?>;
+  if (bool = true) {
+    tablinks[3].className = tablinks[3].className.replace(" active", "");
+    document.getElementById('Settings').style.display = "block";
+  }
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
