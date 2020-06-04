@@ -78,6 +78,7 @@ if ($success) {
         $_SESSION["e_msg"] = "";
       }
     }
+    header("location: ../consumer.php");
   } else {
     $sql = "SELECT id from users where twitter_id = :id";
     try {
