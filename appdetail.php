@@ -66,9 +66,9 @@
     }
     if ($nameErr == "" && $urlErr == "" && $descErr == "") {
       $twitter_id = $_SESSION["twitter_id"];
-      echo $appname."</br>";
-      echo $appdesc."</br>";
-      echo $appurl."</br>";
+      echo $name."</br>";
+      echo $desc."</br>";
+      echo $url."</br>";
       echo $appid."</br>";
       $sql = "UPDATE applications SET appname = :appname, description = :appdesc, callbackurl = :appurl WHERE appid = :appid";
       $stmt = $DB->prepare($sql);
