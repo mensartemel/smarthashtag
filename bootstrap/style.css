@@ -409,3 +409,7 @@ label {
 .appform:hover {
   background-color: #366d38d9;
 }
+span.error {
+    color: #ff0000ad;
+    font-size: 14px;
+}
