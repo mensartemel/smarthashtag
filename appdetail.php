@@ -38,10 +38,10 @@
     if (empty($_POST["appname"])) {
       $name = $appname;
     } else {
-      $name = test_input($_POST["name"]);
+      $name = test_input($_POST["appname"]);
       // check if name only contains letters and whitespace
       if (!preg_match("/^[a-zA-Z ]*$/",$name)) {
-        $nameErr = "Only letters and white space allowed";
+        $nameErr = "Only letters and space allowed";
       }
     }
 
