@@ -69,6 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $_SESSION["e_msg"] = "Application created successfully!";
     header("location:index.php?page=apps");
   }
+  echo $descErr;
 }
 ?>
 <div class="formapp">
@@ -79,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <input type="text" placeholder="http://..." name="callbackurl">
     <label for="desc">Description:</label><span class="error"> <?php echo $descErr;?></span>
     <input type="text" placeholder="Description" name="desc">
-
+<?php echo $descErr ?>
     <button class="appform" type="submit">Add</button>
   </form>
 </div>
