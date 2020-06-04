@@ -127,7 +127,7 @@ else {
 				<div class="table-responsive">
 					<table class="table" id="dynamic_field">
 						<tr>
-							<td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td>
+							<td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /><input type="checkbox" id="profilesearch" name="profilesearch" value="true"><label for="profilesearch">Profile Search</label><br></td>
 							<td class="cl-button"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 						</tr>
 					</table>
