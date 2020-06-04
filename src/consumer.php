@@ -117,8 +117,8 @@ else {
 <html>
   <head>
     <title><?php $_SESSION["name"] ?></title>
-    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="bootstrap/style.css">
+    <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="../bootstrap/style.css">
     <script src="bootstrap/script.js"></script>
   </head>
   <body>
