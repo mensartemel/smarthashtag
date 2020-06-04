@@ -13,7 +13,7 @@
 <title>SmartHashtag</title>
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
 <link rel="stylesheet" href="bootstrap/style.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="src/jquery-3.5.1.min.js"></script>
 <script src="bootstrap/script.js"></script>
 </head>
 <body>
