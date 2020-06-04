@@ -142,12 +142,10 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+document.getElementById("defaultOpen").click();
 <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {$bool = true;} else {$bool = false;} ?>
 var bool = <?php echo $bool; ?>;
 if (bool) {
   document.getElementById("editOpen").click();
-} else {
-  document.getElementById("defaultOpen").click();
-  <?php $bool = false; ?>
 }
 </script>
