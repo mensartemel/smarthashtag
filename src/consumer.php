@@ -142,7 +142,7 @@ else {
             <option value="pt">Portuguese</option>
           </select>
           <span class="error" id="error"></span>
-					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
+					<input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
 				</div>
 			</form>
     </div>
