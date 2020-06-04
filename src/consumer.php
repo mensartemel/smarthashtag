@@ -123,7 +123,7 @@ else {
   </head>
   <body>
     <div class="shform">
-      <form name="add_keyword" id="add_keyword">
+      <form name="add_keyword" id="add_keyword" method="post" action="adddata.php">
 				<div class="table-responsive">
 					<table class="table" id="dynamic_field">
 						<tr>
@@ -166,7 +166,7 @@ $(document).ready(function(){
     i--;
 	});
 
-	$('#submit').click(function(){
+	/*$('#submit').click(function(){
 		$.ajax({
 			url:"adddata.php",
 			method:"POST",
@@ -177,7 +177,7 @@ $(document).ready(function(){
 				$('#add_keyword')[0].reset();
 			}
 		});
-	});
+	});*/
 
 });
 </script>
