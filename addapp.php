@@ -43,7 +43,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $descErr = "Only letters and white space allowed";
     }
   }
-  if ($nameErr == $descErr == $urlErr == "") {
+  if ($nameErr = $descErr = $urlErr = "") {
     $twitter_id = $_SESSION["twitter_id"];
     $appname = $_POST["appname"];
     $desc = $_POST["desc"];
