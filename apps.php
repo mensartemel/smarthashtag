@@ -73,36 +73,6 @@ if (isset($_POST["deleteapp"])) {
 		echo "</div>";
   }
 ?>
-<div id="myModal2" class="modal2">
-  <div class="modal-content2">
-    <div class="modal-header2">
-      <span class="close2">&times;</span>
-      <h2>Add Application</h2>
-    </div>
-    <div class="modal-body2">
-      <form method="post" action="index.php?page=apps">
-      <input type="text" class="appname" placeholder="New Application" name="appname">
-      <input type="text" class="appinfo" placeholder="Description" name="desc">
-      <button type="submit" class="addapp" name="addapp">Add</button>
-    </div>
-  </div>
-</div>
-<script>
-var modal2 = document.getElementById("myModal2");
-var btn2 = document.getElementById("myBtn2");
-var span2 = document.getElementsByClassName("close2")[0];
-function openaddapp() {
-  modal2.style.display = "block";
-}
-span2.onclick = function() {
-  modal2.style.display = "none";
-}
-window.onclick = function(event) {
-  if (event.target == modal2) {
-    modal2.style.display = "none";
-  }
-}
-</script>
 <script>
 function hideContent() {
 	var x = document.getElementById("alert");
