@@ -3,7 +3,12 @@ require('http.php');
 require('oauth_client.php');
 require('config.php');
 
-$appkey = $_GET['appkey'];
+if(isset($_GET['appkey'])) {
+    $appkey = $_GET['appkey'];
+} else {
+    $appkey = $_SESSION["appkey"];
+}
+
 $sql = "SELECT appid from applications where appkey = :appkey";
 $stmt = $DB->prepare($sql);
 $stmt->bindValue(":appkey", $appkey);
@@ -14,6 +19,7 @@ echo $result."</br>";
 if ($result > 0) {
 
   $_SESSION["is_consumer"] = true;
+  $_SESSION["appkey"] = $appkey;
 
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appkey", $appkey);
