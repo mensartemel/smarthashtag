@@ -116,7 +116,7 @@
 <div id="Settings" class="tabcontent">
   <span class="error"> <?php echo $message;?></span>
   <div class="formapp">
-    <form method="post" action="">
+    <form method="post" action="index.php?page=appdetail&appid=<?php echo $appid; ?>">
       <label for="appname">Application Name:</label><span class="error"> <?php echo $nameErr;?></span>
       <input type="text" placeholder="<?php echo $appname; ?>" name="appname">
       <label for="appname">Callbaclk URL:</label><span class="error"> <?php echo $urlErr;?></span>
