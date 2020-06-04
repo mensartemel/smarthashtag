@@ -1,10 +1,10 @@
 <?php
 require('config.php');
 
-$number = 1/*count($_POST["keyword"])*/;
+$number = count($_POST["keyword"]);
 if($number >= 1)
 {
-  $profilesearch = true /*$_POST["profilesearch"]*/;
+  $profilesearch = $_POST["profilesearch"];
   $lang = $_POST["lang"];
   $consumerid = $_SESSION["consumerid"];
 
@@ -14,8 +14,8 @@ if($number >= 1)
   $stmt->bindValue(":profilesearch", $profilesearch);
   $stmt->bindValue(":consumerid", $consumerid);
   $stmt->execute();
-  //$smarthashtagid = $stmt->lastInsertId();
-/*
+  $smarthashtagid = $DB->lastInsertId();
+
 	for($i=0; $i<$number; $i++)
 	{
 		if(trim($_POST["keyword"][$i] != ''))
@@ -43,7 +43,7 @@ if($number >= 1)
         $stmt = $DB->prepare($sql);
         $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
         $stmt->execute();
-        $keywordid = $stmt->lastInsertId();
+        $keywordid = $DB->lastInsertId();
         if ($keywordid > 0) {
           $sql = "INSERT INTO sh_kw ('shid', 'kwid') VALUES"." (:shid, :kwid)";
           $stmt = $DB->prepare($sql);
@@ -58,7 +58,7 @@ if($number >= 1)
         }
       }
 		}
-	} */
+	}
 }
 else
 {
