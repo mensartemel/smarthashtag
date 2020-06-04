@@ -66,10 +66,6 @@
     }
     if ($nameErr == "" && $urlErr == "" && $descErr == "") {
       $twitter_id = $_SESSION["twitter_id"];
-      echo $name."</br>";
-      echo $desc."</br>";
-      echo $url."</br>";
-      echo $appid."</br>";
       $sql = "UPDATE applications SET appname = :appname, description = :appdesc, callbackurl = :appurl WHERE appid = :appid";
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":appname", $name);
@@ -149,8 +145,7 @@ function openCity(evt, cityName) {
 var bool = <?php echo $bool; ?>;
 if (bool) {
   document.getElementById("editOpen").click();
-} else {
-  document.getElementById("defaultOpen").click();
 }
+document.getElementById("defaultOpen").click();
+
 </script>
-<?php echo $bool; ?>
