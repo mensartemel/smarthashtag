@@ -39,7 +39,7 @@
             if(isset($_GET['page']))
             {
               if ($_GET['page'] == "apps") {
-                echo "<div class='title'><a>Applications</a></div><div class='titleside'><button id='myBtn2' name='addapp' class='button'>Add Application</button></div>";
+                echo "<div class='title'><a>Applications</a></div><div class='titleside'><button id='myBtn2' onclick='openaddapp()' name='addapp' class='button'>Add Application</button></div>";
               }
               elseif ($_GET['page'] == "addapp") {
                 echo "<div class='title'><a>Add New Application</a></div>";

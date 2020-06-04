@@ -91,7 +91,7 @@ if (isset($_POST["deleteapp"])) {
 var modal2 = document.getElementById("myModal2");
 var btn2 = document.getElementById("myBtn2");
 var span2 = document.getElementsByClassName("close2")[0];
-btn2.onclick = function() {
+function openaddapp() {
   modal2.style.display = "block";
 }
 span2.onclick = function() {
