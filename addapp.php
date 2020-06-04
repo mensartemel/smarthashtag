@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   header("location:index.php?page=apps");
 }
 ?>
-<div class="form">
+<div class="formapp">
   <form method="post" action="">
     <label for="appname">Application Name:</label>
     <input type="text" placeholder="New Application" name="appname">
