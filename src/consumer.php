@@ -131,6 +131,7 @@ else {
 							<td class="cl-button"><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>
 						</tr>
 					</table>
+          <span class="error" id="error"></span>
 					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
 				</div>
 			</form>
@@ -142,7 +143,11 @@ $(document).ready(function(){
 	var i=1;
 	$('#add').click(function(){
 		i++;
-		$('#dynamic_field').append('<tr id="row'+i+'"><td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td class="cl-button"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+    if (i =< 5) {
+      $('#dynamic_field').append('<tr id="row'+i+'"><td class="cl-input"><input type="text" name="keyword[]" placeholder="Keyword" class="form-control name_list" /></td><td class="cl-button"><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');
+    } else {
+      document.getElementById("error").innerHTML = "You cannot add more than 5 keywords";
+    }
 	});
 
 	$(document).on('click', '.btn_remove', function(){
