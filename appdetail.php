@@ -29,7 +29,7 @@
     return $data;
   }
 
-  $bool = false;
+  $bool = "'defaultOpen'";
   $nameErr = $descErr = $urlErr = "";
   $name = $desc = $url = "";
   $message = "";
@@ -142,10 +142,6 @@ function openCity(evt, cityName) {
   document.getElementById(cityName).style.display = "block";
   evt.currentTarget.className += " active";
 }
-document.getElementById("defaultOpen").click();
-/* <?php if ($_SERVER["REQUEST_METHOD"] == "POST") {$bool = true;} else {$bool = false;} ?>
-var bool = <?php echo $bool; ?>;
-if (bool == true) {
-  document.getElementById("editOpen").click();
-}*/
+<?php if ($_SERVER["REQUEST_METHOD"] == "POST") {$bool = "'editOpen'";} else {$bool = "'defaultOpen'";} ?>
+  document.getElementById(<?php echo $bool; ?>).click();
 </script>
