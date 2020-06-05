@@ -146,7 +146,8 @@ else {
 				</div>
 			</form>
     </div>
-    <div class="shform" id="shResult">
+    <div class="shResult" id="shResult">
+      Result Div
     </div>
   </body>
 </html>
