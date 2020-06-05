@@ -42,8 +42,9 @@ if($number >= 1)
           $result = $stmt->rowCount();
           if ($result > 0) {
             echo "New hashtag, new keyword inserted";
+          } else {
+            echo "New hashtag, error while keyword inserted";
           }
-          echo "New hashtag, error while keyword inserted";
         }
         else {
           $sql = "INSERT INTO keywords (keyword) VALUES "."(:keyword)";
@@ -60,8 +61,9 @@ if($number >= 1)
             $result = $stmt->rowCount();
             if ($result > 0) {
               echo "New hashtag, existing keyword inserted";
+            } else {
+              echo "New hashtag, error while existing keyword inserted";
             }
-            echo "New hashtag, error while existing keyword inserted";
           }
         }
       }
