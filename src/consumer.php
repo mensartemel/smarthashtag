@@ -178,6 +178,15 @@ $(document).ready(function(){
 			}
 		});
 	});
-
+  $('input[type="button"]').attr('disabled', true);
+  $('input[type="text"],textarea').on('keyup', function () {
+      var text_value = $('input[name="keyword[]"]').val();
+      $('input[type="submit"]').attr('disabled', true);
+      if (text_value != '') {
+          $('button[type="submit"]').attr('disabled', false);
+      } else {
+          $('button[type="submit"]').attr('disabled', true);
+      }
+  });
 });
 </script>

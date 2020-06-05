@@ -1,6 +1,5 @@
 <?php
 require('config.php');
-
 $number = count($_POST["keyword"]);
 if($number >= 1)
 {
