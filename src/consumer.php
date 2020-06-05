@@ -166,7 +166,7 @@ $(document).ready(function(){
     i--;
 	});
 
-	/*$('#submit').click(function(){
+	$('#submit').click(function(){
 		$.ajax({
 			url:"adddata.php",
 			method:"POST",
@@ -177,7 +177,7 @@ $(document).ready(function(){
 				$('#add_keyword')[0].reset();
 			}
 		});
-	});*/
+	});
 
 });
 </script>
