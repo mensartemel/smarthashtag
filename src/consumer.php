@@ -115,7 +115,7 @@ else {
 <!DOCTYPE html>
 <html>
   <head>
-    <title><?php $_SESSION["name"] ?></title>
+    <title><?php echo "Create Smarthashtag: ".$_SESSION["name"]; ?></title>
     <link rel="stylesheet" href="../bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="../bootstrap/style.css">
     <script src="../bootstrap/jquery-3.5.1.min.js"></script>
