@@ -7,17 +7,14 @@ if($number >= 1)
   $profilesearch = $_POST["profilesearch"];
   $lang = $_POST["lang"];
   $consumerid = $_SESSION["consumerid"];
-  echo $lang;
-  echo $profilesearch;
-  echo $consumerid;
-  $sql = "INSERT INTO smarthashtags ('lang', 'profilesearch', 'consumerid') VALUES"." (:lang, :profilesearch, :consumerid)";
+  $sql = "INSERT INTO smarthashtags (lang, profilesearch, consumerid) VALUES (:lang, :profilesearch, :consumerid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":lang", $lang);
   $stmt->bindValue(":profilesearch", $profilesearch);
   $stmt->bindValue(":consumerid", $consumerid);
   $stmt->execute();
   $smarthashtagid = $DB->lastInsertId();
-  echo "New hashtag";
+  echo "New hashtag ".$smarthashtagid;
 	for($i=0; $i<$number; $i++)
 	{
 		if(trim($_POST["keyword"][$i] != ''))
@@ -29,7 +26,7 @@ if($number >= 1)
       $result = $stmt->fetch();
       $keywordid = $result["id"];
       if ($result > 0) {
-        $sql = "INSERT INTO sh_kw ('shid', 'kwid') VALUES"." (:shid, :kwid)";
+        $sql = "INSERT INTO sh_kw (shid, kwid) VALUES"." (:shid, :kwid)";
         $stmt = $DB->prepare($sql);
         $stmt->bindValue(":shid", $smarthashtagid);
         $stmt->bindValue(":kwid", $keywordid);
@@ -41,13 +38,13 @@ if($number >= 1)
         echo "New hashtag, error while keyword inserted";
       }
       else {
-        $sql = "INSERT INTO keywords ('keyword') VALUES "."(:keyword)";
+        $sql = "INSERT INTO keywords (keyword) VALUES "."(:keyword)";
         $stmt = $DB->prepare($sql);
         $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
         $stmt->execute();
         $keywordid = $DB->lastInsertId();
         if ($keywordid > 0) {
-          $sql = "INSERT INTO sh_kw ('shid', 'kwid') VALUES"." (:shid, :kwid)";
+          $sql = "INSERT INTO sh_kw (shid, kwid) VALUES"." (:shid, :kwid)";
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":shid", $smarthashtagid);
           $stmt->bindValue(":kwid", $keywordid);
