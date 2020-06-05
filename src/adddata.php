@@ -1,7 +1,7 @@
 <?php
 require('config.php');
 
-$number = 1;//count($_POST["keyword"]);
+$number = count($_POST["keyword"]);
 if($number >= 1)
 {
   $profilesearch = $_POST["profilesearch"];
