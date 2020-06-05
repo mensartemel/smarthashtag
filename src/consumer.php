@@ -109,7 +109,7 @@ if ($result > 0) {
   }
 }
 else {
-  header("location:login.php");
+  header("location:../login.php");
 }
 ?>
 <!DOCTYPE html>
