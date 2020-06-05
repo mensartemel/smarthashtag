@@ -176,7 +176,7 @@ $(document).ready(function(){
 			data:$('#add_keyword').serialize(),
 			success:function(data)
 			{
-				document.getElementById("suggestion").innerHTML = data;
+				document.getElementById("suggestion").innerHTML = data.responseText;
 				$('#add_keyword')[0].reset();
 			}
 		});
