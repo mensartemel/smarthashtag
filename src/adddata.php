@@ -68,8 +68,9 @@ if($number >= 1)
         }
       }
     }
+  } else {
+    echo "Error while creating hashtag";
   }
-  echo "Error while creating hashtag";
 }
 else
 {
