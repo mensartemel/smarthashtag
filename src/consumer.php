@@ -108,9 +108,13 @@ if ($result > 0) {
     $_SESSION["e_msg"] = $client->error;
   }
 }
+else {
+  echo '<script language="javascript">';
+  echo 'alert("No application found!")';
+  echo 'window.location.href = "index.php"';
+  echo '</script>';
+}
 ?>
-
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -147,13 +151,6 @@ if ($result > 0) {
     </div>
   </body>
 </html>
-
-
-<?php
-else {
-  echo "No application found!";
-}
-?>
 <script>
 $(document).ready(function(){
 	var i=1;
