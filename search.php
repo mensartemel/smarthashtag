@@ -1,8 +1,5 @@
 <?php
-
-use DG\Twitter\Twitter;
-
-require_once '../src/twitter.class.php';
+require_once 'src/twitter.class.php';
 foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $result) {
 	$accessToken = $result['value'];
 	$accessTokenSecret = $result['secret'];
@@ -12,8 +9,8 @@ $consumerSecret = "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81";
 // ENTER HERE YOUR CREDENTIALS (see readme.txt)
 $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
-$results = $twitter->search('#nette');
-// or use hashmap: $results = $twitter->search(['q' => '#nette', 'geocode' => '50.088224,15.975611,20km']);
+// $results = $twitter->search('corona');
+$results = $twitter->search(['q' => 'harvard', 'lang' => 'tr', 'result_type' => 'mixed', 'count' => '100']);
 
 ?>
 <!doctype html>
