@@ -147,7 +147,6 @@ else {
 			</form>
     </div>
     <div class="shform" id="shResult">
-
     </div>
   </body>
 </html>

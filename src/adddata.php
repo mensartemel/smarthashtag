@@ -21,7 +21,6 @@ if($number >= 1)
   $stmt->execute();
   $smarthashtagid = $DB->lastInsertId();
   if ($smarthashtagid > 0) {
-    echo "New hashtag ".$smarthashtagid;
     for($i=0; $i<$number; $i++)
     {
       if(trim($_POST["keyword"][$i] != ''))
@@ -40,9 +39,7 @@ if($number >= 1)
           $stmt->execute();
           $result = $stmt->rowCount();
           if ($result > 0) {
-            echo "New hashtag, new keyword inserted";
           } else {
-            echo "New hashtag, error while keyword inserted";
           }
         }
         else {
@@ -59,19 +56,15 @@ if($number >= 1)
             $stmt->execute();
             $result = $stmt->rowCount();
             if ($result > 0) {
-              echo "New hashtag, existing keyword inserted";
             } else {
-              echo "New hashtag, error while existing keyword inserted";
             }
           }
         }
       }
     }
   } else {
-    echo "Error while creating hashtag";
   }
 }
 else
 {
-	echo "Please Enter Keyword";
 }
