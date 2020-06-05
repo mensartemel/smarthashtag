@@ -4,10 +4,9 @@ require('config.php');
 $number = count($_POST["keyword"]);
 if($number >= 1)
 {
-  $pf = $_POST["profilesearch"];
   $lang = $_POST["lang"];
   $consumerid = $_SESSION["consumerid"];
-  if ($pf = true) {
+  if (isset($_POST["profilesearch"])) {
     $profilesearch = "true";
   } else {
     $profilesearch = "false";
