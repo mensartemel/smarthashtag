@@ -3,7 +3,12 @@
 use DG\Twitter\Twitter;
 
 require_once '../src/twitter.class.php';
-
+foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $result) {
+	$accessToken = $result['value'];
+	$accessTokenSecret = $result['secret'];
+}
+$consumerKey = "XvlI4EG7NjJbauQs4KK9JMzsA";
+$consumerSecret = "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81";
 // ENTER HERE YOUR CREDENTIALS (see readme.txt)
 $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
