@@ -173,7 +173,7 @@ $(document).ready(function(){
 			data:$('#add_keyword').serialize(),
 			success:function(data)
 			{
-				alert(data);
+				document.getElementById("suggestion").innerHTML(data);
 				$('#add_keyword')[0].reset();
 			}
 		});
