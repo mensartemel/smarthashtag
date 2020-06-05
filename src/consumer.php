@@ -109,7 +109,7 @@ if ($result > 0) {
   }
 }
 else {
-  echo '<script language="javascript">';
+  echo '<script type="text/javascript">';
   echo 'alert("No application found!")';
   echo 'window.location.href = "index.php"';
   echo '</script>';
