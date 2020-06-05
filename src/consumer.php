@@ -123,7 +123,7 @@ else {
   </head>
   <body>
     <div class="shform">
-      <form name="add_keyword" id="add_keyword" method="post" action="adddata.php">
+      <form name="add_keyword" id="add_keyword">
 				<div class="table-responsive">
 					<table class="table" id="dynamic_field">
 						<tr>
@@ -142,7 +142,7 @@ else {
             <option value="pt">Portuguese</option>
           </select>
           <span class="error" id="error"></span>
-					<input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />
+					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
 				</div>
 			</form>
     </div>
