@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($beta != "estu2020") {
       $betaErr = "The code you entered does not match";
     } else {
-		header("location:index.php?page=apps");
+		header("location:../src/twitter_login.php");
 	}
   }
 }
@@ -33,7 +33,7 @@ function test_input($data) {
   <div class="form">
     <form method="post" action="">
       <label for="appname">Beta Code:</label></br><span class="error"><?php echo $betaErr;?></span>
-      <input type="text" placeholder="New Application" name="betacode">
+      <input type="text" name="betacode">
       <button class="appform" type="submit">Login via Twitter</button>
     </form>
   </div>
