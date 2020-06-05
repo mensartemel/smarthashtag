@@ -7,7 +7,9 @@ if($number >= 1)
   $profilesearch = $_POST["profilesearch"];
   $lang = $_POST["lang"];
   $consumerid = $_SESSION["consumerid"];
-
+  echo $lang;
+  echo $profilesearch;
+  echo $consumerid;
   $sql = "INSERT INTO smarthashtags ('lang', 'profilesearch', 'consumerid') VALUES"." (:lang, :profilesearch, :consumerid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":lang", $lang);
