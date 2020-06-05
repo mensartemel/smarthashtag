@@ -108,10 +108,9 @@ if ($result > 0) {
     $_SESSION["e_msg"] = $client->error;
   }
 }
-else {
-  echo "No application found!";
-}
 ?>
+
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -148,6 +147,13 @@ else {
     </div>
   </body>
 </html>
+
+
+<?php
+else {
+  echo "No application found!";
+}
+?>
 <script>
 $(document).ready(function(){
 	var i=1;
