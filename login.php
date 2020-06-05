@@ -8,9 +8,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // check if name only contains letters and whitespace
     if ($name != "estu2020") {
       $betaErr = "The code you entered does not match";
+    } else {
+      header("location:index.php?page=apps");
     }
-  }
-    header("location:index.php?page=apps");
   }
 }
 ?>
