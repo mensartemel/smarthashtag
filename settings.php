@@ -13,10 +13,4 @@
   echo $_SESSION["value"];
   echo "</br>";
   echo $_SESSION["secret"];
-    echo "</br>";
-  foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $result) {
-  	echo $result['value'];
-      echo "</br>";
-  	echo $result['secret'];
-  }
 ?>
