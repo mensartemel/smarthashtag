@@ -1,3 +1,19 @@
+<?php
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  $betaErr = $beta = "";
+  if (empty($_POST["betacode"])) {
+    $betaErr = "Betocode is required";
+  } else {
+    $beta = test_input($_POST["name"]);
+    // check if name only contains letters and whitespace
+    if ($name != "estu2020") {
+      $betaErr = "The code you entered does not match";
+    }
+  }
+    header("location:index.php?page=apps");
+  }
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +25,11 @@
 <body>
 <div class="login-page">
   <div class="form">
-    <a href="src/twitter_login.php"><img src="img/twitter_button.png" alt="Login via Twitter" width="100%";></a>
+    <form method="post" action="">
+      <label for="appname">Beta Code:</label><span class="error"><?php echo $betaErr;?></span>
+      <input type="text" placeholder="New Application" name="betacode">
+      <button class="appform" type="submit">Login via Twitter</button>
+    </form>
   </div>
 </div>
 </body>
