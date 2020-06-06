@@ -176,6 +176,7 @@ $('.cb').click(function() {
     var id = $(this).attr('id');
     var $value = $(this).attr('value');
     var id1 = "#"+id;
+    document.getElementById("rate").innerHTML = "Thank You!";
     $(id1).fadeOut();
     id++;
     var id2 = "#"+id;
