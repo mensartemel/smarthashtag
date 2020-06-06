@@ -130,15 +130,15 @@ if($number >= 1)
       echo "<form name='likedislike'>";
       $count = 0;
       while ($row = $stmt->fetch()) {
-        echo "<div class='resultdiv' id='".$row['shid']."'>";
+        echo "<div class='resultdiv' id='".$row['resultid']."'>";
         echo $row['screenname']."</br>";
         echo $row['status']."</br>";
         echo "</div>";
-        $intval = intval($row['shid']);
+        $intval = intval($row['resultid']);
         $intval++;
         echo "<div class='resultdiv2' id='".$intval."'>";
-        echo "<label class='cbcontainer'>Like<input type='checkbox' id='like".$row['shid']."' class='cb' name='".$row['shid']."' value='like".$row['shid']."'><span class='checkmark'></span></label>";
-        echo "<label class='cbcontainer'>Dislike<input type='checkbox' id='dislike".$row['shid']."' class='cb' name='".$row['shid']."' value='dislike".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Like<input type='checkbox' id='like".$row['resultid']."' class='cb' name='".$row['resultid']."' value='like".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Dislike<input type='checkbox' id='dislike".$row['resultid']."' class='cb' name='".$row['resultid']."' value='dislike".$row['shid']."'><span class='checkmark'></span></label>";
         echo "</div>";
         $count += 1;
       }
