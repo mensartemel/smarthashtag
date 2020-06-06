@@ -1,7 +1,9 @@
 <?php
 require('config.php');
 $value = $_POST["value"]
-list($rate, $smarthashtagid) = split('[/.-]', $value);
+$list = explode('-', $value);
+$rate = $list[0];
+$smarthashtagid = $list[1];
 if ($rate == "like") {
   $sql = "UPDATE smarthashtags SET likes = likes + 1 WHERE id="." :shid";
   $stmt = $DB->prepare($sql);
@@ -37,3 +39,4 @@ if ($rate == "like") {
 } else {
   echo "Error";
 }
+?>
