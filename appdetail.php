@@ -152,8 +152,10 @@
           labels: ['Like', 'Dislike'],
           datasets: [{
             label: 'Consumer Result Rates',
-            backgroundColor: 'rgb(255, 99, 132)',
-            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: [
+              '#7BE24B',
+              '#BFCEB8',
+            ],
             data: [15, 5]
           }]
         },
