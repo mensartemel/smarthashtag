@@ -149,6 +149,7 @@ else {
     </div>
     <div class="shResult" id="shResult1">
       <div class="formheader">Smart Hashtag Results</div>
+      <img class='loadimg' src='../img/ajax-loader.gif' />
       <div id="resultsh"></div>
     </div>
   </body>
