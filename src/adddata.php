@@ -30,16 +30,16 @@ if($number >= 1)
         $stmt = $DB->prepare($sql);
         $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
         $stmt->execute();
-        $result = $stmt->fetch();
-        $keywordid[$i] = $result["id"];
-        if ($result > 0) {
+        $result4 = $stmt->fetch();
+        $keywordid[$i] = $result4["id"];
+        if ($result4 > 0) {
           $sql = "INSERT INTO sh_kw (shid, kwid) VALUES"." (:shid, :kwid)";
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":shid", $smarthashtagid);
           $stmt->bindValue(":kwid", $keywordid[$i]);
           $stmt->execute();
-          $result = $stmt->rowCount();
-          if ($result > 0) {
+          $result3 = $stmt->rowCount();
+          if ($result3 > 0) {
           } else {
             $errorCount += 1;
           }
@@ -56,8 +56,8 @@ if($number >= 1)
             $stmt->bindValue(":shid", $smarthashtagid);
             $stmt->bindValue(":kwid", $keywordid[$i]);
             $stmt->execute();
-            $result = $stmt->rowCount();
-            if ($result > 0) {
+            $result5 = $stmt->rowCount();
+            if ($result5 > 0) {
             } else {
               $errorCount += 1;
             }
@@ -72,9 +72,9 @@ if($number >= 1)
   }
   if ($errorCount > 0) {
     require_once '../src/twitter.class.php';
-    foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $result) {
-    	$accessToken = $result['value'];
-    	$accessTokenSecret = $result['secret'];
+    foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $key) {
+    	$accessToken = $key['value'];
+    	$accessTokenSecret = $key['secret'];
     }
     $consumerKey = "XvlI4EG7NjJbauQs4KK9JMzsA";
     $consumerSecret = "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81";
