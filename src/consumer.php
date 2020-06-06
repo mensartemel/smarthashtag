@@ -154,13 +154,11 @@ else {
   </body>
 </html>
 <script>
-$('.cbcontainer').click(function() {
-  if(this.checked){
+$('.formheader').click(function() {
     var id = $(this).attr('name');
     document.getElementById('resultsh').style.display = "none";
     id++;
     document.getElementById(id).style.display = "none";
-  }
 });
 $(document).ready(function(){
 	var i=1;
