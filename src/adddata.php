@@ -129,7 +129,6 @@ if($number >= 1)
                 $errorCount += 1;
               }
             } else {
-              echo "No profile search result</br>";
             }
           }
         }
