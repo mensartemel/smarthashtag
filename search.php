@@ -10,7 +10,7 @@ $consumerSecret = "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81";
 $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
 
 // $results = $twitter->search('corona');
-$results = $twitter->search(['q' => 'harvard', 'lang' => 'tr', 'result_type' => 'mixed', 'count' => '100']);
+$results = $twitter->search(['q' => 'harvard', 'lang' => 'tr', 'result_type' => 'popular', 'count' => '100']);
 
 ?>
 <!doctype html>
