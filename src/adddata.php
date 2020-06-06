@@ -23,7 +23,6 @@ if($number >= 1)
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":shid", $shid);
     $stmt->execute();
-    echo "Old hashtag deleted";
   }
 
   $sql = "INSERT INTO smarthashtags (lang, profilesearch, consumerid) VALUES (:lang, :profilesearch, :consumerid)";
@@ -170,7 +169,9 @@ if($number >= 1)
 }
 ?>
 <script>
+var count;
 $('.cb').click(function() {
+  count++;
   if(this.checked){
     var id = $(this).attr('id');
     var $value = $(this).attr('value');
@@ -190,4 +191,7 @@ $('.cb').click(function() {
 		});
   }
 });
+if (count > 9) {
+  document.getElementById("shResult1").innerHTML = "Thank You!";
+}
 </script>
