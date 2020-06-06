@@ -11,6 +11,21 @@ if($number >= 1)
   } else {
     $profilesearch = "false";
   }
+
+  $sql = "SELECT id FROM smarthashtags WHERE consumerid = "." :consumerid";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":consumerid", $consumerid);
+  $stmt->execute();
+  $result10 = $stmt->fetch();
+  $shid = $result10["id"];
+  if ($shid > 0) {
+    $sql = "CALL DeleteHS(:shid)";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":shid", $shid);
+    $stmt->execute();
+    echo "Old hashtag deleted";
+  }
+
   $sql = "INSERT INTO smarthashtags (lang, profilesearch, consumerid) VALUES (:lang, :profilesearch, :consumerid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":lang", $lang);

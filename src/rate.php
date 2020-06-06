@@ -16,7 +16,7 @@ if ($rate == "like") {
     $stmt->bindValue(":shid", $smarthashtagid);
     $stmt->execute();
     $result = $stmt->fetch();
-    echo "Likes: ".$result["likes"]."Dislikes: ".$result["dislikes"];
+    echo "Likes: ".$result["likes"]." Dislikes: ".$result["dislikes"];
   } else {
     echo "SQL Error";
   }
