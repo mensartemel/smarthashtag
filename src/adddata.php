@@ -3,6 +3,7 @@ require('config.php');
 $number = count($_POST["keyword"]);
 if($number >= 1)
 {
+  $errorCount = 0;
   $lang = $_POST["lang"];
   $consumerid = $_SESSION["consumerid"];
   if (isset($_POST["profilesearch"])) {
@@ -30,16 +31,17 @@ if($number >= 1)
         $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
         $stmt->execute();
         $result = $stmt->fetch();
-        $keywordid = $result["id"];
+        $keywordid[$i] = $result["id"];
         if ($result > 0) {
           $sql = "INSERT INTO sh_kw (shid, kwid) VALUES"." (:shid, :kwid)";
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":shid", $smarthashtagid);
-          $stmt->bindValue(":kwid", $keywordid);
+          $stmt->bindValue(":kwid", $keywordid[$i]);
           $stmt->execute();
           $result = $stmt->rowCount();
           if ($result > 0) {
           } else {
+            $errorCount += 1;
           }
         }
         else {
@@ -47,24 +49,77 @@ if($number >= 1)
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":keyword", $_POST["keyword"][$i]);
           $stmt->execute();
-          $keywordid = $DB->lastInsertId();
-          if ($keywordid > 0) {
+          $keywordid[$i] = $DB->lastInsertId();
+          if ($keywordid[$i] > 0) {
             $sql = "INSERT INTO sh_kw (shid, kwid) VALUES"." (:shid, :kwid)";
             $stmt = $DB->prepare($sql);
             $stmt->bindValue(":shid", $smarthashtagid);
-            $stmt->bindValue(":kwid", $keywordid);
+            $stmt->bindValue(":kwid", $keywordid[$i]);
             $stmt->execute();
             $result = $stmt->rowCount();
             if ($result > 0) {
             } else {
+              $errorCount += 1;
             }
+          } else {
+            $errorCount += 1;
           }
         }
       }
     }
   } else {
+    $errorCount += 1;
   }
-}
-else
-{
+  if ($errorCount > 0) {
+    require_once '../src/twitter.class.php';
+    foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $result) {
+    	$accessToken = $result['value'];
+    	$accessTokenSecret = $result['secret'];
+    }
+    $consumerKey = "XvlI4EG7NjJbauQs4KK9JMzsA";
+    $consumerSecret = "fFuhGfvSZXRcS9GOruuv6xdBpRzYPEdfp2sAkyGt6PFcsTKg81";
+    $twitter = new Twitter($consumerKey, $consumerSecret, $accessToken, $accessTokenSecret);
+
+    for($i=0; $i<$number; $i++) {
+      if(trim($_POST["keyword"][$i] != '')) {
+        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '100']);
+        foreach ($results as $status) {
+          $sql = "INSERT INTO consumer_results (screenname, picture, status, created_at, consumerid, keywordid, appid, shid) VALUES "." (:screenname, :picture, :status, NOW(), :consumerid, :keywordid, :appid, :shid)";
+          $stmt = $DB->prepare($sql);
+          $stmt->bindValue(":screenname", $status->user->screen_name);
+          $stmt->bindValue(":picture", $status->user->profile_image_url_https);
+          $stmt->bindValue(":status", $status->user->text);
+          $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
+          $stmt->bindValue(":keywordid", $keywordid[$i]);
+          $stmt->bindValue(":appid", $_SESSION["appid"]);
+          $stmt->bindValue(":shid", $smarthashtagid);
+          $stmt->execute();
+          $result = $stmt->rowCount();
+          if ($result > 0) {
+            $errorCount += 1;
+          }
+          if (strpos($status->user->description, $_POST["keyword"][$i])) {
+            $sql = "INSERT INTO user_results (screenname, location, description, keywordid, consumerid, shid) VALUES "." (:screenname, :location, :description, :keywordid, :consumerid, :shid)";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindValue(":screenname", $status->user->screen_name);
+            $stmt->bindValue(":location", $status->user->location);
+            $stmt->bindValue(":description", $status->user->description);
+            $stmt->bindValue(":keywordid", $keywordid[$i]);
+            $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
+            $stmt->bindValue(":shid", $smarthashtagid);
+            $stmt->execute();
+            $result = $stmt->rowCount();
+            if ($result > 0) {
+              $errorCount += 1;
+            }
+          }
+        }
+      }
+    }
+    if ($errorCount > 0) {
+      echo $errorCount;
+    }
+  }
+} else {
+  echo "Page Not Found";
 }
