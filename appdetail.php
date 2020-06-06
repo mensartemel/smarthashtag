@@ -148,7 +148,7 @@
   ?>
   <div class="graph"><canvas id="dailyConsumer"></canvas></div>
   <div class="graph"><canvas id="consumerRate"></canvas></div>
-  <div class="graph"><div id="keyword">
+  <div class="graph">Keywords used by consumers:<div id="keyword">
     <?php
       $sql = "SELECT * FROM consumers WHERE appid = :appid";
       $stmt = $DB->prepare($sql);
