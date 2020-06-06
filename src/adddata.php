@@ -127,12 +127,20 @@ if($number >= 1)
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":shid", $smarthashtagid);
       $stmt->execute();
+      echo "<form name='likedislike'>";
+      $count = 0
       while ($row = $stmt->fetch()) {
+        echo "<div class='resultdiv'>";
         echo $row['screenname']."</br>";
         echo $row['status']."</br>";
-        echo "</br>";
-        echo "</br>";
+        echo "</div>";
+        echo "<div class='resultdiv".$row['shid']."'>";
+        echo "<input type='checkbox' id='like".$row['shid']."' name='like".$row['shid']."' value='like".$row['shid']."'>";
+        echo "<input type='checkbox' id='dislike".$row['shid']."' name='dislike".$row['shid']."' value='dislike".$row['shid']."'>";
+        echo "</div>";
+        $count += 1;
       }
+      echo "</form>";
     }
   }
 } else {
