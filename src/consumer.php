@@ -182,6 +182,8 @@ $(document).ready(function(){
 	$('#submit').click(function(){
     var xyz = document.getElementById("shResult1");
     xyz.style.display = "block";
+    xyz.style.visibility = "visible";
+    xyz.style.opacity = "1";
 		$.ajax({
 			url:"adddata.php",
 			method:"POST",
