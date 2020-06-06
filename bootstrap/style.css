@@ -460,7 +460,7 @@ td.cl-chackbox {
     width: 70%;
 		display: none;
 		opacity: 0;
-    margin: 0px auto;
+    margin: 0px auto 50px auto;
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     background-color: white;
 		padding: 20px;
