@@ -1,6 +1,6 @@
 <?php
 require('config.php');
-$value = $_POST["value"];
+$value = $_POST["shid"];
 echo $value;
 $list = explode('-', $value);
 $rate = $list[0];
