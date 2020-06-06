@@ -96,7 +96,7 @@ if($number >= 1)
           } else {
             $errorCount += 1;
           }
-          if (strpos($status->user->description, $_POST["keyword"][$i])) {
+          if (strpos($status->user->description, $_POST["keyword"][$i]) && $profilesearch = "true") {
             $sql = "INSERT INTO user_results (screenname, location, description, keywordid, consumerid, shid) VALUES "." (:screenname, :location, :description, :keywordid, :consumerid, :shid)";
             $stmt = $DB->prepare($sql);
             $stmt->bindValue(":screenname", $status->user->screen_name);
