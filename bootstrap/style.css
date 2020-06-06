@@ -480,8 +480,21 @@ td.cl-chackbox {
 .resultdiv {
 	width: 90%;
 	float: left;
+	position: relative;
+	padding: 5px;
 }
 .resultdiv2 {
 	width: 10%;
 	float: left;
+	padding: 20px;
+}
+div#resultsh {
+    position: relative;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+}
+#resultsh > checkbox {
+	width: 25px;
+	height: 25px;
 }
