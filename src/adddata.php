@@ -123,7 +123,6 @@ if($number >= 1)
               $stmt->execute();
               $result3 = $stmt->rowCount();
               if ($result3 > 0) {
-                echo $status->user->description . "</br>";
               } else {
                 $errorCount += 1;
               }
