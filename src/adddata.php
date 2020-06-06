@@ -128,7 +128,7 @@ if($number >= 1)
       $stmt->bindValue(":shid", $smarthashtagid);
       $stmt->execute();
       echo "<form name='likedislike'>";
-      $count = 0
+      $count = 0;
       while ($row = $stmt->fetch()) {
         echo "<div class='resultdiv'>";
         echo $row['screenname']."</br>";
