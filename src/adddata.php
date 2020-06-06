@@ -176,7 +176,6 @@ $('.cb').click(function() {
     var id = $(this).attr('id');
     var $value = $(this).attr('value');
     var id1 = "#"+id;
-    document.getElementById("rate").innerHTML = count;
     $(id1).fadeOut();
     id++;
     var id2 = "#"+id;
@@ -191,8 +190,8 @@ $('.cb').click(function() {
 			}
 		});
   }
+  if (count > 9) {
+    document.getElementById("shResult1").innerHTML = "Thank You!";
+  }
 });
-if (count > 9) {
-  document.getElementById("shResult1").innerHTML = "Thank You!";
-}
 </script>
