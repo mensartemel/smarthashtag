@@ -94,6 +94,8 @@ if($number >= 1)
     for($i=0; $i<$number; $i++) {
       if(trim($_POST["keyword"][$i] != '')) {
         $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'popular', 'count' => '100']);
+        $number2 = count($results);
+        echo $number2."</br>";
         foreach ($results as $status) {
           $sql = "INSERT INTO consumer_results (screenname, picture, status, created_at, consumerid, keywordid, appid, shid) VALUES "." (:screenname, :picture, :status, NOW(), :consumerid, :keywordid, :appid, :shid)";
           $stmt = $DB->prepare($sql);
