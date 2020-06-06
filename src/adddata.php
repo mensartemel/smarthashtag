@@ -79,7 +79,7 @@ if($number >= 1)
 
     for($i=0; $i<$number; $i++) {
       if(trim($_POST["keyword"][$i] != '')) {
-        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '100']);
+        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '5']);
         foreach ($results as $status) {
           $sql = "INSERT INTO consumer_results (screenname, picture, status, created_at, consumerid, keywordid, appid, shid) VALUES "." (:screenname, :picture, :status, NOW(), :consumerid, :keywordid, :appid, :shid)";
           $stmt = $DB->prepare($sql);
