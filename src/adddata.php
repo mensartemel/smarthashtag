@@ -156,8 +156,8 @@ if($number >= 1)
         $intval = intval($row['resultid']);
         $intval++;
         echo "<div class='resultdiv2' id='".$intval."'>";
-        echo "<label class='cbcontainer'>Like<input type='checkbox' id='".$row['resultid']."' class='cb' name='rate' value='like-".$row['shid']."'><span class='checkmark'></span></label>";
-        echo "<label class='cbcontainer'>Dislike<input type='checkbox' id='".$row['resultid']."' class='cb' name='rate' value='dislike-".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Relevant<input type='checkbox' id='".$row['resultid']."' class='cb' name='rate' value='like-".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Irrelevant<input type='checkbox' id='".$row['resultid']."' class='cb' name='rate' value='dislike-".$row['shid']."'><span class='checkmark'></span></label>";
         echo "</div>";
         $count += 1;
       }
