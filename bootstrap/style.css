@@ -462,6 +462,7 @@ td.cl-chackbox {
     box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
     background-color: white;
 		padding: 20px;
+		display: none;
 }
 .formheader {
     margin: -20px -20px 10px -20px;
@@ -469,5 +470,4 @@ td.cl-chackbox {
     background-color: #cccccc;
     font-size: 24px;
     color: #000000;
-		display: none;
 }
