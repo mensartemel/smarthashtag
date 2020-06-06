@@ -122,6 +122,17 @@ if($number >= 1)
     }
     if ($errorCount > 0) {
       echo $errorCount;
+    } else {
+      $sql = "SELECT * FROM consumer_results WHERE shid ="." :shid "." ORDER BY RAND() LIMIT 5";
+      $stmt = $DB->prepare($sql);
+      $stmt->bindValue(":shid", $smarthashtagid);
+      $stmt->execute();
+      while ($row = $stmt->fetch()) {
+        echo $row['screenname']."</br>";
+        echo $row['status']."</br>";
+        echo "</br>";
+        echo "</br>";
+      }
     }
   }
 } else {
