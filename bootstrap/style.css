@@ -477,3 +477,11 @@ td.cl-chackbox {
   margin-right: auto;
   width: 50px;
 }
+.resultdiv {
+	width: 90%;
+	float: left;
+}
+.resultdiv2 {
+	width: 10%;
+	float: left;
+}
