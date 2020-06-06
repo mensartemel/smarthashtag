@@ -469,4 +469,5 @@ td.cl-chackbox {
     background-color: #cccccc;
     font-size: 24px;
     color: #000000;
+		display: none;
 }

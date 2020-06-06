@@ -149,7 +149,7 @@ else {
     </div>
     <div class="shResult" id="shResult">
       <div class="formheader">Smart Hashtag Results</div>
-      Result Div
+      <div id="resultsh"></div>
     </div>
   </body>
 </html>
@@ -180,6 +180,10 @@ $(document).ready(function(){
 			url:"adddata.php",
 			method:"POST",
 			data:$('#add_keyword').serialize(),
+      beforeSend: function()
+      {
+        $('#shResult').html("<img class='loadimg' src='../src/ajax-loader.gif' />");
+      },
 			success:function(data)
 			{
 				$("#shResult").empty().append(data);
