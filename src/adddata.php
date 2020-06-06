@@ -138,7 +138,7 @@ if($number >= 1)
         $stmt2->bindValue(":keywordid", $row['keywordid']);
         $stmt2->execute();
         $result = $stmt2->fetch();
-        echo "Related keyword: "$result["keyword"];
+        echo "Related keyword: ".$result["keyword"];
         echo "</div>";
         $intval = intval($row['resultid']);
         $intval++;
