@@ -123,7 +123,7 @@ if($number >= 1)
     if ($errorCount > 0) {
       echo $errorCount;
     } else {
-      $sql = "SELECT * FROM consumer_results WHERE shid ="." :shid "." ORDER BY RAND() LIMIT 5";
+      $sql = "SELECT * FROM consumer_results WHERE shid ="." :shid "." ORDER BY RAND() LIMIT 10";
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":shid", $smarthashtagid);
       $stmt->execute();
@@ -133,6 +133,12 @@ if($number >= 1)
         echo "<div class='resultdiv' id='".$row['resultid']."'>";
         echo $row['screenname']."</br>";
         echo $row['status']."</br>";
+        $sql2 = "SELECT keyword FROM keywords WHERE id ="." :keywordid ";
+        $stmt2 = $DB->prepare($sql2);
+        $stmt2->bindValue(":keywordid", $row['keywordid']);
+        $stmt2->execute();
+        $result = $stmt2->fetch()
+        echo "Related keyword: "$result["keyword"];
         echo "</div>";
         $intval = intval($row['resultid']);
         $intval++;
@@ -155,11 +161,9 @@ $('.cb').click(function() {
     var id = $(this).attr('name');
     var id1 = "#"+id;
     $(id1).fadeOut();
-    //document.getElementById(id).style.display = "none";
     id++;
     var id2 = "#"+id;
     $(id2).fadeOut();
-    //document.getElementById(id).style.display = "none";
   }
 });
 </script>
