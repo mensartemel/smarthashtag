@@ -158,7 +158,7 @@ else {
 					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
 				</div>
 			</form>
-      <div class="formfooter" style="display:<?php echo $display; ?>">SELAM</div>
+      <div class="formfooter" style="display:<?php echo $display; ?>">We have determined that you have used a smarthastag before. When you add a new smarhashtag, all the previous data will be deleted.</div>
     </div>
     <div class="shResult" id="shResult1">
       <div class="formheader">Smart Hashtag Results<div id="rate"></div></div>

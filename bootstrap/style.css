@@ -573,3 +573,8 @@ div#rate {
     font-size: 15px;
     margin: 7px;
 }
+.formfooter {
+    margin-top: 5px;
+    color: #f51111;
+    font-size: 14px;
+}
