@@ -568,3 +568,8 @@ div#resultsh > checkbox {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+div#rate {
+    float: right;
+    font-size: 15px;
+    margin: 7px;
+}
