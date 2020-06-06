@@ -486,7 +486,7 @@ td.cl-chackbox {
 .resultdiv2 {
 	width: 10%;
 	float: left;
-	padding: 20px;
+	padding: 15px;
 }
 div#resultsh {
     position: relative;
@@ -502,9 +502,9 @@ div#resultsh > checkbox {
   display: block;
   position: relative;
   padding-left: 35px;
-  margin-bottom: 12px;
+  margin-bottom: 5px;
   cursor: pointer;
-  font-size: 22px;
+  font-size: 18px;
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
