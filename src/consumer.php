@@ -154,18 +154,6 @@ else {
   </body>
 </html>
 <script>
-$('.cb').click(function() {
-  if(this.checked){
-    var id = $(this).attr('name');
-    var id1 = "#"+id;
-    $(id1).fadeOut();
-    //document.getElementById(id).style.display = "none";
-    id++;
-    var id2 = "#"+id;
-    $(id2).fadeOut();
-    //document.getElementById(id).style.display = "none";
-  }
-});
 $(document).ready(function(){
 	var i=1;
 	$('#add').click(function(){
