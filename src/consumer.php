@@ -156,9 +156,9 @@ else {
           </select>
           <span class="error" id="error"></span>
 					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
-          <div class="formfooter" style="display:<?php echo $display; ?>">SELAM</div>
 				</div>
 			</form>
+      <div class="formfooter" style="display:<?php echo $display; ?>">SELAM</div>
     </div>
     <div class="shResult" id="shResult1">
       <div class="formheader">Smart Hashtag Results<div id="rate"></div></div>
