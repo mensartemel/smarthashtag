@@ -149,7 +149,6 @@ else {
     </div>
     <div class="shResult" id="shResult1">
       <div class="formheader">Smart Hashtag Results</div>
-      <img class='loadimg' src='../img/ajax-loader.gif' />
       <div id="resultsh"></div>
     </div>
   </body>
@@ -181,7 +180,7 @@ $(document).ready(function(){
 			data:$('#add_keyword').serialize(),
       beforeSend: function()
       {
-        $('#resultsh').html("<img class='loadimg' src='../src/ajax-loader.gif' />");
+        $('#resultsh').html("<img class='loadimg' src='../img/ajax-loader.gif' />");
       },
 			success:function(data)
 			{
