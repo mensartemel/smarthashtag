@@ -159,7 +159,7 @@ if($number >= 1)
 $('.cb').click(function() {
   if(this.checked){
     var id = $(this).attr('id');
-    var value = $(this).attr('value');
+    var $value = $(this).attr('value');
     var id1 = "#"+id;
     $(id1).fadeOut();
     id++;
@@ -168,7 +168,7 @@ $('.cb').click(function() {
     $.ajax({
 			url:"rate.php",
 			method:"POST",
-			data:{shid: value},
+			data:{shid: $value},
 			success:function(data)
 			{
 				$("#rate").empty().append(data);
