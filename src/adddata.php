@@ -86,7 +86,7 @@ if($number >= 1)
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":screenname", $status->user->screen_name);
           $stmt->bindValue(":picture", $status->user->profile_image_url_https);
-          $stmt->bindValue(":status", $status->user->text);
+          $stmt->bindValue(":status", $status->text);
           $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
           $stmt->bindValue(":keywordid", $keywordid[$i]);
           $stmt->bindValue(":appid", $_SESSION["appid"]);
