@@ -1,7 +1,6 @@
 <?php
 require('config.php');
 $value = $_POST["shid"];
-echo $value;
 $list = explode('-', $value);
 $rate = $list[0];
 $smarthashtagid = $list[1];
@@ -33,11 +32,11 @@ if ($rate == "like") {
     $stmt->bindValue(":shid", $smarthashtagid);
     $stmt->execute();
     $result = $stmt->fetch();
-    echo "Likes: ".$result["likes"]."Dislikes: ".$result["dislikes"];
+    echo "Likes: ".$result["likes"]." Dislikes: ".$result["dislikes"];
   } else {
     echo "SQL Error";
   }
 } else {
-  //echo "Error";
+  echo "Error";
 }
 ?>
