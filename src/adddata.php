@@ -134,7 +134,7 @@ if($number >= 1)
         echo $row['screenname']."</br>";
         echo $row['status']."</br>";
         echo "</div>";
-        $intval = intval($row['shid'])
+        $intval = intval($row['shid']);
         $intval++;
         echo "<div class='resultdiv2' id='".$intval."'>";
         echo "<label class='cbcontainer'>Like<input type='checkbox' id='like".$row['shid']."' class='cb' name='".$row['shid']."' value='like".$row['shid']."'><span class='checkmark'></span></label>";
