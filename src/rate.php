@@ -1,6 +1,7 @@
 <?php
 require('config.php');
 $value = $_POST["value"];
+echo $value;
 $list = explode('-', $value);
 $rate = $list[0];
 $smarthashtagid = $list[1];
@@ -37,6 +38,6 @@ if ($rate == "like") {
     echo "SQL Error";
   }
 } else {
-  echo "Error";
+  //echo "Error";
 }
 ?>
