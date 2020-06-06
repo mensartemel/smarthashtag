@@ -146,9 +146,9 @@
       $dislike += $ratedislike;
     }
   ?>
-  <div class="graph"><canvas id="dailyConsumer"></canvas></div>
-  <div class="graph"><canvas id="consumerRate"></canvas></div>
-  <div class="graph">Keywords used by consumers:<div id="keyword">
+  <div class="graph"><div class="statHeader">Last 10 Day Daily Consumer Results:</div><canvas id="dailyConsumer"></canvas></div>
+  <div class="graph"><div class="statHeader">Consumer Result Rates:</div><canvas id="consumerRate"></canvas></div>
+  <div class="graph"><div class="statHeader">Keywords used by consumers:</div><div id="keyword">
     <?php
       $sql = "SELECT * FROM consumers WHERE appid = :appid";
       $stmt = $DB->prepare($sql);
