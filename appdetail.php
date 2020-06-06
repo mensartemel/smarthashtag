@@ -173,9 +173,10 @@
           datasets: [{
             label: 'Consumer Result Rates',
             backgroundColor: [
-              '#7BE24B',
+              '#366d38',
               '#BFCEB8',
             ],
+            borderColor: '#366d38',
             data: [<?php echo $like; ?>, <?php echo $dislike; ?>]
           }]
         },
