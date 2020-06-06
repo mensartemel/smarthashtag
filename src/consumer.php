@@ -113,7 +113,7 @@ else {
 }
 ?>
 <?php
-  $sql = "SELECT FROM smarthashtags WHERE consumerid = ".":consumerid";
+  $sql = "SELECT * FROM smarthashtags WHERE consumerid = ".":consumerid";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
   $stmt->execute();
