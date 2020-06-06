@@ -94,19 +94,26 @@ if($number >= 1)
 
     for($i=0; $i<$number; $i++) {
       if(trim($_POST["keyword"][$i] != '')) {
-        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '100']);
+        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '1']);
         $number2 = count($results);
         echo $number2."</br>";
         foreach ($results as $status) {
           $sql = "INSERT INTO consumer_results (screenname, picture, status, created_at, consumerid, keywordid, appid, shid) VALUES "." (:screenname, :picture, :status, NOW(), :consumerid, :keywordid, :appid, :shid)";
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":screenname", $status->user->screen_name);
+          echo $status->user->screen_name."</>";
           $stmt->bindValue(":picture", $status->user->profile_image_url_https);
+          echo $status->user->profile_image_url_https."</>";
           $stmt->bindValue(":status", $status->text);
+          echo $status->text."</>";
           $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
+          echo $_SESSION["consumerid"]."</>";
           $stmt->bindValue(":keywordid", $keywordid[$i]);
+          echo $keywordid[$i]."</>";
           $stmt->bindValue(":appid", $_SESSION["appid"]);
+          echo $_SESSION["appid"];
           $stmt->bindValue(":shid", $smarthashtagid);
+          echo $smarthashtagid."</>";
           $stmt->execute();
           $result2 = $stmt->rowCount();
           if ($result2 > 0) {
