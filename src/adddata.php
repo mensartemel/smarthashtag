@@ -1,6 +1,7 @@
 <?php
 require('config.php');
 $number = count($_POST["keyword"]);
+echo $number."</br>";
 if($number >= 1)
 {
   $errorCount = 0;
