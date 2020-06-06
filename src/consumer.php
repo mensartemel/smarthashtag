@@ -134,7 +134,7 @@ else {
     <script src="../bootstrap/script.js"></script>
   </head>
   <body>
-    <div class="shform">
+    <div class="shform" id="shform">
       <div class="formheader">Create Smart Hashtag</div>
       <form name="add_keyword" id="add_keyword">
 				<div class="table-responsive">
@@ -186,6 +186,8 @@ $(document).ready(function(){
 
 	$('#submit').click(function(){
     var xyz = document.getElementById("shResult1");
+    var xy = document.getElementById("shform");
+    xy.style.display = "none";
     xyz.style.display = "block";
     xyz.style.visibility = "visible";
     xyz.style.opacity = "1";
