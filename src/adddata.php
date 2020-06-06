@@ -118,7 +118,7 @@ if($number >= 1)
         }
       }
     }
-    if ($errorCount > 0) {
+    if ($errorCount = 0) {
       echo $errorCount;
     }
   }
