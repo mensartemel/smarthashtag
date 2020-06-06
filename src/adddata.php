@@ -11,9 +11,6 @@ if($number >= 1)
   } else {
     $profilesearch = "false";
   }
-  echo $profilesearch;
-  echo $lang;
-  echo $consumerid;
   $sql = "INSERT INTO smarthashtags (lang, profilesearch, consumerid) VALUES (:lang, :profilesearch, :consumerid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":lang", $lang);
@@ -116,6 +113,8 @@ if($number >= 1)
             } else {
               $errorCount += 1;
             }
+          } else {
+            echo "No profile search result</br>";
           }
         }
       }
