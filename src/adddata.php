@@ -11,6 +11,7 @@ if($number >= 1)
   } else {
     $profilesearch = "false";
   }
+  echo $profilesearch . "</br>";
   $sql = "INSERT INTO smarthashtags (lang, profilesearch, consumerid) VALUES (:lang, :profilesearch, :consumerid)";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":lang", $lang);
