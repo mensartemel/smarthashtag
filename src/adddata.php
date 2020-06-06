@@ -135,8 +135,8 @@ if($number >= 1)
         echo $row['status']."</br>";
         echo "</div>";
         echo "<div class='resultdiv2' id='".$row['shid']."'>";
-        echo "<input type='checkbox' id='like".$row['shid']."' name='like".$row['shid']."' value='like".$row['shid']."'>";
-        echo "<input type='checkbox' id='dislike".$row['shid']."' name='dislike".$row['shid']."' value='dislike".$row['shid']."'>";
+        echo "<label class='cbcontainer'>Like<input type='checkbox' id='like".$row['shid']."' name='like".$row['shid']."' value='like".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Dislike<input type='checkbox' id='dislike".$row['shid']."' name='dislike".$row['shid']."' value='dislike".$row['shid']."'><span class='checkmark'></span></label>";
         echo "</div>";
         $count += 1;
       }

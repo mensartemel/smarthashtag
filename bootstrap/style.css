@@ -494,7 +494,7 @@ div#resultsh {
     height: auto;
     overflow: hidden;
 }
-#resultsh > checkbox {
+div#resultsh > checkbox {
 	width: 25px;
 	height: 25px;
 }
