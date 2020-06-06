@@ -28,6 +28,8 @@ p {
 	padding-left: 0px;
 	height: 100vh;
 	background-color: #eee;
+	position: sticky;
+	top: 0;
 }
 
 .vertical-menu a:hover {
@@ -595,4 +597,13 @@ span.keyword {
 .statKeyword {
     width: 100%;
     float: left;
+}
+.container-fluid {
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    display: flex;
+    justify-content: space-between;
 }
