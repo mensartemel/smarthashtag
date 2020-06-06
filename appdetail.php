@@ -175,7 +175,7 @@
             $stmt->bindValue(":kwid", $kwid);
             $stmt->execute();
             $result = $stmt->fetch();
-            echo $result["keyword"]." ";
+            echo "<span class='keyword'>".$result["keyword"]."</span>";
           }
         }
       }
