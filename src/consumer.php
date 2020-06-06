@@ -154,7 +154,7 @@ else {
   </body>
 </html>
 <script>
-$('.cb').click(function() {
+$('.cbcontainer').click(function() {
   if(this.checked){
     var id = $(this).attr('name');
     document.getElementById('resultsh').style.display = "none";
