@@ -16,23 +16,15 @@ $stmt->execute();
 $result = $stmt->rowCount();
 
 if ($result > 0) {
-  $sql = "SELECT callbackurl from applications where appkey = :appkey";
+  $sql = "SELECT appid, callbackurl from applications where appkey = :appkey";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":appkey", $appkey);
   $stmt->execute();
   $result = $stmt->fetch();
   $_SESSION["appurl"] = $result["callbackurl"];
-
   $_SESSION["is_consumer"] = true;
   $_SESSION["appkey"] = $appkey;
-
-  $stmt = $DB->prepare($sql);
-  $stmt->bindValue(":appkey", $appkey);
-  $stmt->execute();
-  $result = $stmt->fetch();
-  $appid = $result['appid'];
-
-  $_SESSION["appid"] = $appid;
+  $_SESSION["appid"] = $result["appid"];
 
   $client = new oauth_client_class;
   $client->debug = 1;
