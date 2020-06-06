@@ -137,7 +137,7 @@ if($number >= 1)
       }
     }
     if ($errorCount > 0) {
-      echo $errorCount;
+      echo $errorCount."Hata";
     } else {
       $sql = "SELECT * FROM consumer_results WHERE shid ="." :shid "." ORDER BY RAND() LIMIT 10";
       $stmt = $DB->prepare($sql);
