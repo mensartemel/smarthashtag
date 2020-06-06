@@ -94,8 +94,8 @@ if($number >= 1)
           $stmt->bindValue(":appid", $_SESSION["appid"]);
           $stmt->bindValue(":shid", $smarthashtagid);
           $stmt->execute();
-          $result = $stmt->rowCount();
-          if ($result > 0) {
+          $result2 = $stmt->rowCount();
+          if ($result2 > 0) {
             echo $status->user->text . "</br>";
           } else {
             $errorCount += 1;
@@ -110,8 +110,8 @@ if($number >= 1)
             $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
             $stmt->bindValue(":shid", $smarthashtagid);
             $stmt->execute();
-            $result = $stmt->rowCount();
-            if ($result > 0) {
+            $result3 = $stmt->rowCount();
+            if ($result3 > 0) {
               echo $status->user->description . "</br>";
             } else {
               $errorCount += 1;
