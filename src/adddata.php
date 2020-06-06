@@ -193,7 +193,8 @@ $('.cb').click(function() {
 		});
   }
   if (count > 9) {
-    document.getElementById("shResult1").innerHTML = "Thank You!";
+    document.getElementById("shResult1").innerHTML = "Thank You! You will be redirecting soon...";
+    setTimeout(() => {  window.location.href = "<?php echo $_SESSION["appid"]; ?>"; }, 3000);
   }
 });
 </script>
