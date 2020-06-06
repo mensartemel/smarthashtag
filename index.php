@@ -61,7 +61,7 @@
                 $result = $stmt->fetch();
                 $appname = $result["appname"];
                 $appid = $result["appid"];
-                echo "<div class='title'><a>".$appname." Details</a></div><div class='titleside'><button id='myBtn' type='submit' name='deleteapp' class='deleteapp'>Delete</button></div>";
+                echo "<div class='title'><a>".$appname." Details</a></div><div class='titleside'><button id='myBtn' name='deleteapp' class='deleteapp'>Delete</button></div>";
               }
               else {
                 echo "<div class='title'><a>Unnamed Title</a></div>";
