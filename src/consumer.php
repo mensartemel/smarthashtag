@@ -148,7 +148,7 @@ else {
 			</form>
     </div>
     <div class="shResult" id="shResult1">
-      <div class="formheader">Smart Hashtag Results</div>
+      <div class="formheader">Smart Hashtag Results<div id="rate"></div></div>
       <div id="resultsh"></div>
     </div>
   </body>
