@@ -169,7 +169,7 @@ if($number >= 1)
 }
 ?>
 <script>
-var count;
+var count = 0;
 $('.cb').click(function() {
   count++;
   if(this.checked){
