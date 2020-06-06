@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="bootstrap/style.css">
 <script src="bootstrap/jquery-3.5.1.min.js"></script>
 <script src="bootstrap/script.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
 </head>
 <body>
   <div class="container-fluid">

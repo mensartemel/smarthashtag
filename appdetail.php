@@ -86,7 +86,7 @@
 ?>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
-  <button class="tablinks" onclick="openCity(event, 'Services')">Services</button>
+  <button class="tablinks" onclick="openCity(event, 'Stats')">Services</button>
   <button class="tablinks" onclick="openCity(event, 'Settings')" id="editOpen">Settings</button>
 </div>
 
@@ -109,8 +109,42 @@
   ?>
 </div>
 
-<div id="Services" class="tabcontent">
-  <a>This is the app services page.</a>
+<div id="Stats" class="tabcontent">
+  <?php
+	$daycount = 10;
+	for ($x = 0; $x <= $daycount; $x++) {
+		$today = date('Y-m-d', strtotime('-'.$x.' day'));
+		$todayArr[] = $today;
+		$today = $today."%";
+		$sql = "SELECT COUNT(*) as count FROM consumer_results WHERE appid = :appid AND created_at LIKE :date";
+		$stmt = $DB->prepare($sql);
+		$stmt->bindValue(":date", $today);
+    $stmt->bindValue(":appid", $appid);
+		$stmt->execute();
+		$result = $stmt->fetch();
+		$count = $result["count"];
+		$countArr[] = $count;
+		echo $count."</br>";
+		echo $today."</br>";
+	};
+  ?>
+  <canvas id="myChart"></canvas>
+  <script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var chart = new Chart(ctx, {
+      type: 'line',
+      data: {
+          labels: ['<?php echo $todayArr[9] ?>', '<?php echo $todayArr[8] ?>', '<?php echo $todayArr[7] ?>', '<?php echo $todayArr[6] ?>', '<?php echo $todayArr[5] ?>', '<?php echo $todayArr[4] ?>', '<?php echo $todayArr[3] ?>', '<?php echo $todayArr[2] ?>','<?php echo $todayArr[1] ?>','<?php echo $todayArr[0] ?>'],
+          datasets: [{
+            label: 'Last 10 Day Daily Consumer Results',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [<?php echo $countArr[9] ?>, <?php echo $countArr[8] ?>, <?php echo $countArr[7] ?>, <?php echo $countArr[6] ?>, <?php echo $countArr[5] ?>, <?php echo $countArr[4] ?>, <?php echo $countArr[3] ?>, <?php echo $countArr[2] ?>,<?php echo $countArr[1] ?>,<?php echo $countArr[0] ?>]
+          }]
+        },
+          options: {}
+      });
+</script>
 </div>
 
 <div id="Settings" class="tabcontent">
