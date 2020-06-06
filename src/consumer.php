@@ -16,6 +16,12 @@ $stmt->execute();
 $result = $stmt->rowCount();
 
 if ($result > 0) {
+  $sql = "SELECT callbackurl from applications where appkey = :appkey";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":appkey", $appkey);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $_SESSION["appurl"] = $result["callbackurl"];
 
   $_SESSION["is_consumer"] = true;
   $_SESSION["appkey"] = $appkey;
