@@ -1,7 +1,6 @@
 <?php
 require('config.php');
 $number = count($_POST["keyword"]);
-echo $number."</br>";
 if($number >= 1)
 {
   $errorCount = 0;
@@ -99,19 +98,12 @@ if($number >= 1)
           $sql = "INSERT INTO consumer_results (screenname, picture, status, created_at, consumerid, keywordid, appid, shid) VALUES "." (:screenname, :picture, :status, NOW(), :consumerid, :keywordid, :appid, :shid)";
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":screenname", $status->user->screen_name);
-          echo $status->user->screen_name."</br>";
           $stmt->bindValue(":picture", $status->user->profile_image_url_https);
-          echo $status->user->profile_image_url_https."</br>";
           $stmt->bindValue(":status", $status->text);
-          echo $status->text."</br>";
           $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
-          echo $_SESSION["consumerid"]."</br>";
           $stmt->bindValue(":keywordid", $keywordid[$i]);
-          echo $keywordid[$i]."</br>";
           $stmt->bindValue(":appid", $_SESSION["appid"]);
-          echo $_SESSION["appid"]."</br>";
           $stmt->bindValue(":shid", $smarthashtagid);
-          echo $smarthashtagid."</br>";
           $stmt->execute();
           $result2 = $stmt->rowCount();
           if ($result2 > 0) {
