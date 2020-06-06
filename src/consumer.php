@@ -147,7 +147,7 @@ else {
 				</div>
 			</form>
     </div>
-    <div class="shResult" id="shResult">
+    <div class="shResult" id="shResult1">
       <div class="formheader">Smart Hashtag Results</div>
       <div id="resultsh"></div>
     </div>
@@ -172,10 +172,8 @@ $(document).ready(function(){
 	});
 
 	$('#submit').click(function(){
-    var x = document.getElementById("shResult");
-    if (x.style.display === "none") {
-      x.style.display = "block";
-    }
+    var xyz = document.getElementById("shResult1");
+    xyz.style.display = "block";
 		$.ajax({
 			url:"adddata.php",
 			method:"POST",
