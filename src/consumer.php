@@ -180,11 +180,11 @@ $(document).ready(function(){
 			data:$('#add_keyword').serialize(),
       beforeSend: function()
       {
-        $('#shResult').html("<img class='loadimg' src='../src/ajax-loader.gif' />");
+        $('#shResult1').html("<img class='loadimg' src='../src/ajax-loader.gif' />");
       },
 			success:function(data)
 			{
-				$("#shResult").empty().append(data);
+				$("#shResult1").empty().append(data);
 				$('#add_keyword')[0].reset();
 			}
 		});
