@@ -148,7 +148,39 @@
   ?>
   <div class="graph"><canvas id="dailyConsumer"></canvas></div>
   <div class="graph"><canvas id="consumerRate"></canvas></div>
-  <div class="graph"><canvas id="myChart"></canvas></div>
+  <div class="graph"><div id="keyword">
+    <?php
+      $sql = "SELECT * FROM consumers WHERE appid = :appid";
+      $stmt = $DB->prepare($sql);
+      $stmt->bindValue(":appid", $appid);
+      $stmt->execute();
+      foreach ($stmt->fetchAll() as $consid) {
+        $consumer_id = $consid["id"];
+        $sql = "SELECT * FROM smarthashtags WHERE consumerid = :consumerid";
+        $stmt = $DB->prepare($sql);
+        $stmt->bindValue(":consumerid", $consumer_id);
+        $stmt->execute();
+        $result = $stmt->fetchAll();
+        foreach ($result as $sh) {
+          $shid = $sh["id"];
+          $sql = "SELECT DISTINCT kwid FROM sh_kw WHERE shid = :shid";
+          $stmt = $DB->prepare($sql);
+          $stmt->bindValue(":shid", $shid);
+          $stmt->execute();
+          $sh_kw = $stmt->fetchAll();
+          foreach ($sh_kw as $kw) {
+            $kw_id = $kw["kw_id"];
+            $sql = "SELECT keyword FROM keywords WHERE id = :kwid";
+            $stmt = $DB->prepare($sql);
+            $stmt->bindValue(":kwid", $kw_id);
+            $stmt->execute();
+            $result->$stmt->fetch();
+            echo $result["keyword"]." ";
+          }
+        }
+      }
+    ?>
+  </div></canvas></div>
   <div class="graph"><canvas id="myChart"></canvas></div>
   <script>
     var dailyConsumer = document.getElementById('dailyConsumer').getContext('2d');
