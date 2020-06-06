@@ -172,6 +172,10 @@ $(document).ready(function(){
 	});
 
 	$('#submit').click(function(){
+    var x = document.getElementById("shResult");
+    if (x.style.display === "none") {
+      x.style.display = "block";
+    }
 		$.ajax({
 			url:"adddata.php",
 			method:"POST",
