@@ -112,6 +112,18 @@ else {
   header("location:../login.php");
 }
 ?>
+<?php
+  $sql = "SELECT FROM smarthashtags WHERE consumerid = ".":consumerid";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":consumerid", $_SESSION["consumerid"]);
+  $stmt->execute();
+  $result = $stmt->rowCount();
+  if ($result > 0) {
+    $display = "block";
+  } else {
+    $display = "none";
+  }
+?>
 <!DOCTYPE html>
 <html>
   <head>
@@ -144,6 +156,7 @@ else {
           </select>
           <span class="error" id="error"></span>
 					<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />
+          <div class="formfooter" style="display:<?php echo $display; ?>"></div>
 				</div>
 			</form>
     </div>
