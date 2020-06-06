@@ -93,7 +93,7 @@ if($number >= 1)
 
     for($i=0; $i<$number; $i++) {
       if(trim($_POST["keyword"][$i] != '')) {
-        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'popular', 'count' => '100']);
+        $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '100']);
         $number2 = count($results);
         echo $number2."</br>";
         foreach ($results as $status) {
