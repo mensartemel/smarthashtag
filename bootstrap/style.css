@@ -455,3 +455,11 @@ td.cl-input {
 td.cl-chackbox {
     padding-top: 20px;
 }
+.shResult {
+    position: relative;
+    width: 70%;
+    margin: 0px auto;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
+    background-color: white;
+		padding: 10px;
+}

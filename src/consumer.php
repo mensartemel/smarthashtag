@@ -123,6 +123,7 @@ else {
   </head>
   <body>
     <div class="shform">
+      <div class="formheader">Create Smart Hashtag</div>
       <form name="add_keyword" id="add_keyword">
 				<div class="table-responsive">
 					<table class="table" id="dynamic_field">
@@ -147,6 +148,7 @@ else {
 			</form>
     </div>
     <div class="shResult" id="shResult">
+      <div class="formheader">Smart Hashtag Results</div>
       Result Div
     </div>
   </body>
