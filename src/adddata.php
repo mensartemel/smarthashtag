@@ -70,7 +70,7 @@ if($number >= 1)
   } else {
     $errorCount += 1;
   }
-  if ($errorCount > 0) {
+  if ($errorCount <= 0) {
     require_once '../src/twitter.class.php';
     foreach($_SESSION['OAUTH_ACCESS_TOKEN'] as $key) {
     	$accessToken = $key['value'];
