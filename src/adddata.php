@@ -143,8 +143,8 @@ if($number >= 1)
         $intval = intval($row['resultid']);
         $intval++;
         echo "<div class='resultdiv2' id='".$intval."'>";
-        echo "<label class='cbcontainer'>Like<input type='checkbox' id='like".$row['resultid']."' class='cb' name='".$row['resultid']."' value='like".$row['shid']."'><span class='checkmark'></span></label>";
-        echo "<label class='cbcontainer'>Dislike<input type='checkbox' id='dislike".$row['resultid']."' class='cb' name='".$row['resultid']."' value='dislike".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Like<input type='checkbox' id='".$row['resultid']."' class='cb' name='".$row['resultid']."' value='like-".$row['shid']."'><span class='checkmark'></span></label>";
+        echo "<label class='cbcontainer'>Dislike<input type='checkbox' id='".$row['resultid']."' class='cb' name='".$row['resultid']."' value='dislike-".$row['shid']."'><span class='checkmark'></span></label>";
         echo "</div>";
         $count += 1;
       }
@@ -158,7 +158,7 @@ if($number >= 1)
 <script>
 $('.cb').click(function() {
   if(this.checked){
-    var id = $(this).attr('name');
+    var id = $(this).attr('id');
     var id1 = "#"+id;
     $(id1).fadeOut();
     id++;
