@@ -148,3 +148,14 @@ if($number >= 1)
 } else {
   echo "Page Not Found";
 }
+?>
+<script>
+$('.cb').click(function() {
+  if(this.checked){
+    var id = $(this).attr('name');
+    document.getElementById('id').style.display = "none";
+    id++;
+    document.getElementById(id).style.display = "none";
+  }
+});
+</script>
