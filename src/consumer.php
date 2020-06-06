@@ -157,7 +157,7 @@ else {
 $('.cb').click(function() {
   if(this.checked){
     var id = $(this).attr('name');
-    document.getElementById(id).style.display = "none";
+    document.getElementById('resultsh').style.display = "none";
     id++;
     document.getElementById(id).style.display = "none";
   }
