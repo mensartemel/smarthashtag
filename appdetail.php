@@ -126,6 +126,26 @@
 		$countArr[] = $count;
 	};
   ?>
+  <?php
+    $like = 0;
+    $dislike = 0;
+    $sql = "SELECT * FROM consumers WHERE appid = :appid";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":appid", $appid);
+    $stmt->execute();
+    foreach ($stmt->fetchAll() as $consid) {
+      $consumer_id = $consid["id"];
+      $sql = "SELECT likes, dislikes  FROM smarthashtags WHERE consumerid = :consumerid";
+      $stmt = $DB->prepare($sql);
+      $stmt->bindValue(":consumerid", $consumer_id);
+      $stmt->execute();
+      $rate = $stmt->fetch();
+      $ratelike = $rate["likes"];
+      $like += $ratelike;
+      $ratedislike = $rate["dislikes"];
+      $dislike += $ratedislike;
+    }
+  ?>
   <div class="graph"><canvas id="dailyConsumer"></canvas></div>
   <div class="graph"><canvas id="consumerRate"></canvas></div>
   <div class="graph"><canvas id="myChart"></canvas></div>
@@ -156,7 +176,7 @@
               '#7BE24B',
               '#BFCEB8',
             ],
-            data: [15, 5]
+            data: [<?php echo $like; ?>, <?php echo $dislike; ?>]
           }]
         },
           options: {}
