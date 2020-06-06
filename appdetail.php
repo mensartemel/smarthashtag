@@ -86,7 +86,7 @@
 ?>
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
-  <button class="tablinks" onclick="openCity(event, 'Stats')">Services</button>
+  <button class="tablinks" onclick="openCity(event, 'Stats')">Stats</button>
   <button class="tablinks" onclick="openCity(event, 'Settings')" id="editOpen">Settings</button>
 </div>
 
@@ -124,11 +124,12 @@
 		$result = $stmt->fetch();
 		$count = $result["count"];
 		$countArr[] = $count;
-		echo $count."</br>";
-		echo $today."</br>";
 	};
   ?>
-  <canvas id="myChart"></canvas>
+  <div class="graph"><canvas id="myChart"></canvas></div>
+  <div class="graph"><canvas id="myChart"></canvas></div>
+  <div class="graph"><canvas id="myChart"></canvas></div>
+  <div class="graph"><canvas id="myChart"></canvas></div>
   <script>
     var ctx = document.getElementById('myChart').getContext('2d');
     var chart = new Chart(ctx, {
