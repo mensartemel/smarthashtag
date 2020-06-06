@@ -130,11 +130,11 @@ if($number >= 1)
       echo "<form name='likedislike'>";
       $count = 0;
       while ($row = $stmt->fetch()) {
-        echo "<div class='resultdiv'>";
+        echo "<div class='resultdiv' id='".$row['shid']."'>";
         echo $row['screenname']."</br>";
         echo $row['status']."</br>";
         echo "</div>";
-        echo "<div class='resultdiv'>";
+        echo "<div class='resultdiv2' id='".$row['shid']."'>";
         echo "<input type='checkbox' id='like".$row['shid']."' name='like".$row['shid']."' value='like".$row['shid']."'>";
         echo "<input type='checkbox' id='dislike".$row['shid']."' name='dislike".$row['shid']."' value='dislike".$row['shid']."'>";
         echo "</div>";
