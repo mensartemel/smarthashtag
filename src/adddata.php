@@ -81,7 +81,6 @@ if($number >= 1)
       if(trim($_POST["keyword"][$i] != '')) {
         $results = $twitter->search(['q' => $_POST["keyword"][$i], 'lang' => $lang, 'result_type' => 'mixed', 'count' => '5']);
         foreach ($results as $status) {
-          echo $status->user->screen_name . "</br>";
           $sql = "INSERT INTO consumer_results (screenname, picture, status, created_at, consumerid, keywordid, appid, shid) VALUES "." (:screenname, :picture, :status, NOW(), :consumerid, :keywordid, :appid, :shid)";
           $stmt = $DB->prepare($sql);
           $stmt->bindValue(":screenname", $status->user->screen_name);
@@ -94,7 +93,6 @@ if($number >= 1)
           $stmt->execute();
           $result2 = $stmt->rowCount();
           if ($result2 > 0) {
-            echo $status->user->text . "</br>";
           } else {
             $errorCount += 1;
           }
