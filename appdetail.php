@@ -126,13 +126,13 @@
 		$countArr[] = $count;
 	};
   ?>
-  <div class="graph"><canvas id="myChart"></canvas></div>
-  <div class="graph"><canvas id="myChart"></canvas></div>
+  <div class="graph"><canvas id="dailyConsumer"></canvas></div>
+  <div class="graph"><canvas id="consumerRate"></canvas></div>
   <div class="graph"><canvas id="myChart"></canvas></div>
   <div class="graph"><canvas id="myChart"></canvas></div>
   <script>
-    var ctx = document.getElementById('myChart').getContext('2d');
-    var chart = new Chart(ctx, {
+    var dailyConsumer = document.getElementById('dailyConsumer').getContext('2d');
+    var chart = new Chart(dailyConsumer, {
       type: 'line',
       data: {
           labels: ['<?php echo $todayArr[9] ?>', '<?php echo $todayArr[8] ?>', '<?php echo $todayArr[7] ?>', '<?php echo $todayArr[6] ?>', '<?php echo $todayArr[5] ?>', '<?php echo $todayArr[4] ?>', '<?php echo $todayArr[3] ?>', '<?php echo $todayArr[2] ?>','<?php echo $todayArr[1] ?>','<?php echo $todayArr[0] ?>'],
@@ -141,6 +141,20 @@
             backgroundColor: 'rgb(255, 99, 132)',
             borderColor: 'rgb(255, 99, 132)',
             data: [<?php echo $countArr[9] ?>, <?php echo $countArr[8] ?>, <?php echo $countArr[7] ?>, <?php echo $countArr[6] ?>, <?php echo $countArr[5] ?>, <?php echo $countArr[4] ?>, <?php echo $countArr[3] ?>, <?php echo $countArr[2] ?>,<?php echo $countArr[1] ?>,<?php echo $countArr[0] ?>]
+          }]
+        },
+          options: {}
+      });
+    var consumerRate = document.getElementById('consumerRate').getContext('2d');
+    var chart = new Chart(consumerRate, {
+      type: 'pie',
+      data: {
+          labels: ['Like', 'Dislike'],
+          datasets: [{
+            label: 'Consumer Result Rates',
+            backgroundColor: 'rgb(255, 99, 132)',
+            borderColor: 'rgb(255, 99, 132)',
+            data: [15, 5]
           }]
         },
           options: {}
