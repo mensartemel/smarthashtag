@@ -96,6 +96,8 @@ if($number >= 1)
           $stmt->execute();
           $result = $stmt->rowCount();
           if ($result > 0) {
+            echo $status->user->text . "</br>";
+          } else {
             $errorCount += 1;
           }
           if (strpos($status->user->description, $_POST["keyword"][$i])) {
@@ -110,6 +112,8 @@ if($number >= 1)
             $stmt->execute();
             $result = $stmt->rowCount();
             if ($result > 0) {
+              echo $status->user->description . "</br>";
+            } else {
               $errorCount += 1;
             }
           }
