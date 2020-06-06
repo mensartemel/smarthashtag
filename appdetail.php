@@ -169,12 +169,12 @@
           $stmt->execute();
           $sh_kw = $stmt->fetchAll();
           foreach ($sh_kw as $kw) {
-            $kw_id = $kw["kw_id"];
+            $kwid = $kw["kwid"];
             $sql = "SELECT keyword FROM keywords WHERE id = :kwid";
             $stmt = $DB->prepare($sql);
-            $stmt->bindValue(":kwid", $kw_id);
+            $stmt->bindValue(":kwid", $kwid);
             $stmt->execute();
-            $result->$stmt->fetch();
+            $result = $stmt->fetch();
             echo $result["keyword"]." ";
           }
         }
