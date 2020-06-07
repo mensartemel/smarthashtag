@@ -245,7 +245,7 @@ body{
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .app a {
-  font-size: 20px;
+  font-size: 1.2vw;
 }
 .appname {
     background-color: #8ac1d4;
@@ -253,6 +253,7 @@ body{
 }
 .appcover {
 	padding: 5px;
+	font-size: 0.9vw;
 }
 a.detail {
 	background-color: #4caf50;
