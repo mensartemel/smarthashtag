@@ -228,10 +228,10 @@ body{
   height: 50px;
 }
 .app {
-	background: #fff;
+	background: #eee;
   border-radius: 2px;
   display: inline-block;
-  height: 300px;
+  height: 200px;
   margin: 0.5rem;
   position: relative;
   width: 25%;
@@ -246,6 +246,10 @@ body{
 }
 .app a {
   font-size: 25px;
+}
+.appname {
+    background-color: #8ac1d4;
+    height: 85px;
 }
 a.detail {
 	background-color: #4caf50;
