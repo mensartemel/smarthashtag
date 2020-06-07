@@ -29,8 +29,7 @@
 				<div class="vertical-menu">
 					<a href="index.php" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>Dashboard</a>
 					<a href="index.php?page=apps" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>My Applications</a>
-					<a href="index.php?page=services" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Services</a>
-					<a href="index.php?page=search" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Search Example</a>
+					<a href="index.php?page=services" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Search Service</a>
 					<a href="index.php?page=settings" class="menu-btn"><img class="menu-icon" src="img/icon/settings.png";>Settings</a>
 					<a href="logout.php" class="menu-btn bottom active"><img class="menu-icon" src="img/icon/logout.png";>Log Out</a>
 				</div>
@@ -47,7 +46,7 @@
                 echo "<div class='title'><a>Add New Application</a></div>";
               }
               elseif ($_GET['page'] == "services") {
-                echo "<div class='title'><a>Services</a></div>";
+                echo "<div class='title'><a>Search Service</a></div>";
               }
               elseif ($_GET['page'] == "settings") {
                 echo "<div class='title'><a>Settings</a></div>";
