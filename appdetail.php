@@ -201,7 +201,7 @@
     var chart = new Chart(consumerRate, {
       type: 'pie',
       data: {
-          labels: ['Like', 'Dislike'],
+          labels: ['Relevant', 'Irrelevant'],
           datasets: [{
             label: 'Consumer Result Rates',
             backgroundColor: [
