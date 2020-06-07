@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       if ($result > 0) {
         $update = "Changes successfully saved";
       } else {
-        $update = "An error occurred while saving changes"
+        $update = "An error occurred while saving changes";
       }
     }
   }
