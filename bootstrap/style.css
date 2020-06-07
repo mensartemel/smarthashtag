@@ -231,7 +231,7 @@ body{
 	background: #eee;
   border-radius: 2px;
   display: inline-block;
-  height: 200px;
+  height: 140px;
   margin: 0.5rem;
   position: relative;
   width: 25%;
@@ -245,11 +245,14 @@ body{
 	box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .app a {
-  font-size: 25px;
+  font-size: 20px;
 }
 .appname {
     background-color: #8ac1d4;
     height: 85px;
+}
+.appcover {
+	padding: 5px;
 }
 a.detail {
 	background-color: #4caf50;
