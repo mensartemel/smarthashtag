@@ -36,8 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 }
 ?>
 <form method="post" action="index.php?page=settings">
-  <span class="error"> <?php echo $update;?></span>
-  <label for="appname">E-Mail:</label><span class="error"> <?php echo $nameErr;?></span>
+  <label for="appname">E-Mail:</label><span class="error"><span class="error"> <?php echo $update;?></span> <?php echo $emailErr;?></span>
   <input type="text" placeholder="example@example.com" name="email">
   <button class="appform" type="submit">Apply</button>
 </form>
