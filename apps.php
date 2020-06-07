@@ -65,7 +65,7 @@ if (isset($_POST["deleteapp"])) {
   $count = $stmt->rowCount();
   $result = $stmt->fetchAll();
   foreach($result as $row){
-    $url = "index.php?page=appdetail&appid=".$result['appid'];
+    $url = "index.php?page=appdetail&appid=".$row['appid'];
     echo "<div class='app' onclick='window.location=\"$url\"'>";
 		echo "<a>".$row['appname']."</a>";
 		echo "<div class='appdesc'>".$row['description']."</div>";
