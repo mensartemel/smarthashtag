@@ -66,7 +66,7 @@ if (isset($_POST["deleteapp"])) {
   $result = $stmt->fetchAll();
   foreach($result as $row){
     $url = "index.php?page=appdetail&appid=".$result['appid'];
-    echo "<div class='app' onclick='window.location=\"$result[]\"'>";
+    echo "<div class='app' onclick='window.location=\"$url\"'>";
 		echo "<a>".$row['appname']."</a>";
 		echo "<div class='appdesc'>".$row['description']."</div>";
     $sql = "SELECT COUNT(*) AS count FROM consumers WHERE appid = :appid";
