@@ -1,20 +1,4 @@
 <?php
-  $sql = "SELECT * FROM `users`";
-  $stmt = $DB->prepare($sql);
-  $stmt->execute();
-  while ($row = $stmt->fetch()) {
-    echo $row['username']."</br>";
-    echo $row['twitter_id']."</br>";
-    echo $row['name']."</br>";
-    echo $row['picture'];
-    echo "</br>";
-  }
-  echo "</br>";
-  echo $_SESSION["value"];
-  echo "</br>";
-  echo $_SESSION["secret"];
-?>
-<?php
 $emailErr = "";
 $email = $update = "";
 function test_input($data) {
@@ -33,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $emailErr = "Invalid email format";
     }
     else {
-      $sql = "UPDATE users SET email = :email, name = :name, username = :username, picture = :picture WHERE userid = :userid";
+      $sql = "UPDATE users SET email = :email, name = :name, username = :username, picture = :picture WHERE id = :userid";
       $stmt = $DB->prepare($sql);
       $stmt->bindValue(":email", $email);
       $stmt->bindValue(":userid", $_SESSION["userid"]);
