@@ -12,7 +12,7 @@
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":securitykey", $securitykey);
   $stmt->execute();
-  $appcount = $srmt->rowCount();
+  $appcount = $stmt->rowCount();
   $result = $stmt->fetch();
   $consumerid = $result["appid"];
 
@@ -20,7 +20,7 @@
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":twitter_id", $consumer_twitterid);
   $stmt->execute();
-  $conscount = $srmt->rowCount();
+  $conscount = $stmt->rowCount();
   $result = $stmt->fetch();
   $appid = $result["id"];
 
