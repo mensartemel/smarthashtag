@@ -28,12 +28,12 @@
   echo $consumerid." ";
 
   if (($conscount == 1) && ($appcount ==1)) {
-    $sql2 = "SELECT * FROM consumer_results";
-    $stmt2 = $DB->prepare($sql2);
-    //$stmt2->bindValue(":consumerid", $consumerid, PDO::PARAM_INT);
-    //$stmt2->bindValue(":appid", $appid, PDO::PARAM_INT);
-    $stmt2->execute();
-    $result = $stmt2;
+    $sql = "SELECT * FROM consumer_results WHERE appid = :appid AND consumerid = :consumerid";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":appid", $appid);
+    $stmt->bindValue(":consumerid", $consumerid);
+    $stmt->execute();
+    $result = $stmt;
 
     $num = $result->rowCount();
     // Check if any posts
