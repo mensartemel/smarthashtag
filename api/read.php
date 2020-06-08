@@ -25,15 +25,14 @@
   echo $appid." ";
   echo $consumerid." ";
 
-  $sql = "SELECT * FROM consumer_results WHERE consumerid ="." :consumerid AND appid = :appid";
-  $stmt = $DB->prepare($sql);
-  $stmt->bindValue(":consumerid", $consumerid);
-  $stmt->bindValue(":appid", $appid);
-  $stmt->execute();
-  $result = $stmt;
+  $sql2 = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
+  $stmt2 = $DB->prepare($sql2);
+  $stmt2->bindValue(":consumerid", $consumerid);
+  $stmt2->bindValue(":appid", $appid);
+  $stmt2->execute();
+  $result = $stmt2;
 
-  $num = 1;
-  //$result->rowCount();
+  $num = $result->rowCount();
   // Check if any posts
   if($num > 0) {
     // Post array
