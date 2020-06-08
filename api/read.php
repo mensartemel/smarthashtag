@@ -14,7 +14,6 @@
   $stmt->execute();
   $appcount = $srmt->rowCount();
   $result = $stmt->fetch();
-  $appcount = $
   $consumerid = $result["appid"];
 
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
@@ -28,7 +27,7 @@
   echo $appid." ";
   echo $consumerid." ";
 
-  if ($appcount == $conscount == 1) {
+  if ($appcount = $conscount = 1) {
     echo "Başarılı";
   }
 
