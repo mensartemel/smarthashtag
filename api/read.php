@@ -5,14 +5,22 @@
 
   include_once '../src/config.php';
 
+  $consumer_twitterid = $GET_["id"];
 
-  $sql = "SELECT * FROM consumer_results";
+  $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
   $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":twitter_id", $consumer_twitterid);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $consumerid = $result["id"];
+
+  $sql = "SELECT * FROM consumer_results WHERE consumerid = :consumerid";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":consumerid", $consumerid);
   $stmt->execute();
   $result = $stmt;
 
   $num = $result->rowCount();
-  echo $num;
   // Check if any posts
   if($num > 0) {
     // Post array
