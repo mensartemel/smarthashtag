@@ -27,10 +27,6 @@
   echo $appid." ";
   echo $consumerid." ";
 
-  if (($appcount === 1) && ($conscount === 1)) {
-    echo "Başarılı";
-  }
-
   $sql2 = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
   $stmt2 = $DB->prepare($sql2);
   $stmt2->bindValue(":consumerid", $consumerid);
