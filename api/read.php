@@ -32,7 +32,8 @@
   $stmt->execute();
   $result = $stmt;
 
-  $num = $result->rowCount();
+  $num = 1;
+  //$result->rowCount();
   // Check if any posts
   if($num > 0) {
     // Post array
