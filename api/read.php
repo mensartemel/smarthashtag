@@ -1,7 +1,7 @@
 <?php
   // Headers
-  //header('Access-Control-Allow-Origin: *');
-  //header('Content-Type: application/json');
+  header('Access-Control-Allow-Origin: *');
+  header('Content-Type: application/json');
 
   include_once '../src/config.php';
 
@@ -14,7 +14,7 @@
   $stmt->execute();
   $appcount = $stmt->rowCount();
   $result = $stmt->fetch();
-  $consumerid = $result["appid"];
+  $consumerid = $result['appid'];
 
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
   $stmt = $DB->prepare($sql);
@@ -22,7 +22,7 @@
   $stmt->execute();
   $conscount = $stmt->rowCount();
   $result = $stmt->fetch();
-  $appid = $result["id"];
+  $appid = $result['id'];
 
   echo $appid." ";
   echo $consumerid." ";
