@@ -22,8 +22,8 @@
   $result = $stmt->fetch();
   $appid = $result["id"];
 
-  echo $appid."</br>";
-  echo $consumerid."</br>";
+  echo $appid." ";
+  echo $consumerid." ";
 
   $sql = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
   $stmt = $DB->prepare($sql);
@@ -39,7 +39,7 @@
     $posts_arr = array();
     // $posts_arr['data'] = array();
 
-    while($row = $result->fetch(PDO::FETCH_ASSOC)) {
+    while($row = $result->fetch()) {
       $post_item = array(
         'resultid' => $row["resultid"],
         'screenname' => $row["screenname"],
