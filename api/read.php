@@ -5,6 +5,7 @@
 
   include_once '../src/config.php';
 
+  $securitykey = $_GET["seckey"];
   $consumer_twitterid = $_GET["id"];
 
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";

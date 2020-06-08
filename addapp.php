@@ -55,6 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $appname = $_POST["appname"];
     $desc = $_POST["desc"];
     $key = generateKey();
+    $securitykey = generateKey(32);
 
     $sql = "SELECT id from users where twitter_id = :id";
     $stmt = $DB->prepare($sql);
@@ -63,13 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $result = $stmt->fetch();
     $userid = $result["id"];
 
-    $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`, `callbackurl`) VALUES " . "( :appname, :description, :appkey, :userid, :callbackurl)";
+    $sql = "INSERT INTO `applications` (`appname`, `description`, `appkey`, `userid`, `callbackurl`, `securitykey`) VALUES " . "( :appname, :description, :appkey, :userid, :callbackurl, :securitykey)";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appname", $appname);
     $stmt->bindValue(":description", $desc);
     $stmt->bindValue(":appkey", $key);
     $stmt->bindValue(":userid", $userid);
     $stmt->bindValue(":callbackurl", $url);
+    $stmt->bindValue(":securitykey", $securitykey);
     $stmt->execute();
     $_SESSION["e_msg"] = "Application created successfully!";
     header("location:index.php?page=apps");
