@@ -14,7 +14,7 @@
   $stmt->execute();
   $appcount = $stmt->rowCount();
   $result = $stmt->fetch();
-  $consumerid = $result['appid'];
+  $appid = $result['appid'];
 
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
   $stmt = $DB->prepare($sql);
@@ -22,15 +22,15 @@
   $stmt->execute();
   $conscount = $stmt->rowCount();
   $result = $stmt->fetch();
-  $appid = $result['id'];
+  $consumerid = $result['id'];
 
   echo $appid." ";
   echo $consumerid." ";
 
   if (($conscount == 1) && ($appcount ==1)) {
-    $stmt = $DB->prepare("SELECT * FROM consumer_results WHERE appid = 281 AND consumerid = 341");
-    //$stmt->bindValue(':appid', $appid);
-    //$stmt->bindValue(':consumerid', $consumerid);
+    $stmt = $DB->prepare("SELECT * FROM consumer_results WHERE appid = :appid AND consumerid = :consumerid");
+    $stmt->bindValue(':appid', $appid);
+    $stmt->bindValue(':consumerid', $consumerid);
     $stmt->execute();
     $result = $stmt;
 
