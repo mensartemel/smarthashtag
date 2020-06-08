@@ -28,9 +28,9 @@
   echo $consumerid." ";
 
   if (($conscount == 1) && ($appcount ==1)) {
-    $stmt = $DB->prepare("SELECT resultid, screenmame, picture, status, created_at FROM consumer_results WHERE appid = :appid AND consumerid = :consumerid");
-    $stmt->bindValue(':appid', $appid);
-    $stmt->bindValue(':consumerid', $consumerid);
+    $stmt = $DB->prepare("SELECT resultid, screenmame, picture, status, created_at FROM consumer_results");
+    //$stmt->bindValue(':appid', $appid);
+    //$stmt->bindValue(':consumerid', $consumerid);
     $stmt->execute();
     $result = $stmt;
 
