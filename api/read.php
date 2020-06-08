@@ -27,7 +27,7 @@
   echo $appid." ";
   echo $consumerid." ";
 
-  $sql2 = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
+  $sql2 = "SELECT * FROM consumer_results WHERE consumerid = 281 AND appid = 341";
   $stmt2 = $DB->prepare($sql2);
   $stmt2->bindValue(":consumerid", $consumerid);
   $stmt2->bindValue(":appid", $appid);
