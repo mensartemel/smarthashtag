@@ -12,18 +12,25 @@
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":securitykey", $securitykey);
   $stmt->execute();
+  $appcount = $srmt->rowCount();
   $result = $stmt->fetch();
+  $appcount = $
   $consumerid = $result["appid"];
 
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":twitter_id", $consumer_twitterid);
   $stmt->execute();
+  $conscount = $srmt->rowCount();
   $result = $stmt->fetch();
   $appid = $result["id"];
 
   echo $appid." ";
   echo $consumerid." ";
+
+  if ($appcount = $conscount = 1) {
+    echo "Başarılı";
+  }
 
   $sql2 = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
   $stmt2 = $DB->prepare($sql2);
