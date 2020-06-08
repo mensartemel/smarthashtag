@@ -28,7 +28,7 @@
   echo $consumerid." ";
 
   if (($conscount == 1) && ($appcount ==1)) {
-    $sql = "SELECT * FROM consumer_results WHERE appid = :appid AND consumerid = :consumerid";
+    $sql = "SELECT resultid, screenmame, picture, status, created_at FROM consumer_results WHERE appid = :appid AND consumerid = :consumerid";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appid", $appid);
     $stmt->bindValue(":consumerid", $consumerid);
