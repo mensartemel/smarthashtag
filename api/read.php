@@ -22,6 +22,9 @@
   $result = $stmt->fetch();
   $appid = $result["id"];
 
+  echo $appid."</br>";
+  echo $consumerid."</br>";
+
   $sql = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":consumerid", $consumerid);
