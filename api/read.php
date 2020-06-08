@@ -5,7 +5,7 @@
 
   include_once '../src/config.php';
 
-  $consumer_twitterid = $GET_["id"];
+  $consumer_twitterid = $_GET["id"];
 
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
   $stmt = $DB->prepare($sql);
