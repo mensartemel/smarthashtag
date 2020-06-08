@@ -9,10 +9,10 @@
   $sql = "SELECT * FROM consumer_results";
   $stmt = $DB->prepare($sql);
   $stmt->execute();
-  $result = $stmt
+  $result = $stmt;
 
   $num = $result->rowCount();
-
+  echo $num;
   // Check if any posts
   if($num > 0) {
     // Post array
