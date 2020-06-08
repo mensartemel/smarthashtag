@@ -27,7 +27,7 @@
   echo $appid." ";
   echo $consumerid." ";
 
-  if ($appcount = $conscount = 1) {
+  if ($appcount == $conscount == 1) {
     echo "Başarılı";
   }
 
