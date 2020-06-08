@@ -24,9 +24,6 @@
   $result = $stmt->fetch();
   $consumerid = $result['id'];
 
-  echo $appid." ";
-  echo $consumerid." ";
-
   if (($conscount == 1) && ($appcount ==1)) {
     $stmt = $DB->prepare("SELECT * FROM consumer_results WHERE appid = :appid AND consumerid = :consumerid");
     $stmt->bindValue(':appid', $appid);
@@ -35,7 +32,6 @@
     $result = $stmt;
 
     $num = $result->rowCount();
-    echo $num." ";
     // Check if any posts
     if($num > 0) {
       // Post array
