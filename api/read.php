@@ -8,16 +8,24 @@
   $securitykey = $_GET["seckey"];
   $consumer_twitterid = $_GET["id"];
 
+  $sql = "SELECT appid FROM applications WHERE securitykey = :securitykey";
+  $stmt = $DB->prepare($sql);
+  $stmt->bindValue(":securitykey", $securitykey);
+  $stmt->execute();
+  $result = $stmt->fetch();
+  $consumerid = $result["appid"];
+
   $sql = "SELECT id FROM consumers WHERE twitter_id = :twitter_id";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":twitter_id", $consumer_twitterid);
   $stmt->execute();
   $result = $stmt->fetch();
-  $consumerid = $result["id"];
+  $appid = $result["id"];
 
-  $sql = "SELECT * FROM consumer_results WHERE consumerid = :consumerid";
+  $sql = "SELECT * FROM consumer_results WHERE consumerid = :consumerid AND appid = :appid";
   $stmt = $DB->prepare($sql);
   $stmt->bindValue(":consumerid", $consumerid);
+  $stmt->bindValue(":appid", $appid);
   $stmt->execute();
   $result = $stmt;
 
