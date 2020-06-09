@@ -87,6 +87,7 @@
 <div class="tab">
   <button class="tablinks" onclick="openCity(event, 'Details')" id="defaultOpen">App Details</button>
   <button class="tablinks" onclick="openCity(event, 'Stats')">Stats</button>
+  <button class="tablinks" onclick="openCity(event, 'Reference')">API Reference</button>
   <button class="tablinks" onclick="openCity(event, 'Settings')" id="editOpen">Settings</button>
 </div>
 
@@ -215,6 +216,35 @@
           options: {}
       });
 </script>
+</div>
+
+<div id="Reference" class="tabcontent">
+  <div class="row">
+    <div class="col">
+      <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Description</th>
+          <th scope="col">Example</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">seckey</th>
+          <td>Security key provided by smarthashtag for your application</td>
+          <td>32-char-string</td>
+        </tr>
+        <tr>
+          <th scope="row">id</th>
+          <td>Your consumers twitter id</td>
+          <td>1697658198</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="col">col</div>
+  </div>
 </div>
 
 <div id="Settings" class="tabcontent">
