@@ -21,6 +21,7 @@
   $appname = $result["appname"];
   $appdesc = $result["description"];
   $appurl = $result["callbackurl"];
+  $securitykey = $result["securitykey"];
 
   function test_input($data) {
     $data = trim($data);
@@ -93,21 +94,52 @@
 
 <div id="Details" class="tabcontent">
   <?php
-    echo "Consumer URL:</br>";
-    echo "https://smarthashtag.herokuapp.com/src/consumer.php?appkey=".$appkey."</br>";
     $sql = "SELECT COUNT(*) AS count FROM consumers WHERE appid = :appid";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appid", $appid);
     $stmt->execute();
-    $result = $stmt->fetch();
-    echo "Consumers: ".$result['count']."</br>";
+    $consumercount = $stmt->fetch();
     $sql = "SELECT COUNT(*) AS count FROM consumer_results WHERE appid = :appid";
     $stmt = $DB->prepare($sql);
     $stmt->bindValue(":appid", $appid);
     $stmt->execute();
-    $result = $stmt->fetch();
-    echo "Consumer Results: ".$result['count']."</br>";
+    $tresultcount = $stmt->fetch();
+    $sql = "SELECT COUNT(*) AS count FROM consumer_results WHERE appid = :appid";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":appid", $appid);
+    $stmt->execute();
+    $tresultcount = $stmt->fetch();
+    $sql = "SELECT COUNT(*) AS count FROM user_results WHERE appid = :appid";
+    $stmt = $DB->prepare($sql);
+    $stmt->bindValue(":appid", $appid);
+    $stmt->execute();
+    $uresultcount = $stmt->fetch();
   ?>
+  <div class="row">
+    <div class="col-9">
+    <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th scope="row">Consumer URL</th>
+        <td><?php echo "https://smarthashtag.herokuapp.com/src/consumer.php?appkey=".$appkey; ?></td>
+      </tr>
+      <tr>
+        <th scope="row">Callback URL</th>
+        <td><?php echo $appurl ?></td>
+      </tr>
+      <tr>
+        <th scope="row">Security Key</th>
+        <td><?php echo $securitykey ?></td>
+      </tr>
+    </tbody>
+    </table>
+    </div>
+    <div class="col-3">
+      <div class="col-12">Consumers: <?php echo $consumercount["count"] ?></div>
+      <div class="col-6">Tweet Results: <?php echo $tresultcount["count"] ?></div>
+      <div class="col-6">User Results: <?php echo $uresultcount["count"] ?></div>
+    </div>
+  </div>
 </div>
 
 <div id="Stats" class="tabcontent">
