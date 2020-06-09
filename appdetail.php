@@ -220,7 +220,7 @@
 
 <div id="Reference" class="tabcontent">
   <div class="row">
-    <div class="col">
+    <div class="col-6">
       <table class="table table-striped">
       <tbody>
         <tr>
@@ -255,11 +255,28 @@
       </tbody>
     </table>
     </div>
-    <div class="col">
+    <div class="col-6">
       <h3>Example Request</h3>
       <pre>https://smarthashtag.herokuapp.com/api/read.php?seckey=h5OQGayVNBZoKqXHmPnJauZxqYu3DTw8&id=1647618097</pre>
       <h3>Example Response</h3>
-      <pre id="json"></pre>
+      <pre>
+        [
+          {
+              "resultid": "24491",
+              "screenname": "birnevionur",
+              "picture": "https://pbs.twimg.com/profile_images/1260673725218926598/IPHPXNyj_normal.jpg",
+              "status": "Mutfağın ışığını kapatıp aspiratör lambasını açık bıraktığında, o evde ne dert kalıyor, ne de tasa. Loş ışıkta raha… https://t.co/xs9EsRFLKM",
+              "created_at": "2020-06-06 20:52:37"
+          },
+          {
+              "resultid": "24571",
+              "screenname": "Mustafa49980985",
+              "picture": "https://pbs.twimg.com/profile_images/1131251371880177665/HoNiom7P_normal.jpg",
+              "status": "RT @zhl_cskn: Sinir Sistemini Felç Eden ALS Hastalığının Nedeni olan Motor Nöron Hücrelerini Yeniden Onarmayı Başararak ALS Hastalarına \nUm…",
+              "created_at": "2020-06-06 20:52:37"
+          },
+        ]
+      </pre>
     </div>
   </div>
 </div>
@@ -280,25 +297,6 @@
 </div>
 
 <script>
-var data = {
-  [
-    {
-        "resultid": "24491",
-        "screenname": "birnevionur",
-        "picture": "https://pbs.twimg.com/profile_images/1260673725218926598/IPHPXNyj_normal.jpg",
-        "status": "Mutfağın ışığını kapatıp aspiratör lambasını açık bıraktığında, o evde ne dert kalıyor, ne de tasa. Loş ışıkta raha… https://t.co/xs9EsRFLKM",
-        "created_at": "2020-06-06 20:52:37"
-    },
-    {
-        "resultid": "24571",
-        "screenname": "Mustafa49980985",
-        "picture": "https://pbs.twimg.com/profile_images/1131251371880177665/HoNiom7P_normal.jpg",
-        "status": "RT @zhl_cskn: Sinir Sistemini Felç Eden ALS Hastalığının Nedeni olan Motor Nöron Hücrelerini Yeniden Onarmayı Başararak ALS Hastalarına \nUm…",
-        "created_at": "2020-06-06 20:52:37"
-    },
-  ]
-}
-document.getElementById("json").innerHTML = JSON.stringify(data, undefined, 2);
 function openCity(evt, cityName) {
   var i, tabcontent, tablinks;
   tabcontent = document.getElementsByClassName("tabcontent");

@@ -98,7 +98,7 @@ a.menu-btn {
 .tab {
   overflow: hidden;
   border: 1px solid #ccc;
-  background-color: #f1f1f1;
+  background-color: #dedede;
 }
 
 .tab button {
@@ -125,7 +125,7 @@ a.menu-btn {
   padding: 10px 10px;
   border: 1px solid #ccc;
   border-top: none;
-	background-color: #cccccc;
+	background-color: #eeeeee;
 	overflow: hidden;
 }
 
