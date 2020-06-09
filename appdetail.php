@@ -222,18 +222,6 @@
   <div class="row">
     <div class="col-6">
       <table class="table table-striped">
-      <tbody>
-        <tr>
-          <th scope="row">Resource URL</th>
-          <td>https://smarthashtag.herokuapp.com/api/read.php</td>
-        </tr>
-        <tr>
-          <th scope="row">Response Format</th>
-          <td>JSON</td>
-        </tr>
-      </tbody>
-      </table>
-      <table class="table table-striped">
       <thead>
         <tr>
           <th scope="col">Name</th>
@@ -253,6 +241,18 @@
           <td>1697658198</td>
         </tr>
       </tbody>
+    </table>
+    <table class="table table-striped">
+    <tbody>
+      <tr>
+        <th scope="row">Resource URL</th>
+        <td>https://smarthashtag.herokuapp.com/api/read.php</td>
+      </tr>
+      <tr>
+        <th scope="row">Response Format</th>
+        <td>JSON</td>
+      </tr>
+    </tbody>
     </table>
     </div>
     <div class="col-6">
