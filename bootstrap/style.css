@@ -621,3 +621,7 @@ span.keyword {
     width: 100%;
     float: left;
 }
+.service {
+    width: 50%;
+    float: left;
+}
