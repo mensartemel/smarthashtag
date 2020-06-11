@@ -27,7 +27,6 @@
 					<a><?php echo $name; ?></a>
 				</div>
 				<div class="vertical-menu">
-					<a href="index.php" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>Dashboard</a>
 					<a href="index.php?page=apps" class="menu-btn"><img class="menu-icon" src="img/icon/dashboard.png";>My Applications</a>
 					<a href="index.php?page=services" class="menu-btn"><img class="menu-icon" src="img/icon/stats.png";>Search Service</a>
 					<a href="index.php?page=settings" class="menu-btn"><img class="menu-icon" src="img/icon/settings.png";>Settings</a>
@@ -82,7 +81,7 @@
   					}
   					else
   					{
-  						$display = 'dashboard.php';
+  						$display = 'apps.php';
   						include($display);
   					}
   				?>
