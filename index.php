@@ -67,7 +67,7 @@
             }
             else
             {
-              echo "<div class='title'><a>Dashboard</a></div>";
+              echo "<div class='title'><a>Applications</a></div><div class='titleside'><a class='button' href='index.php?page=addapp'>Add Application</a></div>";
             }
           ?>
         </div>
